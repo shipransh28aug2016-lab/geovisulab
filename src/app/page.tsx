@@ -103,13 +103,13 @@ export default function HomePage() {
   const [bookmarks, setBookmarks] = useState<any[]>([]);
   const [quizzes, setQuizzes] = useState<any[]>([]);
   const [studyProgress, setStudyProgress] = useState<{ [topicId: string]: any }>({
-    "c11-phys-u2-ch4": {
-      syllabusTopicId: "c11-phys-u2-ch4",
+    "c11-phys-ch4": {
+      syllabusTopicId: "c11-phys-ch4",
       status: "mastered",
       notes: "Revised Wegener's Continental Drift, 7 major plates, and convergent/divergent boundaries.",
     },
-    "c11-ind-u2-ch3": {
-      syllabusTopicId: "c11-ind-u2-ch3",
+    "c11-ind-ch3": {
+      syllabusTopicId: "c11-ind-ch3",
       status: "in_progress",
       notes: "Memorized left/right bank tributaries of Ganga and Indus systems.",
     },

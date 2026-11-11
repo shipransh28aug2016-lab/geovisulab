@@ -1,8 +1,6 @@
 import { NextResponse } from "next/server";
 import { createHash } from "node:crypto";
-import { db } from "@/db";
-import { idempotencyKeys } from "@/db/schema";
-import { eq, and, lt } from "drizzle-orm";
+import { store } from "@/db/store";
 
 export interface IdempotencyOptions {
   scope: string;
@@ -106,14 +104,10 @@ export async function withIdempotency(
   const expiresAt = new Date(now.getTime() + ttlSeconds * 1000);
 
   // 2. Check for existing idempotency record
-  const existingRecords = await db
-    .select()
-    .from(idempotencyKeys)
-    .where(and(eq(idempotencyKeys.key, key), eq(idempotencyKeys.scope, scope)))
-    .limit(1);
+  const found = await store.findIdempotency(key, scope);
 
-  if (existingRecords.length > 0) {
-    const existing = existingRecords[0];
+  if (found) {
+    const existing = found;
 
     // Payload Mismatch Check: Same key used with different payload
     if (existing.requestHash !== requestHash) {
@@ -154,15 +148,11 @@ export async function withIdempotency(
         // Wait briefly (up to 1.5 seconds) in case the in-flight request is just finishing
         for (let attempt = 0; attempt < 6; attempt++) {
           await new Promise((r) => setTimeout(r, 250));
-          const polled = await db
-            .select()
-            .from(idempotencyKeys)
-            .where(eq(idempotencyKeys.id, recordId))
-            .limit(1);
+          const polled = await store.findIdempotency(key, scope);
 
-          if (polled.length > 0 && polled[0].status === "completed" && polled[0].responseBody) {
-            return NextResponse.json(polled[0].responseBody, {
-              status: polled[0].statusCode ?? 200,
+          if (polled && polled.status === "completed" && polled.responseBody) {
+            return NextResponse.json(polled.responseBody, {
+              status: polled.statusCode ?? 200,
               headers: {
                 "Idempotency-Key": key,
                 "Idempotent-Replayed": "true",
@@ -190,19 +180,12 @@ export async function withIdempotency(
       }
 
       // Reclaim stale lock
-      await db
-        .update(idempotencyKeys)
-        .set({
-          lockedAt: now,
-          requestHash,
-          expiresAt,
-        })
-        .where(eq(idempotencyKeys.id, recordId));
+      await store.updateIdempotency(recordId, { lockedAt: now, requestHash, expiresAt });
     }
   } else {
     // 3. Insert new in_progress lock
     try {
-      await db.insert(idempotencyKeys).values({
+      await store.createIdempotency({
         id: recordId,
         key,
         scope,
@@ -248,29 +231,23 @@ export async function withIdempotency(
 
     if (response.ok || (response.status >= 200 && response.status < 300)) {
       // Mark completed
-      await db
-        .update(idempotencyKeys)
-        .set({
-          status: "completed",
-          statusCode: response.status,
-          responseBody: responseData,
-          lockedAt: new Date(),
-        })
-        .where(eq(idempotencyKeys.id, recordId));
+      await store.updateIdempotency(recordId, {
+        status: "completed",
+        statusCode: response.status,
+        responseBody: responseData,
+        lockedAt: new Date(),
+      });
 
       response.headers.set("Idempotency-Key", key);
       response.headers.set("Idempotent-Replayed", "false");
     } else {
       // Mark failed so subsequent calls can retry with same key
-      await db
-        .update(idempotencyKeys)
-        .set({
-          status: "failed",
-          statusCode: response.status,
-          responseBody: responseData,
-          lockedAt: new Date(),
-        })
-        .where(eq(idempotencyKeys.id, recordId));
+      await store.updateIdempotency(recordId, {
+        status: "failed",
+        statusCode: response.status,
+        responseBody: responseData,
+        lockedAt: new Date(),
+      });
 
       response.headers.set("Idempotency-Key", key);
     }
@@ -278,13 +255,7 @@ export async function withIdempotency(
     return response;
   } catch (handlerError) {
     // Handler crashed: reset to failed so user can retry
-    await db
-      .update(idempotencyKeys)
-      .set({
-        status: "failed",
-        lockedAt: new Date(),
-      })
-      .where(eq(idempotencyKeys.id, recordId));
+    await store.updateIdempotency(recordId, { status: "failed", lockedAt: new Date() });
 
     throw handlerError;
   }
@@ -294,9 +265,5 @@ export async function withIdempotency(
  * Periodically purge expired idempotency records to conserve space.
  */
 export async function cleanupExpiredIdempotencyKeys(): Promise<number> {
-  const now = new Date();
-  const deleted = await db
-    .delete(idempotencyKeys)
-    .where(lt(idempotencyKeys.expiresAt, now));
-  return Number((deleted as any)?.rowCount || 0);
+  return store.purgeExpiredIdempotency(new Date());
 }
