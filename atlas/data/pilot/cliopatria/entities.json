@@ -1,0 +1,5581 @@
+[
+  {
+    "id": "cliopatria-batavian-republic",
+    "names": [
+      {
+        "text": "Batavian Republic",
+        "lang": "en",
+        "validTime": "1796/1810",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"(Batavian Republic)\", 6 rows, 1796..1810",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "cultural-region",
+    "existence": "1796/1810",
+    "dateCertainty": "approximate",
+    "relations": [
+      {
+        "predicate": "part-of",
+        "object": "cliopatria-batavian-republic-2",
+        "resolvedInCorridor": true,
+        "validTime": "1796/1810",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Components field of Name=\"(Batavian Republic)\""
+          }
+        ]
+      }
+    ],
+    "wikidata": "Q188553",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"(Batavian Republic)\""
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-british-empire",
+    "names": [
+      {
+        "text": "British Empire",
+        "lang": "en",
+        "validTime": "1709/1999",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"(British Empire)\", 109 rows, 1709..1999",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "cultural-region",
+    "existence": "1709/1999",
+    "dateCertainty": "approximate",
+    "relations": [
+      {
+        "predicate": "part-of",
+        "object": "cliopatria-british-colonial-empire",
+        "resolvedInCorridor": true,
+        "validTime": "1709/1999",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Components field of Name=\"(British Empire)\""
+          }
+        ]
+      },
+      {
+        "predicate": "part-of",
+        "object": "cliopatria-kingdom-of-great-britain",
+        "resolvedInCorridor": false,
+        "validTime": "1709/1999",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Components field of Name=\"(British Empire)\"",
+            "note": "Object \"Kingdom of Great Britain\" is outside the corridor and was not imported. Incomplete coverage of this project, not absence of the entity."
+          }
+        ]
+      }
+    ],
+    "wikidata": "Q8680",
+    "seshatId": "gb_british_emp_1",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"(British Empire)\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id gb_british_emp_1",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-delhi-sultanate",
+    "names": [
+      {
+        "text": "Delhi Sultanate",
+        "lang": "en",
+        "validTime": "1210/1528",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"(Delhi Sultanate)\", 25 rows, 1210..1528",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "cultural-region",
+    "existence": "1210/1528",
+    "dateCertainty": "approximate",
+    "relations": [
+      {
+        "predicate": "part-of",
+        "object": "cliopatria-mamluk-dynasty",
+        "resolvedInCorridor": true,
+        "validTime": "1210/1528",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Components field of Name=\"(Delhi Sultanate)\""
+          }
+        ]
+      }
+    ],
+    "wikidata": "Q229411",
+    "seshatId": "in_delhi_sultanate",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"(Delhi Sultanate)\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id in_delhi_sultanate",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-dutch-republic",
+    "names": [
+      {
+        "text": "Dutch Republic",
+        "lang": "en",
+        "validTime": "1600/1795",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"(Dutch Republic)\", 41 rows, 1600..1795",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "cultural-region",
+    "existence": "1600/1795",
+    "dateCertainty": "approximate",
+    "relations": [
+      {
+        "predicate": "part-of",
+        "object": "cliopatria-dutch-republic-2",
+        "resolvedInCorridor": true,
+        "validTime": "1600/1795",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Components field of Name=\"(Dutch Republic)\""
+          }
+        ]
+      }
+    ],
+    "wikidata": "Q170072",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"(Dutch Republic)\""
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-french-first-republic",
+    "names": [
+      {
+        "text": "French First Republic",
+        "lang": "en",
+        "validTime": "1792/1793",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"(French First Republic)\", 1 rows, 1792..1793",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "cultural-region",
+    "existence": "1792/1793",
+    "dateCertainty": "approximate",
+    "relations": [
+      {
+        "predicate": "part-of",
+        "object": "cliopatria-french-india",
+        "resolvedInCorridor": true,
+        "validTime": "1792/1793",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Components field of Name=\"(French First Republic)\""
+          }
+        ]
+      },
+      {
+        "predicate": "part-of",
+        "object": "cliopatria-french-first-republic-2",
+        "resolvedInCorridor": true,
+        "validTime": "1792/1793",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Components field of Name=\"(French First Republic)\""
+          }
+        ]
+      }
+    ],
+    "wikidata": "Q58296",
+    "seshatId": "fr_bourbon_k_2",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"(French First Republic)\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id fr_bourbon_k_2",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-french-fourth-republic",
+    "names": [
+      {
+        "text": "French Fourth Republic",
+        "lang": "en",
+        "validTime": "1945/1957",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"(French Fourth Republic)\", 8 rows, 1945..1957",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "cultural-region",
+    "existence": "1945/1957",
+    "dateCertainty": "approximate",
+    "relations": [
+      {
+        "predicate": "part-of",
+        "object": "cliopatria-french-africa",
+        "resolvedInCorridor": false,
+        "validTime": "1945/1957",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Components field of Name=\"(French Fourth Republic)\"",
+            "note": "Object \"French Africa\" is outside the corridor and was not imported. Incomplete coverage of this project, not absence of the entity."
+          }
+        ]
+      },
+      {
+        "predicate": "part-of",
+        "object": "cliopatria-french-fourth-republic",
+        "resolvedInCorridor": false,
+        "validTime": "1945/1957",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Components field of Name=\"(French Fourth Republic)\"",
+            "note": "Object \"French Fourth Republic\" is outside the corridor and was not imported. Incomplete coverage of this project, not absence of the entity."
+          }
+        ]
+      },
+      {
+        "predicate": "part-of",
+        "object": "cliopatria-french-indochina",
+        "resolvedInCorridor": true,
+        "validTime": "1945/1957",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Components field of Name=\"(French Fourth Republic)\""
+          }
+        ]
+      }
+    ],
+    "wikidata": "Q69829",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"(French Fourth Republic)\""
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-french-second-republic",
+    "names": [
+      {
+        "text": "French Second Republic",
+        "lang": "en",
+        "validTime": "1848/1852",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"(French Second Republic)\", 2 rows, 1848..1852",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "cultural-region",
+    "existence": "1848/1852",
+    "dateCertainty": "approximate",
+    "relations": [
+      {
+        "predicate": "part-of",
+        "object": "cliopatria-french-second-republic-2",
+        "resolvedInCorridor": true,
+        "validTime": "1848/1852",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Components field of Name=\"(French Second Republic)\""
+          }
+        ]
+      }
+    ],
+    "wikidata": "Q58326",
+    "seshatId": "fr_france_napoleonic",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"(French Second Republic)\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id fr_france_napoleonic",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-french-third-republic",
+    "names": [
+      {
+        "text": "French Third Republic",
+        "lang": "en",
+        "validTime": "1871/1939",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"(French Third Republic)\", 27 rows, 1871..1939",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "cultural-region",
+    "existence": "1871/1939",
+    "dateCertainty": "approximate",
+    "relations": [
+      {
+        "predicate": "part-of",
+        "object": "cliopatria-french-africa",
+        "resolvedInCorridor": false,
+        "validTime": "1871/1939",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Components field of Name=\"(French Third Republic)\"",
+            "note": "Object \"French Africa\" is outside the corridor and was not imported. Incomplete coverage of this project, not absence of the entity."
+          }
+        ]
+      },
+      {
+        "predicate": "part-of",
+        "object": "cliopatria-french-third-republic",
+        "resolvedInCorridor": false,
+        "validTime": "1871/1939",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Components field of Name=\"(French Third Republic)\"",
+            "note": "Object \"French Third Republic\" is outside the corridor and was not imported. Incomplete coverage of this project, not absence of the entity."
+          }
+        ]
+      },
+      {
+        "predicate": "part-of",
+        "object": "cliopatria-french-indochina",
+        "resolvedInCorridor": true,
+        "validTime": "1871/1939",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Components field of Name=\"(French Third Republic)\""
+          }
+        ]
+      }
+    ],
+    "wikidata": "Q70802",
+    "seshatId": "fr_france_modern_1",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"(French Third Republic)\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id fr_france_modern_1",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-habsburg-monarchy",
+    "names": [
+      {
+        "text": "Habsburg Monarchy",
+        "lang": "en",
+        "validTime": "1778/1790",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"(Habsburg Monarchy)\", 2 rows, 1778..1790",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "cultural-region",
+    "existence": "1778/1790",
+    "dateCertainty": "approximate",
+    "relations": [
+      {
+        "predicate": "part-of",
+        "object": "cliopatria-habsburg-monarchy-2",
+        "resolvedInCorridor": true,
+        "validTime": "1778/1790",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Components field of Name=\"(Habsburg Monarchy)\""
+          }
+        ]
+      }
+    ],
+    "wikidata": "Q66504140",
+    "seshatId": "at_habsburg_2",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"(Habsburg Monarchy)\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id at_habsburg_2",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-kingdom-of-england",
+    "names": [
+      {
+        "text": "Kingdom of England",
+        "lang": "en",
+        "validTime": "1640/1708",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"(Kingdom of England)\", 17 rows, 1640..1708",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "cultural-region",
+    "existence": "1640/1708",
+    "dateCertainty": "approximate",
+    "relations": [
+      {
+        "predicate": "part-of",
+        "object": "cliopatria-kingdom-of-england",
+        "resolvedInCorridor": false,
+        "validTime": "1640/1708",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Components field of Name=\"(Kingdom of England)\"",
+            "note": "Object \"Kingdom of England\" is outside the corridor and was not imported. Incomplete coverage of this project, not absence of the entity."
+          }
+        ]
+      },
+      {
+        "predicate": "part-of",
+        "object": "cliopatria-english-colonial-empire",
+        "resolvedInCorridor": true,
+        "validTime": "1640/1708",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Components field of Name=\"(Kingdom of England)\""
+          }
+        ]
+      }
+    ],
+    "wikidata": "Q179876",
+    "seshatId": "gb_tudor_stuart",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"(Kingdom of England)\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id gb_tudor_stuart",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-kingdom-of-france",
+    "names": [
+      {
+        "text": "Kingdom of France",
+        "lang": "en",
+        "validTime": "1673/1791",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"(Kingdom of France)\", 27 rows, 1673..1791",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "cultural-region",
+    "existence": "1673/1791",
+    "dateCertainty": "approximate",
+    "relations": [
+      {
+        "predicate": "part-of",
+        "object": "cliopatria-new-france",
+        "resolvedInCorridor": false,
+        "validTime": "1673/1791",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Components field of Name=\"(Kingdom of France)\"",
+            "note": "Object \"New France\" is outside the corridor and was not imported. Incomplete coverage of this project, not absence of the entity."
+          }
+        ]
+      },
+      {
+        "predicate": "part-of",
+        "object": "cliopatria-french-india",
+        "resolvedInCorridor": true,
+        "validTime": "1673/1791",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Components field of Name=\"(Kingdom of France)\""
+          }
+        ]
+      },
+      {
+        "predicate": "part-of",
+        "object": "cliopatria-kingdom-of-france-2",
+        "resolvedInCorridor": true,
+        "validTime": "1673/1791",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Components field of Name=\"(Kingdom of France)\""
+          }
+        ]
+      }
+    ],
+    "wikidata": "Q207162",
+    "seshatId": "fr_bourbon_k_2",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"(Kingdom of France)\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id fr_bourbon_k_2",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-mahajanapadas",
+    "names": [
+      {
+        "text": "Mahajanapadas",
+        "lang": "en",
+        "validTime": "-0600/-0351",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"(Mahajanapadas)\", 7 rows, -600..-351",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "cultural-region",
+    "existence": "-0600/-0351",
+    "dateCertainty": "approximate",
+    "relations": [
+      {
+        "predicate": "part-of",
+        "object": "cliopatria-janapada-of-malla",
+        "resolvedInCorridor": true,
+        "validTime": "-0600/-0351",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Components field of Name=\"(Mahajanapadas)\""
+          }
+        ]
+      },
+      {
+        "predicate": "part-of",
+        "object": "cliopatria-janapada-of-matsya",
+        "resolvedInCorridor": true,
+        "validTime": "-0600/-0351",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Components field of Name=\"(Mahajanapadas)\""
+          }
+        ]
+      },
+      {
+        "predicate": "part-of",
+        "object": "cliopatria-janapada-of-surasena",
+        "resolvedInCorridor": true,
+        "validTime": "-0600/-0351",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Components field of Name=\"(Mahajanapadas)\""
+          }
+        ]
+      },
+      {
+        "predicate": "part-of",
+        "object": "cliopatria-janapada-of-pan-ca-la",
+        "resolvedInCorridor": true,
+        "validTime": "-0600/-0351",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Components field of Name=\"(Mahajanapadas)\""
+          }
+        ]
+      },
+      {
+        "predicate": "part-of",
+        "object": "cliopatria-janapada-of-vajji",
+        "resolvedInCorridor": true,
+        "validTime": "-0600/-0351",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Components field of Name=\"(Mahajanapadas)\""
+          }
+        ]
+      },
+      {
+        "predicate": "part-of",
+        "object": "cliopatria-janapada-of-kosala",
+        "resolvedInCorridor": true,
+        "validTime": "-0600/-0351",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Components field of Name=\"(Mahajanapadas)\""
+          }
+        ]
+      },
+      {
+        "predicate": "part-of",
+        "object": "cliopatria-janapada-of-avanti",
+        "resolvedInCorridor": false,
+        "validTime": "-0600/-0351",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Components field of Name=\"(Mahajanapadas)\"",
+            "note": "Object \"Janapada of Avanti\" is outside the corridor and was not imported. Incomplete coverage of this project, not absence of the entity."
+          }
+        ]
+      },
+      {
+        "predicate": "part-of",
+        "object": "cliopatria-janapada-of-ka-s-i",
+        "resolvedInCorridor": true,
+        "validTime": "-0600/-0351",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Components field of Name=\"(Mahajanapadas)\""
+          }
+        ]
+      },
+      {
+        "predicate": "part-of",
+        "object": "cliopatria-janapada-of-gandha-ra",
+        "resolvedInCorridor": false,
+        "validTime": "-0600/-0351",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Components field of Name=\"(Mahajanapadas)\"",
+            "note": "Object \"Janapada of Gandhāra\" is outside the corridor and was not imported. Incomplete coverage of this project, not absence of the entity."
+          }
+        ]
+      },
+      {
+        "predicate": "part-of",
+        "object": "cliopatria-janapada-of-kamboja",
+        "resolvedInCorridor": false,
+        "validTime": "-0600/-0351",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Components field of Name=\"(Mahajanapadas)\"",
+            "note": "Object \"Janapada of Kamboja\" is outside the corridor and was not imported. Incomplete coverage of this project, not absence of the entity."
+          }
+        ]
+      },
+      {
+        "predicate": "part-of",
+        "object": "cliopatria-janapada-of-kuru",
+        "resolvedInCorridor": true,
+        "validTime": "-0600/-0351",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Components field of Name=\"(Mahajanapadas)\""
+          }
+        ]
+      },
+      {
+        "predicate": "part-of",
+        "object": "cliopatria-janapada-of-anga",
+        "resolvedInCorridor": true,
+        "validTime": "-0600/-0351",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Components field of Name=\"(Mahajanapadas)\""
+          }
+        ]
+      },
+      {
+        "predicate": "part-of",
+        "object": "cliopatria-janapada-of-vatsa",
+        "resolvedInCorridor": true,
+        "validTime": "-0600/-0351",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Components field of Name=\"(Mahajanapadas)\""
+          }
+        ]
+      },
+      {
+        "predicate": "part-of",
+        "object": "cliopatria-janapada-of-cedi",
+        "resolvedInCorridor": true,
+        "validTime": "-0600/-0351",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Components field of Name=\"(Mahajanapadas)\""
+          }
+        ]
+      },
+      {
+        "predicate": "part-of",
+        "object": "cliopatria-janapada-of-as-maka",
+        "resolvedInCorridor": true,
+        "validTime": "-0600/-0351",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Components field of Name=\"(Mahajanapadas)\""
+          }
+        ]
+      },
+      {
+        "predicate": "part-of",
+        "object": "cliopatria-janapada-of-magadha",
+        "resolvedInCorridor": true,
+        "validTime": "-0600/-0351",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Components field of Name=\"(Mahajanapadas)\""
+          }
+        ]
+      }
+    ],
+    "wikidata": "Q846025",
+    "seshatId": "in_mahajanapada",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"(Mahajanapadas)\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id in_mahajanapada",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-netherlands",
+    "names": [
+      {
+        "text": "Netherlands",
+        "lang": "en",
+        "validTime": "1811/1949",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"(Netherlands)\", 37 rows, 1811..1949",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "cultural-region",
+    "existence": "1811/1949",
+    "dateCertainty": "approximate",
+    "relations": [
+      {
+        "predicate": "part-of",
+        "object": "cliopatria-dutch-east-indies",
+        "resolvedInCorridor": true,
+        "validTime": "1811/1949",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Components field of Name=\"(Netherlands)\""
+          }
+        ]
+      }
+    ],
+    "wikidata": "Q55",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"(Netherlands)\""
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-portuguese-empire",
+    "names": [
+      {
+        "text": "Portuguese Empire",
+        "lang": "en",
+        "validTime": "1502/1910",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"(Portuguese Empire)\", 77 rows, 1502..1910",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "cultural-region",
+    "existence": "1502/1910",
+    "dateCertainty": "approximate",
+    "relations": [
+      {
+        "predicate": "part-of",
+        "object": "cliopatria-kingdom-of-portugal",
+        "resolvedInCorridor": false,
+        "validTime": "1502/1910",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Components field of Name=\"(Portuguese Empire)\"",
+            "note": "Object \"Kingdom of Portugal\" is outside the corridor and was not imported. Incomplete coverage of this project, not absence of the entity."
+          }
+        ]
+      },
+      {
+        "predicate": "part-of",
+        "object": "cliopatria-portuguese-empire-2",
+        "resolvedInCorridor": true,
+        "validTime": "1502/1910",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Components field of Name=\"(Portuguese Empire)\""
+          }
+        ]
+      }
+    ],
+    "wikidata": "Q200464",
+    "seshatId": "pt_portuguese_emp_1",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"(Portuguese Empire)\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id pt_portuguese_emp_1",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-second-french-empire",
+    "names": [
+      {
+        "text": "Second French Empire",
+        "lang": "en",
+        "validTime": "1853/1870",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"(Second French Empire)\", 6 rows, 1853..1870",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "cultural-region",
+    "existence": "1853/1870",
+    "dateCertainty": "approximate",
+    "relations": [
+      {
+        "predicate": "part-of",
+        "object": "cliopatria-french-africa",
+        "resolvedInCorridor": false,
+        "validTime": "1853/1870",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Components field of Name=\"(Second French Empire)\"",
+            "note": "Object \"French Africa\" is outside the corridor and was not imported. Incomplete coverage of this project, not absence of the entity."
+          }
+        ]
+      },
+      {
+        "predicate": "part-of",
+        "object": "cliopatria-second-french-empire-2",
+        "resolvedInCorridor": true,
+        "validTime": "1853/1870",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Components field of Name=\"(Second French Empire)\""
+          }
+        ]
+      }
+    ],
+    "wikidata": "Q71092",
+    "seshatId": "fr_france_napoleonic",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"(Second French Empire)\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id fr_france_napoleonic",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-spanish-empire",
+    "names": [
+      {
+        "text": "Spanish Empire",
+        "lang": "en",
+        "validTime": "1572/1899",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"(Spanish Empire)\", 82 rows, 1572..1899",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "cultural-region",
+    "existence": "1572/1899",
+    "dateCertainty": "approximate",
+    "relations": [
+      {
+        "predicate": "part-of",
+        "object": "cliopatria-spanish-empire-2",
+        "resolvedInCorridor": true,
+        "validTime": "1572/1899",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Components field of Name=\"(Spanish Empire)\""
+          }
+        ]
+      },
+      {
+        "predicate": "part-of",
+        "object": "cliopatria-kingdom-of-spain",
+        "resolvedInCorridor": true,
+        "validTime": "1572/1899",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Components field of Name=\"(Spanish Empire)\""
+          }
+        ]
+      }
+    ],
+    "wikidata": "Q80702",
+    "seshatId": "es_spanish_emp_1",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"(Spanish Empire)\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id es_spanish_emp_1",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-vichy-france",
+    "names": [
+      {
+        "text": "Vichy France",
+        "lang": "en",
+        "validTime": "1940/1943",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"(Vichy France)\", 4 rows, 1940..1943",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "cultural-region",
+    "existence": "1940/1943",
+    "dateCertainty": "approximate",
+    "relations": [
+      {
+        "predicate": "part-of",
+        "object": "cliopatria-french-africa",
+        "resolvedInCorridor": false,
+        "validTime": "1940/1943",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Components field of Name=\"(Vichy France)\"",
+            "note": "Object \"French Africa\" is outside the corridor and was not imported. Incomplete coverage of this project, not absence of the entity."
+          }
+        ]
+      },
+      {
+        "predicate": "part-of",
+        "object": "cliopatria-french-indochina",
+        "resolvedInCorridor": true,
+        "validTime": "1940/1943",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Components field of Name=\"(Vichy France)\""
+          }
+        ]
+      },
+      {
+        "predicate": "part-of",
+        "object": "cliopatria-vichy-france",
+        "resolvedInCorridor": false,
+        "validTime": "1940/1943",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Components field of Name=\"(Vichy France)\"",
+            "note": "Object \"Vichy France\" is outside the corridor and was not imported. Incomplete coverage of this project, not absence of the entity."
+          }
+        ]
+      }
+    ],
+    "wikidata": "Q69808",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"(Vichy France)\""
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-afsharid-iran",
+    "names": [
+      {
+        "text": "Afsharid Iran",
+        "lang": "en",
+        "validTime": "1741/1756",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Afsharid Iran\", 4 rows, 1741..1756",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "1741/1756",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q63149558",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Afsharid Iran\""
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-ahmadnagar-sultanate",
+    "names": [
+      {
+        "text": "Ahmadnagar Sultanate",
+        "lang": "en",
+        "validTime": "1492/1652",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Ahmadnagar Sultanate\", 9 rows, 1492..1652",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "1492/1652",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q400998",
+    "seshatId": "in_ahmadnagar_sultanate",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Ahmadnagar Sultanate\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id in_ahmadnagar_sultanate",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-bahmani-sultanate",
+    "names": [
+      {
+        "text": "Bahmani Sultanate",
+        "lang": "en",
+        "validTime": "1352/1491",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Bahmani Sultanate\", 5 rows, 1352..1491",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "1352/1491",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q374521",
+    "seshatId": "in_bahmani_sultanate",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Bahmani Sultanate\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id in_bahmani_sultanate",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-batavian-republic-2",
+    "names": [
+      {
+        "text": "Batavian Republic",
+        "lang": "en",
+        "validTime": "1796/1802",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Batavian Republic\", 1 rows, 1796..1802",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "1796/1802",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q188553",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Batavian Republic\""
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-berar-sultanate",
+    "names": [
+      {
+        "text": "Berar Sultanate",
+        "lang": "en",
+        "validTime": "1492/1578",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Berar Sultanate\", 4 rows, 1492..1578",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "1492/1578",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q818666",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Berar Sultanate\""
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-british-colonial-empire",
+    "names": [
+      {
+        "text": "British Colonial Empire",
+        "lang": "en",
+        "validTime": "1709/1999",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"British Colonial Empire\", 78 rows, 1709..1999",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "1709/1999",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q8680",
+    "seshatId": "gb_british_emp_1",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"British Colonial Empire\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id gb_british_emp_1",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-british-empire-2",
+    "names": [
+      {
+        "text": "British Empire",
+        "lang": "en",
+        "validTime": "1757/1858",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"British Empire\", 41 rows, 1757..1858",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "1757/1858",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q8680",
+    "seshatId": "gb_british_emp_1",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"British Empire\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id gb_british_emp_1",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-british-raj",
+    "names": [
+      {
+        "text": "British Raj",
+        "lang": "en",
+        "validTime": "1859/1947",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"British Raj\", 20 rows, 1859..1947",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "1859/1947",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q129286",
+    "seshatId": "gb_british_emp_2",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"British Raj\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id gb_british_emp_2",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-burma",
+    "names": [
+      {
+        "text": "Burma",
+        "lang": "en",
+        "validTime": "1822/1824",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Burma\", 1 rows, 1822..1824",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "1822/1824",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q836",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Burma\""
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-cao-wei",
+    "names": [
+      {
+        "text": "Cao Wei",
+        "lang": "en",
+        "validTime": "0224/0264",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Cao Wei\", 3 rows, 224..264",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "0224/0264",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q320930",
+    "seshatId": "cn_wei_k",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Cao Wei\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id cn_wei_k",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-chalukya-dynasty",
+    "names": [
+      {
+        "text": "Chalukya Dynasty",
+        "lang": "en",
+        "validTime": "0623/0754",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Chalukya Dynasty\", 9 rows, 623..754",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "0623/0754",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q1395011",
+    "seshatId": "in_badami_chalukya_emp",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Chalukya Dynasty\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id in_badami_chalukya_emp",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-chandela-kingdom",
+    "names": [
+      {
+        "text": "Chandela Kingdom",
+        "lang": "en",
+        "validTime": "0960/1313",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Chandela Kingdom\", 9 rows, 960..1313",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "0960/1313",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q2039087",
+    "seshatId": "in_chandela_k",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Chandela Kingdom\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id in_chandela_k",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-chandra-dynasty",
+    "names": [
+      {
+        "text": "Chandra Dynasty",
+        "lang": "en",
+        "validTime": "0900/1055",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Chandra Dynasty\", 3 rows, 900..1055",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "0900/1055",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q5032034",
+    "seshatId": "bd_chandra_dyn",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Chandra Dynasty\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id bd_chandra_dyn",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-chauhan-dynasty",
+    "names": [
+      {
+        "text": "Chauhan Dynasty",
+        "lang": "en",
+        "validTime": "0980/1201",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Chauhan Dynasty\", 5 rows, 980..1201",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "0980/1201",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q1068371",
+    "seshatId": "in_chauhana_dyn",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Chauhan Dynasty\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id in_chauhana_dyn",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-danish-india",
+    "names": [
+      {
+        "text": "Danish India",
+        "lang": "en",
+        "validTime": "1757/1808",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Danish India\", 4 rows, 1757..1808",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "1757/1808",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q912382",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Danish India\""
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-durrani-empire",
+    "names": [
+      {
+        "text": "Durrani Empire",
+        "lang": "en",
+        "validTime": "1757/1827",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Durrani Empire\", 17 rows, 1757..1827",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "1757/1827",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q467627",
+    "seshatId": "af_durrani_emp",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Durrani Empire\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id af_durrani_emp",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-dutch-east-indies",
+    "names": [
+      {
+        "text": "Dutch East Indies",
+        "lang": "en",
+        "validTime": "1803/1845",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Dutch East Indies\", 10 rows, 1803..1845",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "1803/1845",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q188161",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Dutch East Indies\""
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-dutch-republic-2",
+    "names": [
+      {
+        "text": "Dutch Republic",
+        "lang": "en",
+        "validTime": "1600/1795",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Dutch Republic\", 39 rows, 1600..1795",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "1600/1795",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q170072",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Dutch Republic\""
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-dzungar-khanate",
+    "names": [
+      {
+        "text": "Dzungar Khanate",
+        "lang": "en",
+        "validTime": "1718/1720",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Dzungar Khanate\", 1 rows, 1718..1720",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "1718/1720",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q1923401",
+    "seshatId": "mn_zungharian_emp",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Dzungar Khanate\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id mn_zungharian_emp",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-eastern-ganga-kingdom",
+    "names": [
+      {
+        "text": "Eastern Ganga Kingdom",
+        "lang": "en",
+        "validTime": "1056/1351",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Eastern Ganga Kingdom\", 7 rows, 1056..1351",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "1056/1351",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q250515",
+    "seshatId": "in_ganga_k",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Eastern Ganga Kingdom\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id in_ganga_k",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-eastern-kushans",
+    "names": [
+      {
+        "text": "Eastern Kushans",
+        "lang": "en",
+        "validTime": "0238/0269",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Eastern Kushans\", 2 rows, 238..269",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "0238/0269",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q25979",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Eastern Kushans\""
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-emirate-of-afghanistan",
+    "names": [
+      {
+        "text": "Emirate of Afghanistan",
+        "lang": "en",
+        "validTime": "1828/1839",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Emirate of Afghanistan\", 4 rows, 1828..1839",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "1828/1839",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q1335260",
+    "seshatId": "af_afghanistan_emirate",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Emirate of Afghanistan\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id af_afghanistan_emirate",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-empire-of-china",
+    "names": [
+      {
+        "text": "Empire of China",
+        "lang": "en",
+        "validTime": "1916/1916",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Empire of China\", 1 rows, 1916..1916",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "1916/1916",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q175379",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Empire of China\""
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-english-colonial-empire",
+    "names": [
+      {
+        "text": "English Colonial Empire",
+        "lang": "en",
+        "validTime": "1640/1712",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"English Colonial Empire\", 16 rows, 1640..1712",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "1640/1712",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q617219",
+    "seshatId": "gb_tudor_stuart",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"English Colonial Empire\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id gb_tudor_stuart",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-estado-novo",
+    "names": [
+      {
+        "text": "Estado Novo",
+        "lang": "en",
+        "validTime": "1926/1975",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Estado Novo\", 10 rows, 1926..1975",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "1926/1975",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q824489",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Estado Novo\""
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-first-spanish-republic",
+    "names": [
+      {
+        "text": "First Spanish Republic",
+        "lang": "en",
+        "validTime": "1873/1876",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"First Spanish Republic\", 1 rows, 1873..1876",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "1873/1876",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q497777",
+    "seshatId": "es_spanish_emp_3",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"First Spanish Republic\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id es_spanish_emp_3",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-french-fifth-republic",
+    "names": [
+      {
+        "text": "French Fifth Republic",
+        "lang": "en",
+        "validTime": "1958/2024",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"French Fifth Republic\", 4 rows, 1958..2024",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "1958/2024",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q200686",
+    "seshatId": "fr_france_modern_2",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"French Fifth Republic\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id fr_france_modern_2",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-french-first-republic-2",
+    "names": [
+      {
+        "text": "French First Republic",
+        "lang": "en",
+        "validTime": "1792/1793",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"French First Republic\", 1 rows, 1792..1793",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "1792/1793",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q58296",
+    "seshatId": "fr_bourbon_k_2",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"French First Republic\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id fr_bourbon_k_2",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-french-india",
+    "names": [
+      {
+        "text": "French India",
+        "lang": "en",
+        "validTime": "1673/1847",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"French India\", 8 rows, 1673..1847",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "1673/1847",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q646374",
+    "seshatId": "fr_bourbon_k_2",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"French India\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id fr_bourbon_k_2",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-french-indochina",
+    "names": [
+      {
+        "text": "French Indochina",
+        "lang": "en",
+        "validTime": "1860/1955",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"French Indochina\", 26 rows, 1860..1955",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "1860/1955",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q185682",
+    "seshatId": "fr_france_napoleonic",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"French Indochina\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id fr_france_napoleonic",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-french-second-republic-2",
+    "names": [
+      {
+        "text": "French Second Republic",
+        "lang": "en",
+        "validTime": "1848/1852",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"French Second Republic\", 2 rows, 1848..1852",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "1848/1852",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q58326",
+    "seshatId": "fr_france_napoleonic",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"French Second Republic\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id fr_france_napoleonic",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-gahadavala-dynasty",
+    "names": [
+      {
+        "text": "Gahadavala Dynasty",
+        "lang": "en",
+        "validTime": "1085/1201",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Gahadavala Dynasty\", 3 rows, 1085..1201",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "1085/1201",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q1147823",
+    "seshatId": "in_gahadavala_dyn",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Gahadavala Dynasty\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id in_gahadavala_dyn",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-gauda-kingdom",
+    "names": [
+      {
+        "text": "Gauda Kingdom",
+        "lang": "en",
+        "validTime": "0602/0611",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Gauda Kingdom\", 1 rows, 602..611",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "0602/0611",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q17076645",
+    "seshatId": "in_gauda_k",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Gauda Kingdom\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id in_gauda_k",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-german-empire",
+    "names": [
+      {
+        "text": "German Empire",
+        "lang": "en",
+        "validTime": "1885/1914",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"German Empire\", 5 rows, 1885..1914",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "1885/1914",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q43287",
+    "seshatId": "de_hohenzollern_3",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"German Empire\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id de_hohenzollern_3",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-ghaznavid-empire",
+    "names": [
+      {
+        "text": "Ghaznavid Empire",
+        "lang": "en",
+        "validTime": "1028/1176",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Ghaznavid Empire\", 9 rows, 1028..1176",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "1028/1176",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q12844800",
+    "seshatId": "af_ghaznavid_emp",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Ghaznavid Empire\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id af_ghaznavid_emp",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-ghurid-dynasty",
+    "names": [
+      {
+        "text": "Ghurid Dynasty",
+        "lang": "en",
+        "validTime": "1192/1209",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Ghurid Dynasty\", 3 rows, 1192..1209",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "1192/1209",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q199443",
+    "seshatId": "af_ghur_principality",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Ghurid Dynasty\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id af_ghur_principality",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-gorkha-kingdom",
+    "names": [
+      {
+        "text": "Gorkha Kingdom",
+        "lang": "en",
+        "validTime": "1588/1787",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Gorkha Kingdom\", 10 rows, 1588..1787",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "1588/1787",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q3332217",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Gorkha Kingdom\""
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-greco-bactrian-kingdom",
+    "names": [
+      {
+        "text": "Greco-Bactrian Kingdom",
+        "lang": "en",
+        "validTime": "-0170/-0127",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Greco-Bactrian Kingdom\", 3 rows, -170..-127",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "-0170/-0127",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q488880",
+    "seshatId": "af_greco_bactrian_k",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Greco-Bactrian Kingdom\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id af_greco_bactrian_k",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-gupta-empire",
+    "names": [
+      {
+        "text": "Gupta Empire",
+        "lang": "en",
+        "validTime": "0324/0554",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Gupta Empire\", 19 rows, 324..554",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "0324/0554",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q11774",
+    "seshatId": "in_gupta_emp",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Gupta Empire\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id in_gupta_emp",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-gurjara-pratihara-dynasty",
+    "names": [
+      {
+        "text": "Gurjara-Pratihara Dynasty",
+        "lang": "en",
+        "validTime": "0732/1039",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Gurjara-Pratihara Dynasty\", 20 rows, 732..1039",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "0732/1039",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q5324",
+    "seshatId": "in_gurjara_pratihara_dyn",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Gurjara-Pratihara Dynasty\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id in_gurjara_pratihara_dyn",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-habsburg-monarchy-2",
+    "names": [
+      {
+        "text": "Habsburg Monarchy",
+        "lang": "en",
+        "validTime": "1778/1790",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Habsburg Monarchy\", 2 rows, 1778..1790",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "1778/1790",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q66504140",
+    "seshatId": "at_habsburg_2",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Habsburg Monarchy\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id at_habsburg_2",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-han-dynasty",
+    "names": [
+      {
+        "text": "Han Dynasty",
+        "lang": "en",
+        "validTime": "-0110/0196",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Han Dynasty\", 18 rows, -110..196",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "-0110/0196",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q1068371",
+    "seshatId": "cn_western_han_dyn",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Han Dynasty\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id cn_western_han_dyn",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-harsha-s-empire",
+    "names": [
+      {
+        "text": "Harsha's Empire",
+        "lang": "en",
+        "validTime": "0612/0655",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Harsha's Empire\", 6 rows, 612..655",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "0612/0655",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q216895",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Harsha's Empire\""
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-hussain-shahi-dynasty",
+    "names": [
+      {
+        "text": "Hussain Shahi Dynasty",
+        "lang": "en",
+        "validTime": "1534/1539",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Hussain Shahi Dynasty\", 1 rows, 1534..1539",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "1534/1539",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q5949588",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Hussain Shahi Dynasty\""
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-hyderabad-state",
+    "names": [
+      {
+        "text": "Hyderabad State",
+        "lang": "en",
+        "validTime": "1727/1947",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Hyderabad State\", 13 rows, 1727..1947",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "1727/1947",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q1240096",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Hyderabad State\""
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-indo-greeks",
+    "names": [
+      {
+        "text": "Indo-Greeks",
+        "lang": "en",
+        "validTime": "-0126/0013",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Indo-Greeks\", 8 rows, -126..13",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "-0126/0013",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q215643",
+    "seshatId": "pk_indo_greek_k",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Indo-Greeks\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id pk_indo_greek_k",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-indo-scythians",
+    "names": [
+      {
+        "text": "Indo-Scythians",
+        "lang": "en",
+        "validTime": "-0077/0090",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Indo-Scythians\", 9 rows, -77..90",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "-0077/0090",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q240123",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Indo-Scythians\""
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-indus-valley-civilization",
+    "names": [
+      {
+        "text": "Indus Valley Civilization",
+        "lang": "en",
+        "validTime": "-2700/-1801",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Indus Valley Civilization\", 4 rows, -2700..-1801",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "-2700/-1801",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q42534",
+    "seshatId": "pk_kachi_pre_urban",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Indus Valley Civilization\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id pk_kachi_pre_urban",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-islamic-republic-of-pakistan",
+    "names": [
+      {
+        "text": "Islamic Republic of Pakistan",
+        "lang": "en",
+        "validTime": "1947/2024",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Islamic Republic of Pakistan\", 11 rows, 1947..2024",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "1947/2024",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q843",
+    "seshatId": "pk_pakistan_islamic_rep",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Islamic Republic of Pakistan\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id pk_pakistan_islamic_rep",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-janapada-of-anga",
+    "names": [
+      {
+        "text": "Janapada of Anga",
+        "lang": "en",
+        "validTime": "-0600/-0501",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Janapada of Anga\", 2 rows, -600..-501",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "-0600/-0501",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q1155818",
+    "seshatId": "in_mahajanapada",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Janapada of Anga\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id in_mahajanapada",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-janapada-of-as-maka",
+    "names": [
+      {
+        "text": "Janapada of Aśmaka",
+        "lang": "en",
+        "validTime": "-0600/-0351",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Janapada of Aśmaka\", 3 rows, -600..-351",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "-0600/-0351",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q1194906",
+    "seshatId": "in_mahajanapada",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Janapada of Aśmaka\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id in_mahajanapada",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-janapada-of-cedi",
+    "names": [
+      {
+        "text": "Janapada of Cedī",
+        "lang": "en",
+        "validTime": "-0600/-0451",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Janapada of Cedī\", 2 rows, -600..-451",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "-0600/-0451",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q124207979",
+    "seshatId": "in_mahajanapada",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Janapada of Cedī\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id in_mahajanapada",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-janapada-of-kosala",
+    "names": [
+      {
+        "text": "Janapada of Kosala",
+        "lang": "en",
+        "validTime": "-0600/-0451",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Janapada of Kosala\", 2 rows, -600..-451",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "-0600/-0451",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q756854",
+    "seshatId": "in_mahajanapada",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Janapada of Kosala\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id in_mahajanapada",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-janapada-of-kuru",
+    "names": [
+      {
+        "text": "Janapada of Kuru",
+        "lang": "en",
+        "validTime": "-0600/-0405",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Janapada of Kuru\", 2 rows, -600..-405",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "-0600/-0405",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q1068408",
+    "seshatId": "in_mahajanapada",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Janapada of Kuru\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id in_mahajanapada",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-janapada-of-ka-s-i",
+    "names": [
+      {
+        "text": "Janapada of Kāśī",
+        "lang": "en",
+        "validTime": "-0600/-0451",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Janapada of Kāśī\", 2 rows, -600..-451",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "-0600/-0451",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q12660335",
+    "seshatId": "in_mahajanapada",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Janapada of Kāśī\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id in_mahajanapada",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-janapada-of-magadha",
+    "names": [
+      {
+        "text": "Janapada of Magadha",
+        "lang": "en",
+        "validTime": "-0600/-0501",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Janapada of Magadha\", 2 rows, -600..-501",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "-0600/-0501",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q234009",
+    "seshatId": "in_mahajanapada",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Janapada of Magadha\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id in_mahajanapada",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-janapada-of-malla",
+    "names": [
+      {
+        "text": "Janapada of Malla",
+        "lang": "en",
+        "validTime": "-0600/-0451",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Janapada of Malla\", 2 rows, -600..-451",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "-0600/-0451",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q1376303",
+    "seshatId": "in_mahajanapada",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Janapada of Malla\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id in_mahajanapada",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-janapada-of-matsya",
+    "names": [
+      {
+        "text": "Janapada of Matsya",
+        "lang": "en",
+        "validTime": "-0600/-0405",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Janapada of Matsya\", 2 rows, -600..-405",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "-0600/-0405",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q2665398",
+    "seshatId": "in_mahajanapada",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Janapada of Matsya\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id in_mahajanapada",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-janapada-of-pan-ca-la",
+    "names": [
+      {
+        "text": "Janapada of Pañcāla",
+        "lang": "en",
+        "validTime": "-0600/-0405",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Janapada of Pañcāla\", 2 rows, -600..-405",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "-0600/-0405",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q558603",
+    "seshatId": "in_mahajanapada",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Janapada of Pañcāla\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id in_mahajanapada",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-janapada-of-surasena",
+    "names": [
+      {
+        "text": "Janapada of Surasena",
+        "lang": "en",
+        "validTime": "-0600/-0405",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Janapada of Surasena\", 2 rows, -600..-405",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "-0600/-0405",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q1330149",
+    "seshatId": "in_mahajanapada",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Janapada of Surasena\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id in_mahajanapada",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-janapada-of-vajji",
+    "names": [
+      {
+        "text": "Janapada of Vajji",
+        "lang": "en",
+        "validTime": "-0600/-0481",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Janapada of Vajji\", 2 rows, -600..-481",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "-0600/-0481",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q605199",
+    "seshatId": "in_mahajanapada",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Janapada of Vajji\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id in_mahajanapada",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-janapada-of-vatsa",
+    "names": [
+      {
+        "text": "Janapada of Vatsa",
+        "lang": "en",
+        "validTime": "-0600/-0451",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Janapada of Vatsa\", 2 rows, -600..-451",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "-0600/-0451",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q1331184",
+    "seshatId": "in_mahajanapada",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Janapada of Vatsa\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id in_mahajanapada",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-jaunpur-sultanate",
+    "names": [
+      {
+        "text": "Jaunpur Sultanate",
+        "lang": "en",
+        "validTime": "1395/1481",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Jaunpur Sultanate\", 2 rows, 1395..1481",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "1395/1481",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q167134",
+    "seshatId": "in_sharqi_dyn",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Jaunpur Sultanate\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id in_sharqi_dyn",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-kakatiya-dynasty",
+    "names": [
+      {
+        "text": "Kakatiya Dynasty",
+        "lang": "en",
+        "validTime": "1177/1259",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Kakatiya Dynasty\", 2 rows, 1177..1259",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "1177/1259",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q2086556",
+    "seshatId": "in_kakatiya_dyn",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Kakatiya Dynasty\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id in_kakatiya_dyn",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-kalinga",
+    "names": [
+      {
+        "text": "Kalinga",
+        "lang": "en",
+        "validTime": "-0318/-0171",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Kalinga\", 4 rows, -318..-171",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "-0318/-0171",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q356524",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Kalinga\""
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-kamarupa-kingdom",
+    "names": [
+      {
+        "text": "Kamarupa Kingdom",
+        "lang": "en",
+        "validTime": "0353/1138",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Kamarupa Kingdom\", 13 rows, 353..1138",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "0353/1138",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q1194765",
+    "seshatId": "in_kamarupa_k",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Kamarupa Kingdom\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id in_kamarupa_k",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-kannauj-varman-dynasty",
+    "names": [
+      {
+        "text": "Kannauj-Varman Dynasty",
+        "lang": "en",
+        "validTime": "0732/0771",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Kannauj-Varman Dynasty\", 4 rows, 732..771",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "0732/0771",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q614890",
+    "seshatId": "in_kannauj_varman_dyn",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Kannauj-Varman Dynasty\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id in_kannauj_varman_dyn",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-kanva-dynasty",
+    "names": [
+      {
+        "text": "Kanva Dynasty",
+        "lang": "en",
+        "validTime": "-0066/-0028",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Kanva Dynasty\", 3 rows, -66..-28",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "-0066/-0028",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q784974",
+    "seshatId": "in_kanva_dyn",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Kanva Dynasty\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id in_kanva_dyn",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-kathmandu",
+    "names": [
+      {
+        "text": "Kathmandu",
+        "lang": "en",
+        "validTime": "1202/1761",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Kathmandu\", 4 rows, 1202..1761",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "1202/1761",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q3037",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Kathmandu\""
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-khadga-dynasty",
+    "names": [
+      {
+        "text": "Khadga Dynasty",
+        "lang": "en",
+        "validTime": "0656/0704",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Khadga Dynasty\", 2 rows, 656..704",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "0656/0704",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q6398879",
+    "seshatId": "bd_khadga_dyn",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Khadga Dynasty\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id bd_khadga_dyn",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-khalji-dynasty",
+    "names": [
+      {
+        "text": "Khalji Dynasty",
+        "lang": "en",
+        "validTime": "1294/1325",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Khalji Dynasty\", 3 rows, 1294..1325",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "1294/1325",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q919071",
+    "seshatId": "in_delhi_sultanate",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Khalji Dynasty\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id in_delhi_sultanate",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-khwarezmid-empire",
+    "names": [
+      {
+        "text": "Khwarezmid Empire",
+        "lang": "en",
+        "validTime": "1216/1219",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Khwarezmid Empire\", 1 rows, 1216..1219",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "1216/1219",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q63134381",
+    "seshatId": "tm_khwarezmid_emp",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Khwarezmid Empire\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id tm_khwarezmid_emp",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-kingdom-of-bhutan",
+    "names": [
+      {
+        "text": "Kingdom of Bhutan",
+        "lang": "en",
+        "validTime": "1636/2024",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Kingdom of Bhutan\", 18 rows, 1636..2024",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "1636/2024",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q917",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Kingdom of Bhutan\""
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-kingdom-of-france-2",
+    "names": [
+      {
+        "text": "Kingdom of France",
+        "lang": "en",
+        "validTime": "1791/1791",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Kingdom of France\", 1 rows, 1791..1791",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "1791/1791",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q207162",
+    "seshatId": "fr_bourbon_k_2",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Kingdom of France\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id fr_bourbon_k_2",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-kingdom-of-mrauk-u",
+    "names": [
+      {
+        "text": "Kingdom of Mrauk U",
+        "lang": "en",
+        "validTime": "1534/1669",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Kingdom of Mrauk U\", 5 rows, 1534..1669",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "1534/1669",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q10791211",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Kingdom of Mrauk U\""
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-kingdom-of-spain",
+    "names": [
+      {
+        "text": "Kingdom of Spain",
+        "lang": "en",
+        "validTime": "1877/1899",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Kingdom of Spain\", 6 rows, 1877..1899",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "1877/1899",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q29",
+    "seshatId": "es_spanish_emp_3",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Kingdom of Spain\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id es_spanish_emp_3",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-kuomintang",
+    "names": [
+      {
+        "text": "Kuomintang",
+        "lang": "en",
+        "validTime": "1917/1929",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Kuomintang\", 9 rows, 1917..1929",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "1917/1929",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q31113",
+    "seshatId": "cn_chinese_rep",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Kuomintang\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id cn_chinese_rep",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-kushan-empire",
+    "names": [
+      {
+        "text": "Kushan Empire",
+        "lang": "en",
+        "validTime": "0091/0237",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Kushan Empire\", 9 rows, 91..237",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "0091/0237",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q25979",
+    "seshatId": "af_kushan_emp",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Kushan Empire\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id af_kushan_emp",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-lodi-dynasty",
+    "names": [
+      {
+        "text": "Lodi Dynasty",
+        "lang": "en",
+        "validTime": "1453/1528",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Lodi Dynasty\", 7 rows, 1453..1528",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "1453/1528",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q11709",
+    "seshatId": "in_delhi_sultanate",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Lodi Dynasty\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id in_delhi_sultanate",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-magadha-haryanka-dynasty",
+    "names": [
+      {
+        "text": "Magadha - Haryanka dynasty",
+        "lang": "en",
+        "validTime": "-0500/-0405",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Magadha - Haryanka dynasty\", 3 rows, -500..-405",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "-0500/-0405",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q12459974",
+    "seshatId": "in_mahajanapada",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Magadha - Haryanka dynasty\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id in_mahajanapada",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-magadha-shaishunaga-dynasty",
+    "names": [
+      {
+        "text": "Magadha - Shaishunaga dynasty",
+        "lang": "en",
+        "validTime": "-0404/-0334",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Magadha - Shaishunaga dynasty\", 3 rows, -404..-334",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "-0404/-0334",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q972165",
+    "seshatId": "in_mahajanapada",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Magadha - Shaishunaga dynasty\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id in_mahajanapada",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-mahajanapadas-2",
+    "names": [
+      {
+        "text": "Mahajanapadas",
+        "lang": "en",
+        "validTime": "-0480/-0451",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Mahajanapadas\", 1 rows, -480..-451",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "-0480/-0451",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q846025",
+    "seshatId": "in_mahajanapada",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Mahajanapadas\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id in_mahajanapada",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-mahameghavahana-dynasty",
+    "names": [
+      {
+        "text": "Mahameghavahana Dynasty",
+        "lang": "en",
+        "validTime": "-0170/-0165",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Mahameghavahana Dynasty\", 1 rows, -170..-165",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "-0170/-0165",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q6733051",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Mahameghavahana Dynasty\""
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-maitraka-dynasty",
+    "names": [
+      {
+        "text": "Maitraka Dynasty",
+        "lang": "en",
+        "validTime": "0656/0731",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Maitraka Dynasty\", 2 rows, 656..731",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "0656/0731",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q6737189",
+    "seshatId": "in_maitraka_dyn",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Maitraka Dynasty\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id in_maitraka_dyn",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-mamluk-dynasty",
+    "names": [
+      {
+        "text": "Mamluk Dynasty",
+        "lang": "en",
+        "validTime": "1210/1293",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Mamluk Dynasty\", 7 rows, 1210..1293",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "1210/1293",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q847420",
+    "seshatId": "in_delhi_sultanate",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Mamluk Dynasty\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id in_delhi_sultanate",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-maratha-empire",
+    "names": [
+      {
+        "text": "Maratha Empire",
+        "lang": "en",
+        "validTime": "1721/1845",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Maratha Empire\", 26 rows, 1721..1845",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "1721/1845",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q83618",
+    "seshatId": "in_maratha_emp",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Maratha Empire\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id in_maratha_emp",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-maukhari-dynasty",
+    "names": [
+      {
+        "text": "Maukhari Dynasty",
+        "lang": "en",
+        "validTime": "0555/0611",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Maukhari Dynasty\", 2 rows, 555..611",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "0555/0611",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q12448145",
+    "seshatId": "in_maukhari_dyn",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Maukhari Dynasty\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id in_maukhari_dyn",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-maurya-empire",
+    "names": [
+      {
+        "text": "Maurya Empire",
+        "lang": "en",
+        "validTime": "-0318/-0171",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Maurya Empire\", 8 rows, -318..-171",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "-0318/-0171",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q62943",
+    "seshatId": "in_mauryan_emp",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Maurya Empire\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id in_mauryan_emp",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-ming-dynasty",
+    "names": [
+      {
+        "text": "Ming Dynasty",
+        "lang": "en",
+        "validTime": "1375/1467",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Ming Dynasty\", 9 rows, 1375..1467",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "1375/1467",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q9903",
+    "seshatId": "cn_ming_dyn",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Ming Dynasty\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id cn_ming_dyn",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-mongol-empire",
+    "names": [
+      {
+        "text": "Mongol Empire",
+        "lang": "en",
+        "validTime": "1236/1293",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Mongol Empire\", 7 rows, 1236..1293",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "1236/1293",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q12557",
+    "seshatId": "mn_mongol_emp",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Mongol Empire\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id mn_mongol_emp",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-mughal-empire",
+    "names": [
+      {
+        "text": "Mughal Empire",
+        "lang": "en",
+        "validTime": "1529/1858",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Mughal Empire\", 49 rows, 1529..1858",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "1529/1858",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q33296",
+    "seshatId": "in_mughal_emp",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Mughal Empire\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id in_mughal_emp",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-nanda-empire",
+    "names": [
+      {
+        "text": "Nanda Empire",
+        "lang": "en",
+        "validTime": "-0333/-0319",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Nanda Empire\", 3 rows, -333..-319",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "-0333/-0319",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q949268",
+    "seshatId": "in_nanda_dyn",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Nanda Empire\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id in_nanda_dyn",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-nawab-of-awadh",
+    "names": [
+      {
+        "text": "Nawab of Awadh",
+        "lang": "en",
+        "validTime": "1727/1802",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Nawab of Awadh\", 13 rows, 1727..1802",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "1727/1802",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q2614237",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Nawab of Awadh\""
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-nawabs-of-bengal",
+    "names": [
+      {
+        "text": "Nawabs of Bengal",
+        "lang": "en",
+        "validTime": "1718/1761",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Nawabs of Bengal\", 5 rows, 1718..1761",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "1718/1761",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q2637089",
+    "seshatId": "bd_nawabs_of_bengal",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Nawabs of Bengal\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id bd_nawabs_of_bengal",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-nepal",
+    "names": [
+      {
+        "text": "Nepal",
+        "lang": "en",
+        "validTime": "1775/2024",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Nepal\", 19 rows, 1775..2024",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "1775/2024",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q837",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Nepal\""
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-new-caledonia",
+    "names": [
+      {
+        "text": "New Caledonia",
+        "lang": "en",
+        "validTime": "1856/1859",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"New Caledonia\", 2 rows, 1856..1859",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "1856/1859",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q33788",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"New Caledonia\""
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-pala-empire",
+    "names": [
+      {
+        "text": "Pala Empire",
+        "lang": "en",
+        "validTime": "0750/1168",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Pala Empire\", 25 rows, 750..1168",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "0750/1168",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q668412",
+    "seshatId": "in_pala_emp",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Pala Empire\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id in_pala_emp",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-paramara-dynasty",
+    "names": [
+      {
+        "text": "Paramara Dynasty",
+        "lang": "en",
+        "validTime": "0980/1235",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Paramara Dynasty\", 7 rows, 980..1235",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "0980/1235",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q7135130",
+    "seshatId": "in_paramara_dyn",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Paramara Dynasty\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id in_paramara_dyn",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-people-s-republic-of-bangladesh",
+    "names": [
+      {
+        "text": "People's Republic of Bangladesh",
+        "lang": "en",
+        "validTime": "1973/2024",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"People's Republic of Bangladesh\", 2 rows, 1973..2024",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "1973/2024",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q902",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"People's Republic of Bangladesh\""
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-people-s-republic-of-china",
+    "names": [
+      {
+        "text": "People's Republic of China",
+        "lang": "en",
+        "validTime": "1950/2024",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"People's Republic of China\", 8 rows, 1950..2024",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "1950/2024",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q148",
+    "seshatId": "cn_chinese_peoples_rep",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"People's Republic of China\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id cn_chinese_peoples_rep",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-portugal",
+    "names": [
+      {
+        "text": "Portugal",
+        "lang": "en",
+        "validTime": "1976/2023",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Portugal\", 1 rows, 1976..2023",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "1976/2023",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q45",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Portugal\""
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-portuguese-colonies",
+    "names": [
+      {
+        "text": "Portuguese Colonies",
+        "lang": "en",
+        "validTime": "1564/1910",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Portuguese Colonies\", 29 rows, 1564..1910",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "1564/1910",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q200464",
+    "seshatId": "pt_portuguese_emp_1",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Portuguese Colonies\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id pt_portuguese_emp_1",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-portuguese-empire-2",
+    "names": [
+      {
+        "text": "Portuguese Empire",
+        "lang": "en",
+        "validTime": "1502/1571",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Portuguese Empire\", 9 rows, 1502..1571",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "1502/1571",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q200464",
+    "seshatId": "pt_portuguese_emp_1",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Portuguese Empire\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id pt_portuguese_emp_1",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-portuguese-republic",
+    "names": [
+      {
+        "text": "Portuguese Republic",
+        "lang": "en",
+        "validTime": "1911/1925",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Portuguese Republic\", 7 rows, 1911..1925",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "1911/1925",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q167360",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Portuguese Republic\""
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-qajar-dynasty",
+    "names": [
+      {
+        "text": "Qajar Dynasty",
+        "lang": "en",
+        "validTime": "1895/1897",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Qajar Dynasty\", 1 rows, 1895..1897",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "1895/1897",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q189326",
+    "seshatId": "ir_qajar_dyn",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Qajar Dynasty\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id ir_qajar_dyn",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-qing-dynasty",
+    "names": [
+      {
+        "text": "Qing Dynasty",
+        "lang": "en",
+        "validTime": "1696/1911",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Qing Dynasty\", 51 rows, 1696..1911",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "1696/1911",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q8733",
+    "seshatId": "cn_qing_dyn_1",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Qing Dynasty\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id cn_qing_dyn_1",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-rashtrakuta-dynasty",
+    "names": [
+      {
+        "text": "Rashtrakuta Dynasty",
+        "lang": "en",
+        "validTime": "0755/0979",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Rashtrakuta Dynasty\", 16 rows, 755..979",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "0755/0979",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q856691",
+    "seshatId": "in_rashtrakuta_emp",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Rashtrakuta Dynasty\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id in_rashtrakuta_emp",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-republic-of-china",
+    "names": [
+      {
+        "text": "Republic of China",
+        "lang": "en",
+        "validTime": "1912/1949",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Republic of China\", 17 rows, 1912..1949",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "1912/1949",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q148",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Republic of China\""
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-republic-of-india",
+    "names": [
+      {
+        "text": "Republic of India",
+        "lang": "en",
+        "validTime": "1947/2024",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Republic of India\", 12 rows, 1947..2024",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "1947/2024",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q668",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Republic of India\""
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-saffarid-dynasty",
+    "names": [
+      {
+        "text": "Saffarid Dynasty",
+        "lang": "en",
+        "validTime": "0875/0899",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Saffarid Dynasty\", 8 rows, 875..899",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "0875/0899",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q45310",
+    "seshatId": "ir_saffarid_emp",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Saffarid Dynasty\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id ir_saffarid_emp",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-samanid-empire",
+    "names": [
+      {
+        "text": "Samanid Empire",
+        "lang": "en",
+        "validTime": "0900/0959",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Samanid Empire\", 3 rows, 900..959",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "0900/0959",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q486181",
+    "seshatId": "uz_samanid_emp",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Samanid Empire\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id uz_samanid_emp",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-satavahana-dynasty",
+    "names": [
+      {
+        "text": "Satavahana Dynasty",
+        "lang": "en",
+        "validTime": "-0225/0223",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Satavahana Dynasty\", 15 rows, -225..223",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "-0225/0223",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q5257",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Satavahana Dynasty\""
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-sayyid-dynasty",
+    "names": [
+      {
+        "text": "Sayyid Dynasty",
+        "lang": "en",
+        "validTime": "1415/1452",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Sayyid Dynasty\", 2 rows, 1415..1452",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "1415/1452",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q1331421",
+    "seshatId": "in_delhi_sultanate",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Sayyid Dynasty\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id in_delhi_sultanate",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-second-french-empire-2",
+    "names": [
+      {
+        "text": "Second French Empire",
+        "lang": "en",
+        "validTime": "1853/1855",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Second French Empire\", 1 rows, 1853..1855",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "1853/1855",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q71092",
+    "seshatId": "fr_france_napoleonic",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Second French Empire\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id fr_france_napoleonic",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-sena-dynasty",
+    "names": [
+      {
+        "text": "Sena Dynasty",
+        "lang": "en",
+        "validTime": "1072/1235",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Sena Dynasty\", 8 rows, 1072..1235",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "1072/1235",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q2428714",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Sena Dynasty\""
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-shunga-empire",
+    "names": [
+      {
+        "text": "Shunga Empire",
+        "lang": "en",
+        "validTime": "-0170/-0067",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Shunga Empire\", 5 rows, -170..-67",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "-0170/-0067",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q651377",
+    "seshatId": "in_sunga_emp",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Shunga Empire\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id in_sunga_emp",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-sikh-empire",
+    "names": [
+      {
+        "text": "Sikh Empire",
+        "lang": "en",
+        "validTime": "1811/1845",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Sikh Empire\", 9 rows, 1811..1845",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "1811/1845",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q83572",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Sikh Empire\""
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-sikhs",
+    "names": [
+      {
+        "text": "Sikhs",
+        "lang": "en",
+        "validTime": "1709/1717",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Sikhs\", 2 rows, 1709..1717",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "1709/1717",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q582779",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Sikhs\""
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-spanish-empire-2",
+    "names": [
+      {
+        "text": "Spanish Empire",
+        "lang": "en",
+        "validTime": "1572/1872",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Spanish Empire\", 66 rows, 1572..1872",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "1572/1872",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q80702",
+    "seshatId": "es_spanish_emp_1",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Spanish Empire\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id es_spanish_emp_1",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-sultanate-of-bengal",
+    "names": [
+      {
+        "text": "Sultanate of Bengal",
+        "lang": "en",
+        "validTime": "1344/1533",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Sultanate of Bengal\", 9 rows, 1344..1533",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "1344/1533",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q4083686",
+    "seshatId": "bd_bengal_sultanate",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Sultanate of Bengal\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id bd_bengal_sultanate",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-sur-empire",
+    "names": [
+      {
+        "text": "Sur Empire",
+        "lang": "en",
+        "validTime": "1540/1594",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Sur Empire\", 8 rows, 1540..1594",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "1540/1594",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q373650",
+    "seshatId": "in_sur_emp",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Sur Empire\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id in_sur_emp",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-tang-dynasty",
+    "names": [
+      {
+        "text": "Tang Dynasty",
+        "lang": "en",
+        "validTime": "0633/0756",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Tang Dynasty\", 13 rows, 633..756",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "0633/0756",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q9683",
+    "seshatId": "cn_tang_dyn_1",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Tang Dynasty\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id cn_tang_dyn_1",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-tibet",
+    "names": [
+      {
+        "text": "Tibet",
+        "lang": "en",
+        "validTime": "1363/1952",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Tibet\", 49 rows, 1363..1952",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "1363/1952",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q521263",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Tibet\""
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-tibetan-empire",
+    "names": [
+      {
+        "text": "Tibetan Empire",
+        "lang": "en",
+        "validTime": "0623/0849",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Tibetan Empire\", 25 rows, 623..849",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "0623/0849",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q2431480",
+    "seshatId": "cn_tibet_k",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Tibetan Empire\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id cn_tibet_k",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-tibetans",
+    "names": [
+      {
+        "text": "Tibetans",
+        "lang": "en",
+        "validTime": "0850/1259",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Tibetans\", 11 rows, 850..1259",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "0850/1259",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q187985",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Tibetans\""
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-timurid-empire",
+    "names": [
+      {
+        "text": "Timurid Empire",
+        "lang": "en",
+        "validTime": "1402/1528",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Timurid Empire\", 2 rows, 1402..1528",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "1402/1528",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q484195",
+    "seshatId": "uz_timurid_emp",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Timurid Empire\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id uz_timurid_emp",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-tughlaq-dynasty",
+    "names": [
+      {
+        "text": "Tughlaq Dynasty",
+        "lang": "en",
+        "validTime": "1326/1414",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Tughlaq Dynasty\", 9 rows, 1326..1414",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "1326/1414",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q1124402",
+    "seshatId": "in_delhi_sultanate",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Tughlaq Dynasty\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id in_delhi_sultanate",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-united-states-of-america",
+    "names": [
+      {
+        "text": "United States of America",
+        "lang": "en",
+        "validTime": "1868/2024",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"United States of America\", 29 rows, 1868..2024",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "1868/2024",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q30",
+    "seshatId": "us_united_states_of_america_reconstruction",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"United States of America\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id us_united_states_of_america_reconstruction",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-vakataka-kingdom",
+    "names": [
+      {
+        "text": "Vakataka Kingdom",
+        "lang": "en",
+        "validTime": "0260/0554",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Vakataka Kingdom\", 9 rows, 260..554",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "0260/0554",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q1501306",
+    "seshatId": "in_vakataka_k",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Vakataka Kingdom\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id in_vakataka_k",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-western-chalukya-empire",
+    "names": [
+      {
+        "text": "Western Chalukya Empire",
+        "lang": "en",
+        "validTime": "0980/1187",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Western Chalukya Empire\", 12 rows, 980..1187",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "0980/1187",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q14624218",
+    "seshatId": "in_kalyani_chalukya_emp",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Western Chalukya Empire\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id in_kalyani_chalukya_emp",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-western-jin",
+    "names": [
+      {
+        "text": "Western Jin",
+        "lang": "en",
+        "validTime": "0265/0305",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Western Jin\", 3 rows, 265..305",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "0265/0305",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q7352",
+    "seshatId": "cn_western_jin_dyn",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Western Jin\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id cn_western_jin_dyn",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-western-satraps",
+    "names": [
+      {
+        "text": "Western Satraps",
+        "lang": "en",
+        "validTime": "0043/0409",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Western Satraps\", 17 rows, 43..409",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "0043/0409",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q2086608",
+    "seshatId": "pk_western_satraps",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Western Satraps\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id pk_western_satraps",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-white-huns",
+    "names": [
+      {
+        "text": "White Huns",
+        "lang": "en",
+        "validTime": "0490/0560",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"White Huns\", 5 rows, 490..560",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "0490/0560",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q41761342",
+    "seshatId": "af_hephthalite_emp",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"White Huns\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id af_hephthalite_emp",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-xin-dynasty",
+    "names": [
+      {
+        "text": "Xin Dynasty",
+        "lang": "en",
+        "validTime": "0006/0013",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Xin Dynasty\", 1 rows, 6..13",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "0006/0013",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q504769",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Xin Dynasty\""
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-yadava-dynasty",
+    "names": [
+      {
+        "text": "Yadava Dynasty",
+        "lang": "en",
+        "validTime": "1188/1325",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Yadava Dynasty\", 4 rows, 1188..1325",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "1188/1325",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q5790",
+    "seshatId": "in_yadava_dyn",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Yadava Dynasty\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id in_yadava_dyn",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-yaudheya-republic",
+    "names": [
+      {
+        "text": "Yaudheya Republic",
+        "lang": "en",
+        "validTime": "0306/0377",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Yaudheya Republic\", 3 rows, 306..377",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "0306/0377",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q8050331",
+    "seshatId": "in_yaudheya_rep",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Yaudheya Republic\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id in_yaudheya_rep",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  },
+  {
+    "id": "cliopatria-yuan-dynasty",
+    "names": [
+      {
+        "text": "Yuan Dynasty",
+        "lang": "en",
+        "validTime": "1294/1374",
+        "sources": [
+          {
+            "source": "cliopatria-v0-2-1",
+            "locator": "Name=\"Yuan Dynasty\", 3 rows, 1294..1374",
+            "note": "Name as recorded by the dataset; not independently verified by this project."
+          }
+        ]
+      }
+    ],
+    "entityType": "polity",
+    "existence": "1294/1374",
+    "dateCertainty": "approximate",
+    "relations": [],
+    "wikidata": "Q7313",
+    "seshatId": "cn_yuan_dyn",
+    "sources": [
+      {
+        "source": "cliopatria-v0-2-1",
+        "locator": "Name=\"Yuan Dynasty\""
+      },
+      {
+        "source": "seshat-cliopatria-paper-2025",
+        "locator": "Seshat polity id cn_yuan_dyn",
+        "note": "Cross-reference only; the structured polity data lives at seshat-db.org."
+      }
+    ]
+  }
+]

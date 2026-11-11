@@ -1,0 +1,489 @@
+{
+  "generatedAt": "2026-11-11T13:45:10.543Z",
+  "policy": "Upstream data problems are REPORTED, not silently repaired. Each entry says what the pipeline did and why. `atlas:validate` fails if an anomaly is present but unexplained.",
+  "corridor": {
+    "west": 76.5,
+    "south": 19.8,
+    "east": 91.5,
+    "north": 31.5
+  },
+  "rowsInCorridor": 1846,
+  "anomalies": [
+    {
+      "kind": "group-name-collision",
+      "entity": "(Mahajanapadas)",
+      "detail": "Upstream has both the composite \"(Mahajanapadas)\" and a member named \"Mahajanapadas\". They are different records with different geometry but near-identical labels.",
+      "rowsAffected": 8,
+      "action": "Both imported unchanged. The member rows are excluded from the committed focus tier so the teaching map does not show two contradictory shapes with the same name. Flagged for upstream review."
+    },
+    {
+      "kind": "group-name-collision",
+      "entity": "(Portuguese Empire)",
+      "detail": "Upstream has both the composite \"(Portuguese Empire)\" and a member named \"Portuguese Empire\". They are different records with different geometry but near-identical labels.",
+      "rowsAffected": 86,
+      "action": "Both imported unchanged. The member rows are excluded from the committed focus tier so the teaching map does not show two contradictory shapes with the same name. Flagged for upstream review."
+    },
+    {
+      "kind": "group-name-collision",
+      "entity": "(Spanish Empire)",
+      "detail": "Upstream has both the composite \"(Spanish Empire)\" and a member named \"Spanish Empire\". They are different records with different geometry but near-identical labels.",
+      "rowsAffected": 148,
+      "action": "Both imported unchanged. The member rows are excluded from the committed focus tier so the teaching map does not show two contradictory shapes with the same name. Flagged for upstream review."
+    },
+    {
+      "kind": "group-name-collision",
+      "entity": "(Dutch Republic)",
+      "detail": "Upstream has both the composite \"(Dutch Republic)\" and a member named \"Dutch Republic\". They are different records with different geometry but near-identical labels.",
+      "rowsAffected": 80,
+      "action": "Both imported unchanged. The member rows are excluded from the committed focus tier so the teaching map does not show two contradictory shapes with the same name. Flagged for upstream review."
+    },
+    {
+      "kind": "group-name-collision",
+      "entity": "(Kingdom of France)",
+      "detail": "Upstream has both the composite \"(Kingdom of France)\" and a member named \"Kingdom of France\". They are different records with different geometry but near-identical labels.",
+      "rowsAffected": 28,
+      "action": "Both imported unchanged. The member rows are excluded from the committed focus tier so the teaching map does not show two contradictory shapes with the same name. Flagged for upstream review."
+    },
+    {
+      "kind": "group-name-collision",
+      "entity": "(British Empire)",
+      "detail": "Upstream has both the composite \"(British Empire)\" and a member named \"British Empire\". They are different records with different geometry but near-identical labels.",
+      "rowsAffected": 150,
+      "action": "Both imported unchanged. The member rows are excluded from the committed focus tier so the teaching map does not show two contradictory shapes with the same name. Flagged for upstream review."
+    },
+    {
+      "kind": "group-name-collision",
+      "entity": "(Habsburg Monarchy)",
+      "detail": "Upstream has both the composite \"(Habsburg Monarchy)\" and a member named \"Habsburg Monarchy\". They are different records with different geometry but near-identical labels.",
+      "rowsAffected": 4,
+      "action": "Both imported unchanged. The member rows are excluded from the committed focus tier so the teaching map does not show two contradictory shapes with the same name. Flagged for upstream review."
+    },
+    {
+      "kind": "group-name-collision",
+      "entity": "(French First Republic)",
+      "detail": "Upstream has both the composite \"(French First Republic)\" and a member named \"French First Republic\". They are different records with different geometry but near-identical labels.",
+      "rowsAffected": 2,
+      "action": "Both imported unchanged. The member rows are excluded from the committed focus tier so the teaching map does not show two contradictory shapes with the same name. Flagged for upstream review."
+    },
+    {
+      "kind": "group-name-collision",
+      "entity": "(Batavian Republic)",
+      "detail": "Upstream has both the composite \"(Batavian Republic)\" and a member named \"Batavian Republic\". They are different records with different geometry but near-identical labels.",
+      "rowsAffected": 7,
+      "action": "Both imported unchanged. The member rows are excluded from the committed focus tier so the teaching map does not show two contradictory shapes with the same name. Flagged for upstream review."
+    },
+    {
+      "kind": "group-name-collision",
+      "entity": "(French Second Republic)",
+      "detail": "Upstream has both the composite \"(French Second Republic)\" and a member named \"French Second Republic\". They are different records with different geometry but near-identical labels.",
+      "rowsAffected": 4,
+      "action": "Both imported unchanged. The member rows are excluded from the committed focus tier so the teaching map does not show two contradictory shapes with the same name. Flagged for upstream review."
+    },
+    {
+      "kind": "group-name-collision",
+      "entity": "(Second French Empire)",
+      "detail": "Upstream has both the composite \"(Second French Empire)\" and a member named \"Second French Empire\". They are different records with different geometry but near-identical labels.",
+      "rowsAffected": 7,
+      "action": "Both imported unchanged. The member rows are excluded from the committed focus tier so the teaching map does not show two contradictory shapes with the same name. Flagged for upstream review."
+    },
+    {
+      "kind": "duplicate-entity-id",
+      "entity": "Batavian Republic",
+      "detail": "Slug of \"Batavian Republic\" collides with an earlier entity. Distinct upstream records with distinct geometry and date ranges.",
+      "rowsAffected": 1,
+      "action": "Assigned the disambiguated id \"cliopatria-batavian-republic-2\"; the first entity in sorted order keeps \"cliopatria-batavian-republic\". Deterministic across runs."
+    },
+    {
+      "kind": "duplicate-entity-id",
+      "entity": "British Empire",
+      "detail": "Slug of \"British Empire\" collides with an earlier entity. Distinct upstream records with distinct geometry and date ranges.",
+      "rowsAffected": 41,
+      "action": "Assigned the disambiguated id \"cliopatria-british-empire-2\"; the first entity in sorted order keeps \"cliopatria-british-empire\". Deterministic across runs."
+    },
+    {
+      "kind": "duplicate-entity-id",
+      "entity": "Dutch Republic",
+      "detail": "Slug of \"Dutch Republic\" collides with an earlier entity. Distinct upstream records with distinct geometry and date ranges.",
+      "rowsAffected": 39,
+      "action": "Assigned the disambiguated id \"cliopatria-dutch-republic-2\"; the first entity in sorted order keeps \"cliopatria-dutch-republic\". Deterministic across runs."
+    },
+    {
+      "kind": "duplicate-entity-id",
+      "entity": "French First Republic",
+      "detail": "Slug of \"French First Republic\" collides with an earlier entity. Distinct upstream records with distinct geometry and date ranges.",
+      "rowsAffected": 1,
+      "action": "Assigned the disambiguated id \"cliopatria-french-first-republic-2\"; the first entity in sorted order keeps \"cliopatria-french-first-republic\". Deterministic across runs."
+    },
+    {
+      "kind": "duplicate-entity-id",
+      "entity": "French Second Republic",
+      "detail": "Slug of \"French Second Republic\" collides with an earlier entity. Distinct upstream records with distinct geometry and date ranges.",
+      "rowsAffected": 2,
+      "action": "Assigned the disambiguated id \"cliopatria-french-second-republic-2\"; the first entity in sorted order keeps \"cliopatria-french-second-republic\". Deterministic across runs."
+    },
+    {
+      "kind": "duplicate-entity-id",
+      "entity": "Habsburg Monarchy",
+      "detail": "Slug of \"Habsburg Monarchy\" collides with an earlier entity. Distinct upstream records with distinct geometry and date ranges.",
+      "rowsAffected": 2,
+      "action": "Assigned the disambiguated id \"cliopatria-habsburg-monarchy-2\"; the first entity in sorted order keeps \"cliopatria-habsburg-monarchy\". Deterministic across runs."
+    },
+    {
+      "kind": "duplicate-entity-id",
+      "entity": "Kingdom of France",
+      "detail": "Slug of \"Kingdom of France\" collides with an earlier entity. Distinct upstream records with distinct geometry and date ranges.",
+      "rowsAffected": 1,
+      "action": "Assigned the disambiguated id \"cliopatria-kingdom-of-france-2\"; the first entity in sorted order keeps \"cliopatria-kingdom-of-france\". Deterministic across runs."
+    },
+    {
+      "kind": "duplicate-entity-id",
+      "entity": "Mahajanapadas",
+      "detail": "Slug of \"Mahajanapadas\" collides with an earlier entity. Distinct upstream records with distinct geometry and date ranges.",
+      "rowsAffected": 1,
+      "action": "Assigned the disambiguated id \"cliopatria-mahajanapadas-2\"; the first entity in sorted order keeps \"cliopatria-mahajanapadas\". Deterministic across runs."
+    },
+    {
+      "kind": "duplicate-entity-id",
+      "entity": "Portuguese Empire",
+      "detail": "Slug of \"Portuguese Empire\" collides with an earlier entity. Distinct upstream records with distinct geometry and date ranges.",
+      "rowsAffected": 9,
+      "action": "Assigned the disambiguated id \"cliopatria-portuguese-empire-2\"; the first entity in sorted order keeps \"cliopatria-portuguese-empire\". Deterministic across runs."
+    },
+    {
+      "kind": "duplicate-entity-id",
+      "entity": "Second French Empire",
+      "detail": "Slug of \"Second French Empire\" collides with an earlier entity. Distinct upstream records with distinct geometry and date ranges.",
+      "rowsAffected": 1,
+      "action": "Assigned the disambiguated id \"cliopatria-second-french-empire-2\"; the first entity in sorted order keeps \"cliopatria-second-french-empire\". Deterministic across runs."
+    },
+    {
+      "kind": "duplicate-entity-id",
+      "entity": "Spanish Empire",
+      "detail": "Slug of \"Spanish Empire\" collides with an earlier entity. Distinct upstream records with distinct geometry and date ranges.",
+      "rowsAffected": 66,
+      "action": "Assigned the disambiguated id \"cliopatria-spanish-empire-2\"; the first entity in sorted order keeps \"cliopatria-spanish-empire\". Deterministic across runs."
+    },
+    {
+      "kind": "relation-row-excluded",
+      "entity": "(Allegiance of Chagatai Khanate to Yuan Dynasty)",
+      "detail": "Upstream Type=RELATION. This is the extent of a relationship (e.g. an alliance), not the territory a polity held.",
+      "rowsAffected": 5,
+      "action": "Excluded from territorial assertions. Rendering a relationship extent as a sovereign border would misrepresent the source."
+    },
+    {
+      "kind": "relation-row-excluded",
+      "entity": "(Allegiance of Delhi Sultanate to Abbasid Caliphate)",
+      "detail": "Upstream Type=RELATION. This is the extent of a relationship (e.g. an alliance), not the territory a polity held.",
+      "rowsAffected": 5,
+      "action": "Excluded from territorial assertions. Rendering a relationship extent as a sovereign border would misrepresent the source."
+    },
+    {
+      "kind": "relation-row-excluded",
+      "entity": "(Allegiance of Golden Horde to Yuan Dynasty)",
+      "detail": "Upstream Type=RELATION. This is the extent of a relationship (e.g. an alliance), not the territory a polity held.",
+      "rowsAffected": 7,
+      "action": "Excluded from territorial assertions. Rendering a relationship extent as a sovereign border would misrepresent the source."
+    },
+    {
+      "kind": "relation-row-excluded",
+      "entity": "(Allegiance of Ilkhanate to Yuan Dynasty)",
+      "detail": "Upstream Type=RELATION. This is the extent of a relationship (e.g. an alliance), not the territory a polity held.",
+      "rowsAffected": 4,
+      "action": "Excluded from territorial assertions. Rendering a relationship extent as a sovereign border would misrepresent the source."
+    },
+    {
+      "kind": "relation-row-excluded",
+      "entity": "(Allegiance of Joseon to Ming Dynasty)",
+      "detail": "Upstream Type=RELATION. This is the extent of a relationship (e.g. an alliance), not the territory a polity held.",
+      "rowsAffected": 8,
+      "action": "Excluded from territorial assertions. Rendering a relationship extent as a sovereign border would misrepresent the source."
+    },
+    {
+      "kind": "relation-row-excluded",
+      "entity": "(Allegiance of Kidarites to Sasanian Empire)",
+      "detail": "Upstream Type=RELATION. This is the extent of a relationship (e.g. an alliance), not the territory a polity held.",
+      "rowsAffected": 1,
+      "action": "Excluded from territorial assertions. Rendering a relationship extent as a sovereign border would misrepresent the source."
+    },
+    {
+      "kind": "relation-row-excluded",
+      "entity": "(Allegiance of Kingdom of Hawaï'i to British Empire)",
+      "detail": "Upstream Type=RELATION. This is the extent of a relationship (e.g. an alliance), not the territory a polity held.",
+      "rowsAffected": 4,
+      "action": "Excluded from territorial assertions. Rendering a relationship extent as a sovereign border would misrepresent the source."
+    },
+    {
+      "kind": "relation-row-excluded",
+      "entity": "(Alliance between Golden Horde and Timurid Empire)",
+      "detail": "Upstream Type=RELATION. This is the extent of a relationship (e.g. an alliance), not the territory a polity held.",
+      "rowsAffected": 2,
+      "action": "Excluded from territorial assertions. Rendering a relationship extent as a sovereign border would misrepresent the source."
+    },
+    {
+      "kind": "relation-row-excluded",
+      "entity": "(Alliance between Gupta Empire and Vakataka Kingdom)",
+      "detail": "Upstream Type=RELATION. This is the extent of a relationship (e.g. an alliance), not the territory a polity held.",
+      "rowsAffected": 19,
+      "action": "Excluded from territorial assertions. Rendering a relationship extent as a sovereign border would misrepresent the source."
+    },
+    {
+      "kind": "relation-row-excluded",
+      "entity": "(Alliance between Han Dynasty and Xiongnu)",
+      "detail": "Upstream Type=RELATION. This is the extent of a relationship (e.g. an alliance), not the territory a polity held.",
+      "rowsAffected": 11,
+      "action": "Excluded from territorial assertions. Rendering a relationship extent as a sovereign border would misrepresent the source."
+    },
+    {
+      "kind": "relation-row-excluded",
+      "entity": "(Alliance between Papal States and Spanish Empire)",
+      "detail": "Upstream Type=RELATION. This is the extent of a relationship (e.g. an alliance), not the territory a polity held.",
+      "rowsAffected": 8,
+      "action": "Excluded from territorial assertions. Rendering a relationship extent as a sovereign border would misrepresent the source."
+    },
+    {
+      "kind": "relation-row-excluded",
+      "entity": "(Alliance between Samanid Empire and Ziyadid dynasty)",
+      "detail": "Upstream Type=RELATION. This is the extent of a relationship (e.g. an alliance), not the territory a polity held.",
+      "rowsAffected": 3,
+      "action": "Excluded from territorial assertions. Rendering a relationship extent as a sovereign border would misrepresent the source."
+    },
+    {
+      "kind": "relation-row-excluded",
+      "entity": "(Alliance between White Huns and Sasanian Empire)",
+      "detail": "Upstream Type=RELATION. This is the extent of a relationship (e.g. an alliance), not the territory a polity held.",
+      "rowsAffected": 4,
+      "action": "Excluded from territorial assertions. Rendering a relationship extent as a sovereign border would misrepresent the source."
+    },
+    {
+      "kind": "relation-object-out-of-corridor",
+      "entity": "(British Empire)",
+      "detail": "Component \"Kingdom of Great Britain\" is a real Cliopatria entity but falls outside the corridor bbox (76.5-91.5E, 19.8-31.5N), so it was not imported.",
+      "rowsAffected": 1,
+      "action": "Relation kept with an unresolved object id and an explanatory citation note. The interface must render it as \"outside this corridor\", not as a missing entity."
+    },
+    {
+      "kind": "relation-object-out-of-corridor",
+      "entity": "(French Fourth Republic)",
+      "detail": "Component \"French Africa\" is a real Cliopatria entity but falls outside the corridor bbox (76.5-91.5E, 19.8-31.5N), so it was not imported.",
+      "rowsAffected": 2,
+      "action": "Relation kept with an unresolved object id and an explanatory citation note. The interface must render it as \"outside this corridor\", not as a missing entity."
+    },
+    {
+      "kind": "relation-object-out-of-corridor",
+      "entity": "(French Third Republic)",
+      "detail": "Component \"French Africa\" is a real Cliopatria entity but falls outside the corridor bbox (76.5-91.5E, 19.8-31.5N), so it was not imported.",
+      "rowsAffected": 2,
+      "action": "Relation kept with an unresolved object id and an explanatory citation note. The interface must render it as \"outside this corridor\", not as a missing entity."
+    },
+    {
+      "kind": "relation-object-out-of-corridor",
+      "entity": "(Kingdom of England)",
+      "detail": "Component \"Kingdom of England\" is a real Cliopatria entity but falls outside the corridor bbox (76.5-91.5E, 19.8-31.5N), so it was not imported.",
+      "rowsAffected": 1,
+      "action": "Relation kept with an unresolved object id and an explanatory citation note. The interface must render it as \"outside this corridor\", not as a missing entity."
+    },
+    {
+      "kind": "temporal-gap",
+      "entity": "(Kingdom of France)",
+      "detail": "No row covers 1762..1762. Upstream samples at varying timesteps, so a gap means \"not sampled\", NOT \"the polity did not exist\".",
+      "rowsAffected": 1,
+      "action": "Left as a gap. The map renders it as `no-data`, never as `no-entity` (docs/DATA_MODEL.md D-3)."
+    },
+    {
+      "kind": "relation-object-out-of-corridor",
+      "entity": "(Kingdom of France)",
+      "detail": "Component \"New France\" is a real Cliopatria entity but falls outside the corridor bbox (76.5-91.5E, 19.8-31.5N), so it was not imported.",
+      "rowsAffected": 1,
+      "action": "Relation kept with an unresolved object id and an explanatory citation note. The interface must render it as \"outside this corridor\", not as a missing entity."
+    },
+    {
+      "kind": "relation-object-out-of-corridor",
+      "entity": "(Mahajanapadas)",
+      "detail": "Component \"Janapada of Avanti\" is a real Cliopatria entity but falls outside the corridor bbox (76.5-91.5E, 19.8-31.5N), so it was not imported.",
+      "rowsAffected": 3,
+      "action": "Relation kept with an unresolved object id and an explanatory citation note. The interface must render it as \"outside this corridor\", not as a missing entity."
+    },
+    {
+      "kind": "temporal-gap",
+      "entity": "(Netherlands)",
+      "detail": "No row covers 1895..1897. Upstream samples at varying timesteps, so a gap means \"not sampled\", NOT \"the polity did not exist\".",
+      "rowsAffected": 2,
+      "action": "Left as a gap. The map renders it as `no-data`, never as `no-entity` (docs/DATA_MODEL.md D-3)."
+    },
+    {
+      "kind": "relation-object-out-of-corridor",
+      "entity": "(Portuguese Empire)",
+      "detail": "Component \"Kingdom of Portugal\" is a real Cliopatria entity but falls outside the corridor bbox (76.5-91.5E, 19.8-31.5N), so it was not imported.",
+      "rowsAffected": 1,
+      "action": "Relation kept with an unresolved object id and an explanatory citation note. The interface must render it as \"outside this corridor\", not as a missing entity."
+    },
+    {
+      "kind": "temporal-gap",
+      "entity": "(Second French Empire)",
+      "detail": "No row covers 1856..1859. Upstream samples at varying timesteps, so a gap means \"not sampled\", NOT \"the polity did not exist\".",
+      "rowsAffected": 1,
+      "action": "Left as a gap. The map renders it as `no-data`, never as `no-entity` (docs/DATA_MODEL.md D-3)."
+    },
+    {
+      "kind": "relation-object-out-of-corridor",
+      "entity": "(Second French Empire)",
+      "detail": "Component \"French Africa\" is a real Cliopatria entity but falls outside the corridor bbox (76.5-91.5E, 19.8-31.5N), so it was not imported.",
+      "rowsAffected": 1,
+      "action": "Relation kept with an unresolved object id and an explanatory citation note. The interface must render it as \"outside this corridor\", not as a missing entity."
+    },
+    {
+      "kind": "temporal-gap",
+      "entity": "(Spanish Empire)",
+      "detail": "No row covers 1873..1876. Upstream samples at varying timesteps, so a gap means \"not sampled\", NOT \"the polity did not exist\".",
+      "rowsAffected": 1,
+      "action": "Left as a gap. The map renders it as `no-data`, never as `no-entity` (docs/DATA_MODEL.md D-3)."
+    },
+    {
+      "kind": "relation-row-excluded",
+      "entity": "(Vassalage of Kingdom of Georgia to Timurid Empire)",
+      "detail": "Upstream Type=RELATION. This is the extent of a relationship (e.g. an alliance), not the territory a polity held.",
+      "rowsAffected": 1,
+      "action": "Excluded from territorial assertions. Rendering a relationship extent as a sovereign border would misrepresent the source."
+    },
+    {
+      "kind": "relation-object-out-of-corridor",
+      "entity": "(Vichy France)",
+      "detail": "Component \"French Africa\" is a real Cliopatria entity but falls outside the corridor bbox (76.5-91.5E, 19.8-31.5N), so it was not imported.",
+      "rowsAffected": 2,
+      "action": "Relation kept with an unresolved object id and an explanatory citation note. The interface must render it as \"outside this corridor\", not as a missing entity."
+    },
+    {
+      "kind": "temporal-gap",
+      "entity": "British Colonial Empire",
+      "detail": "No row covers 1757..1787. Upstream samples at varying timesteps, so a gap means \"not sampled\", NOT \"the polity did not exist\".",
+      "rowsAffected": 1,
+      "action": "Left as a gap. The map renders it as `no-data`, never as `no-entity` (docs/DATA_MODEL.md D-3)."
+    },
+    {
+      "kind": "temporal-gap",
+      "entity": "Dutch East Indies",
+      "detail": "No row covers 1805..1808. Upstream samples at varying timesteps, so a gap means \"not sampled\", NOT \"the polity did not exist\".",
+      "rowsAffected": 1,
+      "action": "Left as a gap. The map renders it as `no-data`, never as `no-entity` (docs/DATA_MODEL.md D-3)."
+    },
+    {
+      "kind": "temporal-gap",
+      "entity": "Estado Novo",
+      "detail": "No row covers 1945..1945. Upstream samples at varying timesteps, so a gap means \"not sampled\", NOT \"the polity did not exist\".",
+      "rowsAffected": 1,
+      "action": "Left as a gap. The map renders it as `no-data`, never as `no-entity` (docs/DATA_MODEL.md D-3)."
+    },
+    {
+      "kind": "temporal-gap",
+      "entity": "French India",
+      "detail": "No row covers 1815..1819. Upstream samples at varying timesteps, so a gap means \"not sampled\", NOT \"the polity did not exist\".",
+      "rowsAffected": 1,
+      "action": "Left as a gap. The map renders it as `no-data`, never as `no-entity` (docs/DATA_MODEL.md D-3)."
+    },
+    {
+      "kind": "temporal-gap",
+      "entity": "Gurjara-Pratihara Dynasty",
+      "detail": "No row covers 825..839. Upstream samples at varying timesteps, so a gap means \"not sampled\", NOT \"the polity did not exist\".",
+      "rowsAffected": 1,
+      "action": "Left as a gap. The map renders it as `no-data`, never as `no-entity` (docs/DATA_MODEL.md D-3)."
+    },
+    {
+      "kind": "temporal-gap",
+      "entity": "Han Dynasty",
+      "detail": "No row covers 6..29. Upstream samples at varying timesteps, so a gap means \"not sampled\", NOT \"the polity did not exist\".",
+      "rowsAffected": 2,
+      "action": "Left as a gap. The map renders it as `no-data`, never as `no-entity` (docs/DATA_MODEL.md D-3)."
+    },
+    {
+      "kind": "temporal-gap",
+      "entity": "Hyderabad State",
+      "detail": "No row covers 1799..1946. Upstream samples at varying timesteps, so a gap means \"not sampled\", NOT \"the polity did not exist\".",
+      "rowsAffected": 1,
+      "action": "Left as a gap. The map renders it as `no-data`, never as `no-entity` (docs/DATA_MODEL.md D-3)."
+    },
+    {
+      "kind": "year-zero",
+      "entity": "Indo-Greeks",
+      "detail": "Row spans -31..0. Upstream documents its years only as \"negative for BCE, positive for CE\", which leaves year 0 undefined; but six rows across the dataset end at 0 and each is followed by a row starting at 1, which is only contiguous under astronomical numbering.",
+      "rowsAffected": 1,
+      "action": "Read as astronomical (year 0 = 1 BCE), matching the convention the rest of the dataset demonstrates. Recorded in DATA_SOURCE_REGISTER.md as an upstream documentation defect."
+    },
+    {
+      "kind": "temporal-gap",
+      "entity": "Indo-Greeks",
+      "detail": "No row covers -77..-51. Upstream samples at varying timesteps, so a gap means \"not sampled\", NOT \"the polity did not exist\".",
+      "rowsAffected": 1,
+      "action": "Left as a gap. The map renders it as `no-data`, never as `no-entity` (docs/DATA_MODEL.md D-3)."
+    },
+    {
+      "kind": "year-zero",
+      "entity": "Indo-Scythians",
+      "detail": "Row spans -27..0. Upstream documents its years only as \"negative for BCE, positive for CE\", which leaves year 0 undefined; but six rows across the dataset end at 0 and each is followed by a row starting at 1, which is only contiguous under astronomical numbering.",
+      "rowsAffected": 1,
+      "action": "Read as astronomical (year 0 = 1 BCE), matching the convention the rest of the dataset demonstrates. Recorded in DATA_SOURCE_REGISTER.md as an upstream documentation defect."
+    },
+    {
+      "kind": "temporal-gap",
+      "entity": "Kalinga",
+      "detail": "No row covers -256..-226. Upstream samples at varying timesteps, so a gap means \"not sampled\", NOT \"the polity did not exist\".",
+      "rowsAffected": 1,
+      "action": "Left as a gap. The map renders it as `no-data`, never as `no-entity` (docs/DATA_MODEL.md D-3)."
+    },
+    {
+      "kind": "temporal-gap",
+      "entity": "Mughal Empire",
+      "detail": "No row covers 1540..1555. Upstream samples at varying timesteps, so a gap means \"not sampled\", NOT \"the polity did not exist\".",
+      "rowsAffected": 1,
+      "action": "Left as a gap. The map renders it as `no-data`, never as `no-entity` (docs/DATA_MODEL.md D-3)."
+    },
+    {
+      "kind": "temporal-gap",
+      "entity": "Portuguese Colonies",
+      "detail": "No row covers 1582..1639. Upstream samples at varying timesteps, so a gap means \"not sampled\", NOT \"the polity did not exist\".",
+      "rowsAffected": 1,
+      "action": "Left as a gap. The map renders it as `no-data`, never as `no-entity` (docs/DATA_MODEL.md D-3)."
+    },
+    {
+      "kind": "temporal-gap",
+      "entity": "Portuguese Empire",
+      "detail": "No row covers 1507..1515. Upstream samples at varying timesteps, so a gap means \"not sampled\", NOT \"the polity did not exist\".",
+      "rowsAffected": 1,
+      "action": "Left as a gap. The map renders it as `no-data`, never as `no-entity` (docs/DATA_MODEL.md D-3)."
+    },
+    {
+      "kind": "temporal-gap",
+      "entity": "Republic of China",
+      "detail": "No row covers 1916..1929. Upstream samples at varying timesteps, so a gap means \"not sampled\", NOT \"the polity did not exist\".",
+      "rowsAffected": 1,
+      "action": "Left as a gap. The map renders it as `no-data`, never as `no-entity` (docs/DATA_MODEL.md D-3)."
+    },
+    {
+      "kind": "temporal-gap",
+      "entity": "Satavahana Dynasty",
+      "detail": "No row covers -170..-165. Upstream samples at varying timesteps, so a gap means \"not sampled\", NOT \"the polity did not exist\".",
+      "rowsAffected": 1,
+      "action": "Left as a gap. The map renders it as `no-data`, never as `no-entity` (docs/DATA_MODEL.md D-3)."
+    },
+    {
+      "kind": "temporal-gap",
+      "entity": "Tang Dynasty",
+      "detail": "No row covers 682..691. Upstream samples at varying timesteps, so a gap means \"not sampled\", NOT \"the polity did not exist\".",
+      "rowsAffected": 1,
+      "action": "Left as a gap. The map renders it as `no-data`, never as `no-entity` (docs/DATA_MODEL.md D-3)."
+    },
+    {
+      "kind": "temporal-gap",
+      "entity": "Tibet",
+      "detail": "No row covers 1794..1911. Upstream samples at varying timesteps, so a gap means \"not sampled\", NOT \"the polity did not exist\".",
+      "rowsAffected": 1,
+      "action": "Left as a gap. The map renders it as `no-data`, never as `no-entity` (docs/DATA_MODEL.md D-3)."
+    },
+    {
+      "kind": "temporal-gap",
+      "entity": "Timurid Empire",
+      "detail": "No row covers 1407..1525. Upstream samples at varying timesteps, so a gap means \"not sampled\", NOT \"the polity did not exist\".",
+      "rowsAffected": 1,
+      "action": "Left as a gap. The map renders it as `no-data`, never as `no-entity` (docs/DATA_MODEL.md D-3)."
+    }
+  ]
+}
