@@ -1,0 +1,46 @@
+# dependencies
+node_modules
+.pnp
+.pnp.js
+
+# next.js
+.next
+out
+build
+dist
+next-env.d.ts
+
+# production
+*.tsbuildinfo
+
+# misc
+.DS_Store
+.env
+.env*.local
+.vercel
+
+# atlas data pipeline (large source downloads are fetched by scripts, never committed)
+atlas/cache
+atlas/raw
+*.geojson.zip
+atlas/tmp
+
+# test / coverage
+coverage
+.vitest
+.data
+
+# Atlas: only the LARGE reproducible artifacts stay out of Git.
+#
+#   atlas/raw/                      219 MB of sha256-pinned upstream downloads (`npm run atlas:fetch`)
+#   shapes-corridor.geojson          24.6 MB of corridor geometry, rebuilt by `npm run atlas:import`
+#
+# Everything else the pipeline derives is committed on purpose, so a fresh clone can serve and validate
+# the corpus without network access to Zenodo or Natural Earth: entities/assertions/anomalies JSON and
+# the 1.3 MB focus-tier shapes are about 2.3 MB in total. `npm run atlas:build` regenerates all of it
+# from the pinned sources, and `npm run atlas:validate` proves it is internally consistent.
+#
+# There is deliberately no `public/atlas/tiles` entry: vector tiling was evaluated and rejected. The
+# worst single-year payload in the pilot corridor is 12 shapes and about 0.36 MB, which does not
+# justify a tile server, so no such directory should ever exist.
+atlas/data/pilot/cliopatria/shapes-corridor.geojson

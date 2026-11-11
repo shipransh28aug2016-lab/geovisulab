@@ -1,0 +1,67 @@
+{
+  "source": "Natural Earth (nvkelso/natural-earth-vector, master)",
+  "license": "Public Domain",
+  "attribution": "Base layers made with Natural Earth, a public domain map dataset. No modern political boundaries are included by design — see docs/LICENCE_AUDIT.md.",
+  "corridor": {
+    "west": 76.5,
+    "south": 19.8,
+    "east": 91.5,
+    "north": 31.5
+  },
+  "clipWindow": {
+    "west": 72.5,
+    "south": 15.8,
+    "east": 95.5,
+    "north": 35.5
+  },
+  "layers": [
+    {
+      "out": "land.geojson",
+      "file": "ne_10m_land.geojson",
+      "upstreamBytes": 10157965,
+      "upstreamSha256": "1ac90796408bc6ad6911d69448485d3c4dbf2190370080368a09976e1c9f7416",
+      "features": 5,
+      "origin": "downloaded",
+      "note": "Land polygons only - deliberately no admin_0 countries or boundary lines.",
+      "cached": true
+    },
+    {
+      "out": "coastline.geojson",
+      "file": "ne_10m_coastline.geojson",
+      "upstreamBytes": 10110735,
+      "upstreamSha256": "6f75ae0e0de157b14946e2255eb1f5486d9a13819032e26d4610852d296788f6",
+      "features": 34,
+      "origin": "downloaded",
+      "note": "Coastline, for the delta and port discussion.",
+      "cached": true
+    },
+    {
+      "out": "rivers.geojson",
+      "file": "ne_10m_rivers_lake_centerlines.geojson",
+      "upstreamBytes": 7307743,
+      "upstreamSha256": "bb854a900ecbd3b408df46d5e16e3e0f974ba55993f9d8b5c26e855273c0905a",
+      "features": 70,
+      "origin": "downloaded",
+      "note": "River centre-lines at 10m. The Ganga system is the physical spine of the whole pilot.",
+      "cached": true
+    },
+    {
+      "out": "lakes.geojson",
+      "file": "ne_10m_lakes.geojson",
+      "upstreamBytes": 5043554,
+      "upstreamSha256": "2d036f53dedec578001c5c30c2959ee7d4eebc1306900fa4367c49929ec8f2d9",
+      "features": 55,
+      "origin": "downloaded",
+      "note": "Lakes and reservoirs.",
+      "cached": true
+    },
+    {
+      "out": "graticule.geojson",
+      "file": "generated locally",
+      "features": 10,
+      "origin": "generated",
+      "note": "5-degree graticule plus the Tropic of Cancer, built locally rather than imported."
+    }
+  ],
+  "generatedAt": "2026-11-11T13:45:11.263Z"
+}

@@ -1,0 +1,43 @@
+[
+  {
+    "id": "cliopatria-v0-2-1",
+    "kind": "dataset",
+    "title": {
+      "en": "Cliopatria — worldwide polities 3400 BCE to 2024 CE",
+      "hi": "क्लिओपेट्रिया — विश्व राजनीतिक सत्ताएँ 3400 ईसा पूर्व से 2024 ईसवी तक"
+    },
+    "author": "Seshat Global History Databank",
+    "publisher": "Seshat Global History Databank / Zenodo",
+    "url": "https://github.com/Seshat-Global-History-Databank/cliopatria",
+    "doi": "10.5281/zenodo.13363121",
+    "license": "CC-BY-4.0",
+    "attribution": "Cliopatria: a geospatial dataset of worldwide polities from 3400 BCE to 2024 CE, Seshat Global History Databank, licensed CC BY 4.0. Boundaries reflect one version of historical territory and are approximate.",
+    "accessDate": "2026-11-11",
+    "primary": false,
+    "coverage": {
+      "spatial": [
+        -180,
+        -90,
+        180,
+        90
+      ],
+      "temporal": "-3399/2024",
+      "completeness": "partial"
+    },
+    "notes": "A compiled secondary dataset, not a primary source. Its own README warns that border uncertainties and differing opinions on names, territorial changes and durations are common, and that users are solely responsible for assessing suitability. We surface that warning rather than presenting the shapes as settled history."
+  },
+  {
+    "id": "seshat-cliopatria-paper-2025",
+    "kind": "article",
+    "title": {
+      "en": "Cliopatria: an open-source geospatial dataset of historical polities"
+    },
+    "publisher": "Scientific Data (Nature Portfolio)",
+    "publicationDate": "2025",
+    "doi": "10.1038/s41597-025-04516-9",
+    "license": "CC-BY-4.0",
+    "accessDate": "2026-11-11",
+    "primary": false,
+    "notes": "Describes the dataset's initial format, construction and source material. Cited so a reader can audit how the borders were compiled. Not independently read for this pilot — see docs/DATA_SOURCE_REGISTER.md, status: reference located, full text not yet reviewed."
+  }
+]

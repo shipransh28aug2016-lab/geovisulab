@@ -6,13 +6,26 @@
  */
 
 import "dotenv/config";
-import { db } from "../src/db";
+import { isDbConfigured, requireDb } from "../src/db";
 import { users, annotations, studyProgress, bookmarks, customQuizzes, quizAttempts, idempotencyKeys } from "../src/db/schema";
 import { computePayloadHash, canonicalizeJson, withIdempotency } from "../src/lib/idempotency";
 import { sql, eq, and, desc } from "drizzle-orm";
 import { NextResponse } from "next/server";
 
 async function runAudit() {
+  // This suite inspects real PostgreSQL catalogues (pg_indexes) and Drizzle query plans, so it can
+  // only run against a live database. DECISION D-002 made `db` nullable; guard it explicitly rather
+  // than crashing with "cannot read property execute of null".
+  if (!isDbConfigured) {
+    console.log("=================================================");
+    console.log("SKIPPED: DATABASE_URL is not set.");
+    console.log("The Postgres index/idempotency audit needs a live database. The app itself runs on");
+    console.log("the file storage adapter — see GET /api/health -> { storage: \"file\" }.");
+    console.log("Run the framework-level checks instead:  npm test   and   npm run atlas:validate");
+    console.log("=================================================");
+    return { passed: 0, failed: 0 };
+  }
+  const db = requireDb();
   console.log("=================================================");
   console.log("PRODUCTION RELIABILITY & DATABASE INDEX AUDIT");
   console.log("=================================================\n");
