@@ -18,7 +18,7 @@ Published on GitHub only. Code: MIT (`LICENSE`). Data: see `NOTICE.md` (Cliopatr
 Run it yourself with the commands above; it is a Next.js server app (API routes), so it needs Node 20+, not static hosting.
 
 Optional: `DATABASE_URL` (Postgres) for durable accounts/notes; otherwise a demo file store is used (see `.env.example`).
-For every historical boundary run `npm run atlas:fetch && npm run atlas:build` once (needs internet; ~219 MB download). Without it the committed 145-shape focus tier is used and the UI says so.
+Full-corridor boundaries (`shapes-corridor.geojson`, 24.6 MB) are committed, so a fresh clone is complete. To regenerate from upstream: `npm run atlas:fetch && npm run atlas:build` (falls back to git if api.github.com is blocked).
 
 ## API
 `/api/health` · `/api/atlas/snapshot?astronomical=-260` (or `year=261&era=BCE`, `edtf=1765-08-12`) · `/api/atlas/timeline` · `/api/atlas/event?event=<id>` · `/api/atlas/basemap`
