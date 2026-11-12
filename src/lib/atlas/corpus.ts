@@ -60,6 +60,7 @@ import type {
   Place,
   SourceRecord,
 } from "./model";
+import type { AtlasCorpusStatus, ShapeTier, TimelineEvent } from "./api-types";
 import { CLIOPATRIA_DIR, assertServerOnly, atlasDataPresent } from "./paths";
 import {
   astronomicalToHistorical,
@@ -158,8 +159,9 @@ interface ImportManifest {
   importedAt?: string;
 }
 
-/** Which geometry file is available. Named in every result that depends on it. */
-export type ShapeTier = "corridor" | "focus" | "none";
+// `ShapeTier` is defined in the shared API contract so the client and the server cannot disagree about
+// what the values mean. Re-exported because callers of this module already import it from here.
+export type { ShapeTier } from "./api-types";
 
 export interface ImportedCollections {
   entities: HistoricalEntity[];
@@ -292,17 +294,7 @@ export function loadCorpus(generatedAt?: string): AtlasCorpus {
  *
  * Reports what is present and what is missing without exposing the collections themselves.
  */
-export function corpusStatus(): {
-  present: boolean;
-  dataRoot: string;
-  corridor: BBox;
-  temporalExtent: [string, string];
-  curated: typeof CURATED_COUNTS;
-  shapeTier: ShapeTier;
-  generatedAt: string | null;
-  imported: { entities: number; assertions: number; sources: number; anomalyKinds: number } | null;
-  missing: string[];
-} {
+export function corpusStatus(): AtlasCorpusStatus {
   assertServerOnly("src/lib/atlas/corpus.ts");
   const present = atlasDataPresent();
   const missing: string[] = [];
@@ -742,18 +734,7 @@ export function shapesForSnapshot(snapshot: CorpusSnapshot): ShapeBundle {
  * Deliberately small: id, date, title, importance and place. A timeline needs to position events, not
  * carry their full evidence records — those are fetched for one event at a time.
  */
-export function eventTimeline(): Array<{
-  id: string;
-  date: string;
-  dateCertainty: DateCertainty;
-  title: LocalisedText;
-  importance: number;
-  eventType: HistoricalEvent["eventType"];
-  placeId?: string;
-  geometry?: { type: "Point"; coordinates: [number, number] };
-  displayDate: LocalisedText;
-  parseError?: string;
-}> {
+export function eventTimeline(): TimelineEvent[] {
   const corpus = loadCorpus();
   return corpus.events
     .map((e) => {

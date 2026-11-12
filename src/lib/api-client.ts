@@ -23,6 +23,11 @@ import type {
   StudyProgressRow,
   UserRow,
 } from "@/db/store";
+import type {
+  AtlasBasemapResponse,
+  AtlasMetaResponse,
+  AtlasSnapshotResponse,
+} from "@/lib/atlas/api-types";
 
 /**
  * A failed API call.
@@ -281,6 +286,56 @@ export const api = {
     request<Json & { attempt: QuizAttemptRow }>(`/api/quizzes/${encodeURIComponent(attempt.quizId)}/attempt`, {
       body: { userId, score: attempt.score, maxScore: attempt.maxScore, answers: attempt.answers, timeSpentSeconds: attempt.timeSpentSeconds },
       idempotencyKey: `attempt_${attempt.quizId}_${userId}_${Date.now()}`,
+    }),
+
+  // -------------------------------------------------------------------------
+  // Atlas — the historical knowledge corridor
+  //
+  // These are GETs, so no idempotency key. All three take an AbortSignal because the year scrubber
+  // fires a request per change of year: without cancellation, dragging the scrubber queues dozens of
+  // snapshots and the last one to ARRIVE (not the last one requested) wins, so the map can settle on
+  // the wrong year. Callers must pass a signal and ignore AbortError.
+  // -------------------------------------------------------------------------
+
+  /** Corpus status plus the event timeline the scrubber draws. One request, so both agree. */
+  atlasMeta: (signal?: AbortSignal) => request<AtlasMetaResponse>("/api/atlas/meta", { signal }),
+
+  /**
+   * The physical base map as GeoJSON, from our own committed Natural Earth extract.
+   *
+   * Served from this app rather than a third-party tile server so that (a) it works with no outbound
+   * network, which is the case in the preview frame and in CI, and (b) every layer carries its upstream
+   * sha256 and licence. Omit `layers` for all five.
+   */
+  atlasBasemap: (layers?: string[], signal?: AbortSignal) =>
+    request<AtlasBasemapResponse>("/api/atlas/basemap", {
+      query: layers && layers.length > 0 ? { layers: layers.join(",") } : undefined,
+      signal,
+    }),
+
+  /**
+   * One year of the corridor: entities, assertions, events, places, geometry and certainty counts.
+   *
+   * The year must be given in an unambiguous form. `astronomical` is the corpus's own numbering (year 0
+   * is 1 BCE); `historical` is how a learner writes it and needs an `era`. The server rejects a bare
+   * negative year with 400 rather than guessing, because the two numbering systems differ by one for
+   * every year at or before 1 BCE and a wrong guess would date the Kalinga war a year out.
+   */
+  atlasSnapshot: (
+    year:
+      | { astronomical: number }
+      | { historical: number; era: "BCE" | "CE" }
+      | { edtf: string },
+    signal?: AbortSignal,
+  ) =>
+    request<AtlasSnapshotResponse>("/api/atlas/snapshot", {
+      query:
+        "astronomical" in year
+          ? { astronomical: year.astronomical }
+          : "edtf" in year
+            ? { edtf: year.edtf }
+            : { year: year.historical, era: year.era },
+      signal,
     }),
 };
 
