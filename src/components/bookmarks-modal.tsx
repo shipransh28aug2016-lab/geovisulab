@@ -46,7 +46,7 @@ export default function BookmarksModal({
               <Bookmark className="w-8 h-8 mx-auto text-slate-600" />
               <p className="text-sm font-semibold text-slate-400">No bookmarks saved yet</p>
               <p className="text-xs max-w-xs mx-auto">
-                Click any river, mountain peak, or soil region on the 3D globe or map and hit "Bookmark for Revision".
+                Click any river, mountain peak, or soil region on the 3D globe or map and hit &ldquo;Bookmark for Revision&rdquo;.
               </p>
             </div>
           ) : (
