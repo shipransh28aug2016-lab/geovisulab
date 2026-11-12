@@ -198,6 +198,11 @@ export default function Globe3D({
 }: Globe3DProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [autoRotate, setAutoRotate] = useState(true);
+  // The render loop is created once, so it must read rotation state through a ref.
+  const autoRotateRef = useRef(true);
+  useEffect(() => {
+    autoRotateRef.current = autoRotate;
+  }, [autoRotate]);
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
 
   // Draggable Globe Navigation HUD
@@ -253,7 +258,7 @@ export default function Globe3D({
   // Interaction tracking
   const isDraggingRef = useRef(false);
   const prevMousePosRef = useRef({ x: 0, y: 0 });
-  const targetRotationRef = useRef({ x: 0.35, y: -2.25 }); // Centered on India
+  const targetRotationRef = useRef({ x: 0.38, y: -2.94 }); // Centered on India (22°N, 78.5°E)
 
   // Fast coordinate conversion
   const latLngToVector3 = (lat: number, lng: number, radius: number): THREE.Vector3 => {
@@ -269,9 +274,12 @@ export default function Globe3D({
   const flyTo = useCallback((lat: number, lng: number) => {
     const targetY = -(lng * (Math.PI / 180)) - Math.PI / 2;
     const targetX = lat * (Math.PI / 180);
+    // Take the shortest way round: auto-rotation may have wound rotation.y through many turns.
+    const cur = globeGroupRef.current?.rotation.y ?? targetY;
+    const TAU = Math.PI * 2;
     targetRotationRef.current = {
       x: Math.max(-1.2, Math.min(1.2, targetX)),
-      y: targetY,
+      y: targetY + Math.round((cur - targetY) / TAU) * TAU,
     };
     setAutoRotate(false);
   }, []);
@@ -295,7 +303,7 @@ export default function Globe3D({
 
     // 2. Camera
     const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 100);
-    camera.position.z = 2.6;
+    camera.position.z = 3.1;
     cameraRef.current = camera;
 
     // 3. Renderer with powerPreference: 'high-performance'
@@ -311,9 +319,9 @@ export default function Globe3D({
     rendererRef.current = renderer;
 
     // 4. Lighting
-    const ambientLight = new THREE.AmbientLight(0xffffff, 1.4);
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.75);
     scene.add(ambientLight);
-    const sunLight = new THREE.DirectionalLight(0xffffff, 2.0);
+    const sunLight = new THREE.DirectionalLight(0xffffff, 2.4);
     sunLight.position.set(5, 3, 5);
     scene.add(sunLight);
 
@@ -321,30 +329,93 @@ export default function Globe3D({
     const globeGroup = new THREE.Group();
     scene.add(globeGroup);
     globeGroupRef.current = globeGroup;
-    globeGroup.rotation.x = 0.35;
-    globeGroup.rotation.y = -2.25;
+    globeGroup.rotation.x = 0.38;
+    globeGroup.rotation.y = -2.94;
 
     // Fast Earth Mesh
     const radius = 1.0;
-    const globeGeo = new THREE.SphereGeometry(radius, 32, 32);
-    const globeTexture = getSharedEarthTexture();
+    const globeGeo = new THREE.SphereGeometry(radius, 96, 96);
+    // Procedural texture paints instantly; the photographic Earth swaps in once loaded and stays
+    // as the fallback if the self-hosted textures cannot be fetched.
     const globeMat = new THREE.MeshStandardMaterial({
-      map: globeTexture,
+      map: getSharedEarthTexture(),
       roughness: 0.8,
       metalness: 0.1,
     });
     const globeMesh = new THREE.Mesh(globeGeo, globeMat);
     globeGroup.add(globeMesh);
 
-    // Atmosphere Glow
-    const atmosphereGeo = new THREE.SphereGeometry(radius * 1.02, 24, 24);
-    const atmosphereMat = new THREE.MeshBasicMaterial({
-      color: 0x38bdf8,
+    let disposed = false;
+    const loaded: THREE.Texture[] = [];
+    const loader = new THREE.TextureLoader();
+    const maxAniso = renderer.capabilities.getMaxAnisotropy();
+
+    // Clouds live in the blue channel of the combined bump/roughness/clouds texture.
+    const cloudGeo = new THREE.SphereGeometry(radius * 1.012, 64, 64);
+    const cloudMat = new THREE.ShaderMaterial({
       transparent: true,
-      opacity: 0.15,
+      depthWrite: false,
+      uniforms: { map: { value: null }, opacity: { value: 0 } },
+      vertexShader: "varying vec2 vUv; void main(){ vUv = uv; gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0); }",
+      fragmentShader:
+        "uniform sampler2D map; uniform float opacity; varying vec2 vUv;" +
+        "void main(){ float c = texture2D(map, vUv).b; gl_FragColor = vec4(vec3(1.0), smoothstep(0.25, 1.0, c) * opacity); }",
+    });
+    const cloudMesh = new THREE.Mesh(cloudGeo, cloudMat);
+    cloudMesh.raycast = () => {};
+    cloudMesh.visible = false;
+    globeGroup.add(cloudMesh);
+
+    loader.load("/textures/earth_day_4096.jpg", (tex) => {
+      if (disposed) return tex.dispose();
+      tex.colorSpace = THREE.SRGBColorSpace;
+      tex.anisotropy = Math.min(8, maxAniso);
+      loaded.push(tex);
+      globeMat.map = tex;
+      globeMat.needsUpdate = true;
+    });
+    loader.load("/textures/earth_bump_roughness_clouds_4096.jpg", (tex) => {
+      if (disposed) return tex.dispose();
+      tex.anisotropy = Math.min(8, maxAniso);
+      loaded.push(tex);
+      globeMat.bumpMap = tex; // red channel = relief
+      globeMat.bumpScale = 2.5;
+      globeMat.roughnessMap = tex; // green channel = oceans glossy, land matte
+      globeMat.roughness = 1;
+      globeMat.needsUpdate = true;
+      cloudMat.uniforms.map.value = tex;
+      cloudMat.uniforms.opacity.value = 0.55;
+      cloudMesh.visible = true;
+    });
+
+    // Starfield backdrop
+    const starGeo = new THREE.BufferGeometry();
+    const starPos = new Float32Array(1500 * 3);
+    for (let i = 0; i < 1500; i++) {
+      const v = new THREE.Vector3().randomDirection().multiplyScalar(40 + Math.random() * 20);
+      starPos.set([v.x, v.y, v.z], i * 3);
+    }
+    starGeo.setAttribute("position", new THREE.BufferAttribute(starPos, 3));
+    const starMat = new THREE.PointsMaterial({ color: 0xffffff, size: 0.12, transparent: true, opacity: 0.7 });
+    const stars = new THREE.Points(starGeo, starMat);
+    stars.raycast = () => {};
+    scene.add(stars);
+
+    // Atmosphere Glow
+    const atmosphereGeo = new THREE.SphereGeometry(radius * 1.12, 64, 64);
+    // Fresnel rim glow: bright at the limb, invisible face-on.
+    const atmosphereMat = new THREE.ShaderMaterial({
+      transparent: true,
+      depthWrite: false,
       side: THREE.BackSide,
+      blending: THREE.AdditiveBlending,
+      vertexShader: "varying vec3 vN; void main(){ vN = normalize(normalMatrix * normal); gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0); }",
+      fragmentShader:
+        "varying vec3 vN; void main(){ float i = pow(0.72 - dot(vN, vec3(0.0, 0.0, 1.0)), 3.0);" +
+        "gl_FragColor = vec4(0.25, 0.6, 1.0, 1.0) * clamp(i, 0.0, 1.0); }",
     });
     const atmosphereMesh = new THREE.Mesh(atmosphereGeo, atmosphereMat);
+    atmosphereMesh.raycast = () => {};
     scene.add(atmosphereMesh);
 
     // Markers and Lines Groups
@@ -376,7 +447,8 @@ export default function Globe3D({
       reqIdRef.current = requestAnimationFrame(animate);
 
       if (globeGroupRef.current) {
-        if (autoRotate && !isDraggingRef.current) {
+        cloudMesh.rotation.y += 0.0003;
+        if (autoRotateRef.current && !isDraggingRef.current) {
           globeGroupRef.current.rotation.y += 0.002;
         } else if (!isDraggingRef.current) {
           globeGroupRef.current.rotation.y +=
@@ -393,6 +465,12 @@ export default function Globe3D({
     return () => {
       if (reqIdRef.current) cancelAnimationFrame(reqIdRef.current);
       window.removeEventListener("resize", handleResize);
+      disposed = true;
+      loaded.forEach((t) => t.dispose());
+      cloudGeo.dispose();
+      cloudMat.dispose();
+      starGeo.dispose();
+      starMat.dispose();
       renderer.dispose();
       globeGeo.dispose();
       globeMat.dispose();
@@ -608,18 +686,53 @@ export default function Globe3D({
   }, [activeLayers]);
 
   // Mouse Orbit
-  const onMouseDown = (e: React.MouseEvent) => {
+  // Pointer orbit (mouse + touch + pen) with two-finger pinch zoom
+  const pointersRef = useRef(new Map<number, { x: number; y: number }>());
+  const pinchDistRef = useRef(0);
+  const movedRef = useRef(false);
+
+  const syncTargetToCurrent = () => {
+    if (!globeGroupRef.current) return;
+    targetRotationRef.current = { x: globeGroupRef.current.rotation.x, y: globeGroupRef.current.rotation.y };
+  };
+
+  const onMouseDown = (e: React.PointerEvent) => {
+    pointersRef.current.set(e.pointerId, { x: e.clientX, y: e.clientY });
+    try {
+      e.currentTarget.setPointerCapture(e.pointerId);
+    } catch {
+      /* synthetic or already-released pointer */
+    }
+    movedRef.current = false;
+    if (pointersRef.current.size === 2) {
+      const [p, q] = [...pointersRef.current.values()];
+      pinchDistRef.current = Math.hypot(p.x - q.x, p.y - q.y);
+      isDraggingRef.current = false;
+      return;
+    }
     isDraggingRef.current = true;
     prevMousePosRef.current = { x: e.clientX, y: e.clientY };
+    syncTargetToCurrent(); // a plain click must not swing the globe back to a stale target
     setAutoRotate(false);
   };
 
-  const onMouseMove = (e: React.MouseEvent) => {
+  const onMouseMove = (e: React.PointerEvent) => {
     if (!containerRef.current) return;
+
+    if (pointersRef.current.has(e.pointerId)) pointersRef.current.set(e.pointerId, { x: e.clientX, y: e.clientY });
+    if (pointersRef.current.size === 2) {
+      const [p, q] = [...pointersRef.current.values()];
+      const d = Math.hypot(p.x - q.x, p.y - q.y);
+      if (pinchDistRef.current > 0) handleZoom((pinchDistRef.current - d) * 0.008);
+      pinchDistRef.current = d;
+      movedRef.current = true;
+      return;
+    }
 
     if (isDraggingRef.current && globeGroupRef.current) {
       const deltaX = e.clientX - prevMousePosRef.current.x;
       const deltaY = e.clientY - prevMousePosRef.current.y;
+      if (Math.abs(deltaX) + Math.abs(deltaY) > 3) movedRef.current = true;
 
       globeGroupRef.current.rotation.y += deltaX * 0.006;
       globeGroupRef.current.rotation.x += deltaY * 0.006;
@@ -653,11 +766,14 @@ export default function Globe3D({
     }
   };
 
-  const onMouseUp = () => {
+  const onMouseUp = (e: React.PointerEvent) => {
+    pointersRef.current.delete(e.pointerId);
+    pinchDistRef.current = 0;
     isDraggingRef.current = false;
   };
 
   const onClick = (e: React.MouseEvent) => {
+    if (movedRef.current) return; // end of a drag, not a tap
     if (!containerRef.current || !cameraRef.current || !markersGroupRef.current) return;
     const rect = containerRef.current.getBoundingClientRect();
     const mouseX = ((e.clientX - rect.left) / rect.width) * 2 - 1;
@@ -683,11 +799,11 @@ export default function Globe3D({
       {/* 3D Canvas */}
       <div
         ref={containerRef}
-        className="w-full h-full cursor-grab active:cursor-grabbing"
-        onMouseDown={onMouseDown}
-        onMouseMove={onMouseMove}
-        onMouseUp={onMouseUp}
-        onMouseLeave={onMouseUp}
+        className="w-full h-full cursor-grab active:cursor-grabbing touch-none"
+        onPointerDown={onMouseDown}
+        onPointerMove={onMouseMove}
+        onPointerUp={onMouseUp}
+        onPointerCancel={onMouseUp}
         onClick={onClick}
         onWheel={(e) => handleZoom(e.deltaY * 0.0015)}
       />
@@ -824,7 +940,10 @@ export default function Globe3D({
       {/* Floating Zoom & Rotate controls (Positioned below the layers panel so it never overrides) */}
       <div className="absolute top-20 right-4 z-20 flex flex-col gap-2">
         <button
-          onClick={() => setAutoRotate(!autoRotate)}
+          onClick={() => {
+            syncTargetToCurrent();
+            setAutoRotate(!autoRotate);
+          }}
           className={`p-2 rounded-xl border backdrop-blur-md transition shadow-lg flex items-center gap-1.5 text-xs font-medium ${
             autoRotate
               ? "bg-emerald-500/20 border-emerald-500/50 text-emerald-300"
