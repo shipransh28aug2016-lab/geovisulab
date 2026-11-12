@@ -13,10 +13,12 @@ npm ci && npm run dev      # http://localhost:3000
 npm run typecheck && npm run lint && npm test && npm run build
 ```
 
-## Deploy (Vercel)
-1. Import the repo → framework auto-detects Next.js (`vercel.json` included).
-2. Optional env: `DATABASE_URL` (Postgres) for durable accounts/notes. Without it a demo file store in `/tmp` is used (resets on cold start). See `.env.example`.
-3. Atlas data (`atlas/data/pilot/**`) is bundled via `outputFileTracingIncludes`. Full-corridor geometry (`shapes-corridor.geojson`, 24.6 MB) is gitignored; run `npm run atlas:build` before deploying if you want every boundary, otherwise the committed 145-shape focus tier is used and the UI says so.
+## Open source
+Published on GitHub only. Code: MIT (`LICENSE`). Data: see `NOTICE.md` (Cliopatria CC BY 4.0 — keep attribution).
+Run it yourself with the commands above; it is a Next.js server app (API routes), so it needs Node 20+, not static hosting.
+
+Optional: `DATABASE_URL` (Postgres) for durable accounts/notes; otherwise a demo file store is used (see `.env.example`).
+For every historical boundary run `npm run atlas:fetch && npm run atlas:build` once (needs internet; ~219 MB download). Without it the committed 145-shape focus tier is used and the UI says so.
 
 ## API
 `/api/health` · `/api/atlas/snapshot?astronomical=-260` (or `year=261&era=BCE`, `edtf=1765-08-12`) · `/api/atlas/timeline` · `/api/atlas/event?event=<id>` · `/api/atlas/basemap`
