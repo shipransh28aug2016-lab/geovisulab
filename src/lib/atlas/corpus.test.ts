@@ -12,6 +12,14 @@
  */
 
 import { describe, expect, it } from "vitest";
+import { existsSync } from "node:fs";
+import path from "node:path";
+
+// shapes-corridor.geojson (24.6 MB) is a gitignored build artifact (`npm run atlas:build`). Tests that
+// need complete geometry run only where it exists; the committed focus tier is always checked.
+const HAS_CORRIDOR = existsSync(
+  path.join(process.cwd(), "atlas", "data", "pilot", "cliopatria", "shapes-corridor.geojson"),
+);
 
 import {
   CorpusError,
@@ -132,7 +140,7 @@ describe.skipIf(!built)("snapshot contents", () => {
 });
 
 describe.skipIf(!built)("shapes for a snapshot", () => {
-  it("supplies geometry for every asserted shape in the corridor tier", () => {
+  it.skipIf(!HAS_CORRIDOR)("supplies geometry for every asserted shape in the corridor tier", () => {
     const snapshot = snapshotAtHistoricalYear(261, "BCE");
     const bundle = shapesForSnapshot(snapshot);
     expect(bundle.tier).toBe("corridor");
@@ -145,7 +153,7 @@ describe.skipIf(!built)("shapes for a snapshot", () => {
     expect(bundle.note).toContain("imported-unreviewed");
   });
 
-  it("keeps a single-year payload small enough to send without tiling", () => {
+  it.skipIf(!HAS_CORRIDOR)("keeps a single-year payload small enough to send without tiling", () => {
     // The measurement that retired the tile server: the worst year is about 0.36 MB.
     const worst = shapesForSnapshot(snapshotAtAstronomicalYear(1918));
     expect(worst.found).toBe(12);
@@ -221,7 +229,7 @@ describe.skipIf(!built)("loadCorpus", () => {
   });
 
   it("names the shape tier it found instead of implying completeness", () => {
-    expect(loadImportedCollections().shapeTier).toBe("corridor");
+    expect(loadImportedCollections().shapeTier).toBe(HAS_CORRIDOR ? "corridor" : "focus");
   });
 });
 

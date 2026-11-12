@@ -49,7 +49,7 @@ export default function ExamTipsModal({
           <div className="p-4 rounded-xl bg-amber-500/10 border border-amber-500/30 space-y-2">
             <div className="flex items-center gap-2 font-bold text-amber-300">
               <AlertTriangle className="w-4 h-4 text-amber-400 shrink-0" />
-              <span>Examiner's Advice for Full Marks</span>
+              <span>Examiner&apos;s Advice for Full Marks</span>
             </div>
             <p className="text-amber-100 leading-relaxed font-medium">
               {topic.examTips}
