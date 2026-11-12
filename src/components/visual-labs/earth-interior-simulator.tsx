@@ -576,7 +576,7 @@ export default function EarthInteriorSimulator({
                   {lang === "hi" ? "भूकंपीय छाया क्षेत्र सिमुलेशन" : "Seismic Shadow Zone Controls"}
                 </h3>
                 <p className="text-slate-400 text-[11px]">
-                  Adjust the seismograph receiver position around Earth's surface to discover shadow zones.
+                  Adjust the seismograph receiver position around Earth&apos;s surface to discover shadow zones.
                 </p>
               </div>
 
@@ -632,7 +632,7 @@ export default function EarthInteriorSimulator({
                   <span>NCERT Board Exam Takeaway</span>
                 </div>
                 <p className="text-amber-100/90 leading-relaxed text-[11px]">
-                  <strong>Why does the S-wave shadow zone cover over 40% of Earth?</strong> S-waves cannot propagate through fluids. Because Earth's outer core is liquid iron-nickel at 2,900 km, S-waves vanish completely beyond 105°, proving the core is molten.
+                  <strong>Why does the S-wave shadow zone cover over 40% of Earth?</strong> S-waves cannot propagate through fluids. Because Earth&apos;s outer core is liquid iron-nickel at 2,900 km, S-waves vanish completely beyond 105°, proving the core is molten.
                 </p>
               </div>
             </div>

@@ -198,6 +198,21 @@ export default function Globe3D({
 }: Globe3DProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [autoRotate, setAutoRotate] = useState(true);
+  /**
+   * The animation loop reads rotation through this ref, not through the `autoRotate` state closure.
+   *
+   * The mount effect that builds the loop has an empty dependency array, so its closure captured the
+   * INITIAL value of `autoRotate` and never saw another. The result was a button that changed its own
+   * label and icon on click while the globe kept spinning regardless — the toggle looked like it worked
+   * and did not. A ref written by `applyAutoRotate` is visible to the loop on the very next frame.
+   */
+  const autoRotateRef = useRef(true);
+
+  /** Sets both the ref the render loop reads and the state the button renders from. */
+  const applyAutoRotate = useCallback((next: boolean) => {
+    autoRotateRef.current = next;
+    setAutoRotate(next);
+  }, []);
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
 
   // Draggable Globe Navigation HUD
@@ -273,11 +288,17 @@ export default function Globe3D({
       x: Math.max(-1.2, Math.min(1.2, targetX)),
       y: targetY,
     };
-    setAutoRotate(false);
+    applyAutoRotate(false);
   }, []);
 
   useEffect(() => {
     if (focusCoords) {
+      // Stopping auto-rotation is part of synchronising the Three.js scene with the new focus prop: the
+      // loop either spins OR eases toward `targetRotationRef`, never both, so a fly-to is invisible
+      // while rotation is on. This effect drives an external system in response to a prop change rather
+      // than deriving React state from other state, which is what the rule is aimed at. This component
+      // is scheduled for replacement by a React Three Fiber scene, which removes the manual loop.
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       flyTo(focusCoords.lat, focusCoords.lng);
     }
   }, [focusCoords, flyTo]);
@@ -376,7 +397,7 @@ export default function Globe3D({
       reqIdRef.current = requestAnimationFrame(animate);
 
       if (globeGroupRef.current) {
-        if (autoRotate && !isDraggingRef.current) {
+        if (autoRotateRef.current && !isDraggingRef.current) {
           globeGroupRef.current.rotation.y += 0.002;
         } else if (!isDraggingRef.current) {
           globeGroupRef.current.rotation.y +=
@@ -611,7 +632,7 @@ export default function Globe3D({
   const onMouseDown = (e: React.MouseEvent) => {
     isDraggingRef.current = true;
     prevMousePosRef.current = { x: e.clientX, y: e.clientY };
-    setAutoRotate(false);
+    applyAutoRotate(false);
   };
 
   const onMouseMove = (e: React.MouseEvent) => {
@@ -824,7 +845,7 @@ export default function Globe3D({
       {/* Floating Zoom & Rotate controls (Positioned below the layers panel so it never overrides) */}
       <div className="absolute top-20 right-4 z-20 flex flex-col gap-2">
         <button
-          onClick={() => setAutoRotate(!autoRotate)}
+          onClick={() => applyAutoRotate(!autoRotate)}
           className={`p-2 rounded-xl border backdrop-blur-md transition shadow-lg flex items-center gap-1.5 text-xs font-medium ${
             autoRotate
               ? "bg-emerald-500/20 border-emerald-500/50 text-emerald-300"

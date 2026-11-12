@@ -1,5 +1,13 @@
 "use client";
 
+// Leaflet's stylesheet is bundled from node_modules rather than loaded from unpkg, as it was before.
+// Without it the map renders unstyled — tiles misaligned, zoom controls and popups broken — and because
+// the failure is purely visual it looks like a data problem rather than a missing stylesheet. Importing
+// it here keeps the dependency with the component that needs it and makes the app work offline, in CI,
+// and in sandboxed preview frames with no network. The JS was already bundled via dynamic import; this
+// was the one piece still reaching out to a CDN at runtime.
+import "leaflet/dist/leaflet.css";
+
 import React, { useEffect, useRef, useState } from "react";
 import {
   INDIAN_RIVERS,

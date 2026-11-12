@@ -15,12 +15,12 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <head>
-        <link
-          rel="stylesheet"
-          href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-          crossOrigin=""
-        />
+        {/* Leaflet's stylesheet used to be loaded from unpkg here. It is now bundled from node_modules
+            by the component that actually uses it (src/components/interactive-map.tsx), so the map is
+            styled correctly offline, in CI and in sandboxed preview frames. Google Fonts is left on a
+            CDN deliberately: `next/font/google` fetches at build time, which would make the build
+            depend on network access, and globals.css already declares a system-ui fallback stack so a
+            blocked font request degrades gracefully instead of breaking layout. */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
