@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-11T13:45:10.543Z",
+  "generatedAt": "2026-11-12T15:59:34.981Z",
   "policy": "Upstream data problems are REPORTED, not silently repaired. Each entry says what the pipeline did and why. `atlas:validate` fails if an anomaly is present but unexplained.",
   "corridor": {
     "west": 76.5,
