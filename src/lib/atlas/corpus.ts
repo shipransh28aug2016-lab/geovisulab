@@ -158,7 +158,12 @@ interface ImportManifest {
   importedAt?: string;
 }
 
-/** Which geometry file is available. Named in every result that depends on it. */
+/**
+ * Which geometry file is available. Named in every result that depends on it.
+ *
+ * Defined here rather than in `api-types.ts` because that module DERIVES its types from these functions;
+ * declaring the type there and annotating with it here would be circular.
+ */
 export type ShapeTier = "corridor" | "focus" | "none";
 
 export interface ImportedCollections {

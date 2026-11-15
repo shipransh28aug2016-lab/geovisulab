@@ -51,13 +51,28 @@ function report(id: string, severity: Severity, message: string): void {
   seen.add(key);
   findings.push({ id, severity, message });
 }
+/**
+ * Reports many instances of one defect as a single finding with a count and a sample.
+ *
+ * The count is applied to the word "instance" rather than to `noun`, because `noun` is a phrase whose
+ * head is usually NOT its last word. Appending "s" to the phrase produced "citation naming a source id
+ * that does not exists", "assertion whose subject is not an imported entitys" and "curriculum link not
+ * verified against a named syllabuss" — nearly every finding in the report was ungrammatical once its
+ * count exceeded one, which is exactly when anyone reads it. Pluralising a fixed word fixes all twenty
+ * call sites at once and lets each `noun` stay a natural description.
+ *
+ * @param noun   Singular description of the defect, e.g. "citation with an empty or missing locator".
+ * @param ids    Offending record ids; the first six are sampled into the message.
+ * @param detail Optional qualifier appended after the count, e.g. a remediation command.
+ */
 function count(id: string, severity: Severity, noun: string, ids: string[], detail = ""): void {
   if (ids.length === 0) return;
   const sample = ids.slice(0, 6).join(", ");
   report(
     id,
     severity,
-    `${ids.length} ${noun}${ids.length === 1 ? "" : "s"}${detail ? ` ${detail}` : ""}: ${sample}` +
+    `${noun} — ${ids.length} instance${ids.length === 1 ? "" : "s"}` +
+      `${detail ? ` ${detail}` : ""}: ${sample}` +
       (ids.length > 6 ? `, …` : ""),
   );
 }
@@ -253,7 +268,24 @@ if (assertions) {
     "(a claim about land needs the land)",
   );
   count("E002", "error", "assertion whose subject is not an imported entity", badSubject);
-  count("E003", "error", "assertion whose shape is not in either shape tier", badShape);
+  if (corridorShapes) {
+    count("E003", "error", "assertion whose shape is not in either shape tier", badShape);
+  } else {
+    // `shapes-corridor.geojson` is a 24.6 MB GITIGNORED build artifact, so a fresh clone holds only the
+    // committed 145-shape focus tier. Without the corridor tier these assertions cannot be checked at
+    // all — their shapes may well exist in a file that simply has not been built yet. Reporting that as
+    // an ERROR made `npm run atlas:validate` fail on every clean checkout, which is worse than not
+    // having the rule: a gate that is always red gets ignored, and then it catches nothing. So the
+    // un-checkable remainder is reported as a scoped warning that states how much was NOT verified and
+    // exactly how to verify it.
+    count(
+      "W007",
+      "warning",
+      "assertion whose shape could not be verified",
+      badShape,
+      "(the corridor tier is not built — run `npm run atlas:fetch && npm run atlas:import` to check them)",
+    );
+  }
 
   // Every focus shape should be the geometry of some assertion; an orphan shape is undisplayable
   // provenance — it has no claim, no date and no source attached.
@@ -695,6 +727,24 @@ report(
 
 const errors = findings.filter((f) => f.severity === "error");
 const warnings = findings.filter((f) => f.severity === "warning");
+
+// A finding whose severity is neither "error" nor "warning" appears in NEITHER list, so it is absent
+// from the printed report AND from the exit code — a defect silently deleted by a typo. `Severity` is a
+// closed union so TypeScript considers this branch unreachable, but the validator is normally run
+// through `tsx`, which strips types without checking them. That is exactly how a misspelled "warn"
+// once swallowed 1,619 unverified assertions here, so the guard is worth more than the compiler's
+// opinion that it cannot happen.
+const unclassified = findings.filter(
+  (f) => (f.severity as string) !== "error" && (f.severity as string) !== "warning",
+);
+if (unclassified.length > 0) {
+  console.error(
+    `[atlas:validate] ${unclassified.length} finding(s) carry an unrecognised severity and would be ` +
+      `silently dropped: ` +
+    unclassified.map((f) => `${f.id}="${f.severity}"`).join(", "),
+  );
+  process.exitCode = 1;
+}
 
 console.log(`[atlas:validate] corpus "${corpus.id}" — ${corpus.bounds.join(", ")}`);
 console.log(

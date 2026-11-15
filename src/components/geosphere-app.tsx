@@ -25,7 +25,16 @@ import ClickHighlighterInspector from "@/components/click-highlighter-inspector"
 import { getConceptExplanation, ConceptExplanation } from "@/data/ncert-concept-explanations";
 import { getCharacteristicDeepDive, CharacteristicDeepDive } from "@/data/ncert-characteristics-deep-dive";
 import { inspectGeographicPoint, GeoLocationAnalysis } from "@/data/spatial-inspector-engine";
-import { INITIAL_USERS } from "@/db/seed-data";
+// Imports the CREDENTIAL-FREE demo profiles, not `INITIAL_USERS` from `@/db/seed-data`.
+//
+// This is a client component, and `seed-data.ts` holds the seed password. Importing it bundles that
+// secret into the JavaScript the browser downloads. Stripping the field at runtime does not help: a
+// module-level constant is bundled whether or not any code path reads that property, so the separation
+// has to be by MODULE. `demo-content.ts` defines the profiles once without the password, and
+// `seed-data.ts` attaches the password on the server half of the graph only.
+//
+// Nothing here reads `currentUser.password` — every use is `currentUser.id` — so this is a drop-in.
+import { DEMO_ACCOUNTS } from "@/data/demo-content";
 import { SyllabusTopic } from "@/data/cbse-syllabus";
 import {
   Sparkles,
@@ -50,7 +59,7 @@ export default function GeosphereApp() {
   const [highlightAllCategory, setHighlightAllCategory] = useState<string | null>(null);
 
   // User State
-  const [currentUser, setCurrentUser] = useState<any>(INITIAL_USERS[0]);
+  const [currentUser, setCurrentUser] = useState<any>(DEMO_ACCOUNTS[0]);
 
   // Data Collections - initialized with seed data immediately so app renders instantly without waiting
   const [annotations, setAnnotations] = useState<any[]>(() => [

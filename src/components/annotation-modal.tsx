@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { X, MapPin, Tag, Compass, Layers, Sparkles } from "lucide-react";
 
 interface AnnotationModalProps {
@@ -12,6 +12,72 @@ interface AnnotationModalProps {
   currentUser: any;
 }
 
+/** The form's starting values, derived from what the modal was opened for. */
+interface FormSeed {
+  title: string;
+  description: string;
+  category: string;
+  lat: string;
+  lng: string;
+  elevation: string;
+  classGrade: string;
+  chapterRef: string;
+  markerColor: string;
+  tags: string[];
+}
+
+/**
+ * Editing an existing note fills the form from it; dropping a pin pre-fills coordinates and sensible
+ * defaults; otherwise the form starts empty. The empty branch reproduces the original `useState`
+ * defaults exactly, so opening the modal with nothing selected behaves as it did before.
+ */
+function seedFormValues(
+  annotationToEdit: AnnotationModalProps["annotationToEdit"],
+  initialCoords: AnnotationModalProps["initialCoords"],
+  currentUser: AnnotationModalProps["currentUser"],
+): FormSeed {
+  if (annotationToEdit) {
+    return {
+      title: annotationToEdit.title || "",
+      description: annotationToEdit.description || "",
+      category: annotationToEdit.category || "rivers",
+      lat: String(annotationToEdit.latitude || ""),
+      lng: String(annotationToEdit.longitude || ""),
+      elevation: annotationToEdit.elevation || "",
+      classGrade: annotationToEdit.classGrade || "11",
+      chapterRef: annotationToEdit.chapterRef || "",
+      markerColor: annotationToEdit.markerColor || "#3b82f6",
+      tags: annotationToEdit.tags || [],
+    };
+  }
+  if (initialCoords) {
+    return {
+      title: "",
+      description: "",
+      category: "rivers",
+      lat: initialCoords.lat.toFixed(4),
+      lng: initialCoords.lng.toFixed(4),
+      elevation: "",
+      classGrade: currentUser?.classGrade || "11",
+      chapterRef: "Class 11 - Physiography & Drainage",
+      markerColor: "#10b981",
+      tags: ["CBSE Board Prep"],
+    };
+  }
+  return {
+    title: "",
+    description: "",
+    category: "rivers",
+    lat: "",
+    lng: "",
+    elevation: "",
+    classGrade: "11",
+    chapterRef: "Class 11 - India: Physical Environment, Ch 3",
+    markerColor: "#3b82f6",
+    tags: [],
+  };
+}
+
 export default function AnnotationModal({
   isOpen,
   onClose,
@@ -20,44 +86,26 @@ export default function AnnotationModal({
   onSave,
   currentUser,
 }: AnnotationModalProps) {
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [category, setCategory] = useState("rivers");
-  const [lat, setLat] = useState("");
-  const [lng, setLng] = useState("");
-  const [elevation, setElevation] = useState("");
-  const [classGrade, setClassGrade] = useState("11");
-  const [chapterRef, setChapterRef] = useState("Class 11 - India: Physical Environment, Ch 3");
-  const [markerColor, setMarkerColor] = useState("#3b82f6");
+  // Form values are derived from props ONCE, at mount, instead of being pushed in by an effect. The
+  // parent keys this component on the target note and on open/close, so opening a different note
+  // remounts it with fresh values. That replaces an effect firing eleven setState calls in a row on
+  // every prop change — a render cascade, and the reason the form could briefly render the previous
+  // note's contents before the effect caught up.
+  const seed = seedFormValues(annotationToEdit, initialCoords, currentUser);
+
+  const [title, setTitle] = useState(seed.title);
+  const [description, setDescription] = useState(seed.description);
+  const [category, setCategory] = useState(seed.category);
+  const [lat, setLat] = useState(seed.lat);
+  const [lng, setLng] = useState(seed.lng);
+  const [elevation, setElevation] = useState(seed.elevation);
+  const [classGrade, setClassGrade] = useState(seed.classGrade);
+  const [chapterRef, setChapterRef] = useState(seed.chapterRef);
+  const [markerColor, setMarkerColor] = useState(seed.markerColor);
   const [tagInput, setTagInput] = useState("");
-  const [tags, setTags] = useState<string[]>([]);
+  const [tags, setTags] = useState<string[]>(seed.tags);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  useEffect(() => {
-    if (annotationToEdit) {
-      setTitle(annotationToEdit.title || "");
-      setDescription(annotationToEdit.description || "");
-      setCategory(annotationToEdit.category || "rivers");
-      setLat(String(annotationToEdit.latitude || ""));
-      setLng(String(annotationToEdit.longitude || ""));
-      setElevation(annotationToEdit.elevation || "");
-      setClassGrade(annotationToEdit.classGrade || "11");
-      setChapterRef(annotationToEdit.chapterRef || "");
-      setMarkerColor(annotationToEdit.markerColor || "#3b82f6");
-      setTags(annotationToEdit.tags || []);
-    } else if (initialCoords) {
-      setTitle("");
-      setDescription("");
-      setCategory("rivers");
-      setLat(initialCoords.lat.toFixed(4));
-      setLng(initialCoords.lng.toFixed(4));
-      setElevation("");
-      setClassGrade(currentUser?.classGrade || "11");
-      setChapterRef("Class 11 - Physiography & Drainage");
-      setMarkerColor("#10b981");
-      setTags(["CBSE Board Prep"]);
-    }
-  }, [annotationToEdit, initialCoords, currentUser]);
 
   if (!isOpen) return null;
 
