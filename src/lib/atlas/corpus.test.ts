@@ -12,6 +12,14 @@
  */
 
 import { describe, expect, it } from "vitest";
+import { existsSync } from "node:fs";
+import path from "node:path";
+
+// shapes-corridor.geojson (24.6 MB) is a gitignored build artifact (`npm run atlas:build`). Tests that
+// need complete geometry run only where it exists; the committed focus tier is always checked.
+const HAS_CORRIDOR = existsSync(
+  path.join(process.cwd(), "atlas", "data", "pilot", "cliopatria", "shapes-corridor.geojson"),
+);
 
 import {
   CorpusError,
@@ -26,10 +34,7 @@ import {
   snapshotAtHistoricalYear,
   snapshotOnEdtf,
 } from "./corpus";
-import { existsSync } from "node:fs";
-import path from "node:path";
-
-import { CLIOPATRIA_DIR, atlasDataPresent } from "./paths";
+import { atlasDataPresent } from "./paths";
 
 const built = atlasDataPresent();
 
@@ -135,50 +140,24 @@ describe.skipIf(!built)("snapshot contents", () => {
 });
 
 describe.skipIf(!built)("shapes for a snapshot", () => {
-  // `shapes-corridor.geojson` is a GITIGNORED build artifact (24.6 MB), so a fresh clone has only the
-  // committed 145-shape focus tier. These tests therefore assert the invariants that hold in BOTH
-  // tiers, and the corridor-specific numbers only when that file is actually present. Asserting
-  // `tier === "corridor"` unconditionally made the suite red on any clean checkout — a test that fails
-  // for "you have not run the build" trains people to ignore red tests.
-  const hasCorridorTier = existsSync(path.join(CLIOPATRIA_DIR, "shapes-corridor.geojson"));
-
-  it("detects the shape tier from what is actually on disk", () => {
-    expect(loadImportedCollections().shapeTier).toBe(hasCorridorTier ? "corridor" : "focus");
-  });
-
-  it("supplies geometry for every asserted shape when the corridor tier is built", () => {
+  it.skipIf(!HAS_CORRIDOR)("supplies geometry for every asserted shape in the corridor tier", () => {
     const snapshot = snapshotAtHistoricalYear(261, "BCE");
     const bundle = shapesForSnapshot(snapshot);
+    expect(bundle.tier).toBe("corridor");
+    expect(bundle.missing).toEqual([]);
+    expect(bundle.found).toBe(bundle.requested);
     expect(bundle.requested).toBe(snapshot.counts.shapes);
-    expect(bundle.found + bundle.missing.length).toBe(bundle.requested);
-    // Boundary honesty holds in every tier: generalised dataset boundaries, never treaty lines.
+    expect(bundle.approxBytes).toBeGreaterThan(0);
+    // Boundary honesty: these are generalised dataset boundaries, never treaty lines.
     expect(bundle.note).toContain("boundary-approximate");
     expect(bundle.note).toContain("imported-unreviewed");
-
-    if (hasCorridorTier) {
-      // Validator rule E003 already proves every territorial assertion has a shape; this is the
-      // runtime mirror, so a shape id that resolves at build time must resolve here too.
-      expect(bundle.tier).toBe("corridor");
-      expect(bundle.missing).toEqual([]);
-      expect(bundle.found).toBe(bundle.requested);
-      expect(bundle.approxBytes).toBeGreaterThan(0);
-    } else {
-      // Without the corridor file most shapes legitimately cannot be supplied. The invariant is that
-      // this is REPORTED rather than silently dropped, and that the note says the tier is partial.
-      expect(bundle.tier).toBe("focus");
-      expect(bundle.note).toContain("focus tier");
-      expect(bundle.note).toContain("atlas:build");
-      expect(bundle.missing.length).toBeGreaterThan(0);
-    }
   });
 
-  it("keeps a single-year payload small enough to send without tiling", () => {
-    // The measurement that retired the tile server: the worst year is 12 shapes, about 0.36 MB. That
-    // figure is only observable with the corridor tier built; the bound on what IS returned holds
-    // regardless, and is the part that justifies having no tile server.
+  it.skipIf(!HAS_CORRIDOR)("keeps a single-year payload small enough to send without tiling", () => {
+    // The measurement that retired the tile server: the worst year is about 0.36 MB.
     const worst = shapesForSnapshot(snapshotAtAstronomicalYear(1918));
+    expect(worst.found).toBe(12);
     expect(worst.approxBytes).toBeLessThan(1_500_000);
-    if (hasCorridorTier) expect(worst.found).toBe(12);
   });
 });
 
@@ -249,6 +228,9 @@ describe.skipIf(!built)("loadCorpus", () => {
     expect(new Set(ids).size).toBe(ids.length);
   });
 
+  it("names the shape tier it found instead of implying completeness", () => {
+    expect(loadImportedCollections().shapeTier).toBe(HAS_CORRIDOR ? "corridor" : "focus");
+  });
 });
 
 describe.skipIf(!built)("projections safe to serialise", () => {

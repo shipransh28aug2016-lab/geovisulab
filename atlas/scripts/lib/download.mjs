@@ -8,7 +8,10 @@
  * first and fall back to `curl`. TLS verification is NEVER disabled on either path.
  */
 
-import { spawn } from "node:child_process";
+import { spawn, execFileSync } from "node:child_process";
+import { mkdtempSync, rmSync } from "node:fs";
+import { tmpdir } from "node:os";
+import path from "node:path";
 
 const HEADERS = {
   Accept: "application/vnd.github.raw",
@@ -49,6 +52,29 @@ export async function downloadBuffer(url) {
   } catch (err) {
     const reason = err?.cause?.message ?? err?.message ?? String(err);
     process.stderr.write(`[download] fetch failed (${reason}); retrying with curl\n`);
-    return curl(url);
+    try {
+      return await curl(url);
+    } catch (curlErr) {
+      // Last resort for networks that block api.github.com but allow git (restricted CI/sandboxes).
+      process.stderr.write(`[download] curl failed (${String(curlErr.message).split("\n")[0]}); retrying via git\n`);
+      return viaGit(url);
+    }
+  }
+}
+
+/** Fetches one file of a public GitHub repo with a blobless shallow clone + `git show`. */
+function viaGit(url) {
+  const m = /^https:\/\/api\.github\.com\/repos\/([^/]+\/[^/]+)\/contents\/([^?]+)\?ref=(.+)$/.exec(url);
+  if (!m) throw new Error(`Cannot map ${url} to a git fetch`);
+  const [, repo, file, ref] = m;
+  const dir = mkdtempSync(path.join(tmpdir(), "atlas-git-"));
+  try {
+    const git = (...a) => execFileSync("git", a, { cwd: dir, maxBuffer: 1 << 30, env: { ...process.env, GIT_LFS_SKIP_SMUDGE: "1" } });
+    git("init", "-q");
+    git("remote", "add", "origin", `https://github.com/${repo}`);
+    git("fetch", "-q", "--depth=1", "--filter=blob:none", "origin", ref);
+    return git("show", `FETCH_HEAD:${file}`);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
   }
 }

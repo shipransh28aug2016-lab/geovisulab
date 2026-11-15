@@ -30,7 +30,7 @@ coverage
 .vitest
 .data
 
-# Atlas: only the LARGE reproducible artifacts stay out of Git.
+# Atlas: shapes-corridor.geojson (24.6 MB) IS committed so a fresh clone shows every boundary without the 219 MB fetch. Only raw upstream downloads stay out.
 #
 #   atlas/raw/                      219 MB of sha256-pinned upstream downloads (`npm run atlas:fetch`)
 #   shapes-corridor.geojson          24.6 MB of corridor geometry, rebuilt by `npm run atlas:import`
@@ -43,4 +43,3 @@ coverage
 # There is deliberately no `public/atlas/tiles` entry: vector tiling was evaluated and rejected. The
 # worst single-year payload in the pilot corridor is 12 shapes and about 0.36 MB, which does not
 # justify a tile server, so no such directory should ever exist.
-atlas/data/pilot/cliopatria/shapes-corridor.geojson

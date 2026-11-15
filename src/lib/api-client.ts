@@ -25,8 +25,9 @@ import type {
 } from "@/db/store";
 import type {
   AtlasBasemapResponse,
-  AtlasMetaResponse,
+  AtlasEventResponse,
   AtlasSnapshotResponse,
+  AtlasTimelineResponse,
 } from "@/lib/atlas/api-types";
 
 /**
@@ -297,24 +298,21 @@ export const api = {
   // the wrong year. Callers must pass a signal and ignore AbortError.
   // -------------------------------------------------------------------------
 
-  /** Corpus status plus the event timeline the scrubber draws. One request, so both agree. */
-  atlasMeta: (signal?: AbortSignal) => request<AtlasMetaResponse>("/api/atlas/meta", { signal }),
+  /** Corpus status plus the event timeline. One request, so a coverage banner and a year scrubber agree. */
+  atlasTimeline: (signal?: AbortSignal) => request<AtlasTimelineResponse>("/api/atlas/timeline", { signal }),
 
   /**
    * The physical base map as GeoJSON, from our own committed Natural Earth extract.
    *
    * Served from this app rather than a third-party tile server so that (a) it works with no outbound
    * network, which is the case in the preview frame and in CI, and (b) every layer carries its upstream
-   * sha256 and licence. Omit `layers` for all five.
+   * sha256 and licence. All five layers come back in one response; the renderer picks what it draws.
    */
-  atlasBasemap: (layers?: string[], signal?: AbortSignal) =>
-    request<AtlasBasemapResponse>("/api/atlas/basemap", {
-      query: layers && layers.length > 0 ? { layers: layers.join(",") } : undefined,
-      signal,
-    }),
+  atlasBasemap: (signal?: AbortSignal) => request<AtlasBasemapResponse>("/api/atlas/basemap", { signal }),
 
   /**
-   * One year of the corridor: entities, assertions, events, places, geometry and certainty counts.
+   * One year of the corridor: entities, assertions, events, places, geometry and certainty counts, plus
+   * a shape-id-to-entity-id map for colouring outlines by polity.
    *
    * The year must be given in an unambiguous form. `astronomical` is the corpus's own numbering (year 0
    * is 1 BCE); `historical` is how a learner writes it and needs an `era`. The server rejects a bare
@@ -337,6 +335,10 @@ export const api = {
             : { year: year.historical, era: year.era },
       signal,
     }),
+
+  /** The full evidence record behind one event: the event, the sources it cites, and its entities. */
+  atlasEvent: (eventId: string, signal?: AbortSignal) =>
+    request<AtlasEventResponse>("/api/atlas/event", { query: { event: eventId }, signal }),
 };
 
 /**

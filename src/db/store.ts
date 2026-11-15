@@ -327,7 +327,11 @@ interface FileDocument {
   idempotencyKeys: IdempotencyRow[];
 }
 
-const FILE_PATH = path.join(process.cwd(), ".data", "store.json");
+// Serverless filesystems (Vercel) are read-only except /tmp, so the demo file adapter lives there.
+// Set DATABASE_URL for durable storage; the file adapter is ephemeral by design.
+const FILE_PATH = process.env.VERCEL
+  ? path.join("/tmp", "geovisulab-store.json")
+  : path.join(process.cwd(), ".data", "store.json");
 
 function reviveDates<T>(row: T): T {
   if (!row || typeof row !== "object") return row;
