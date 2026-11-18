@@ -10,7 +10,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "verify:legacy": "node scripts/verify-curriculum-system.ts",
-    "build:data": "node scripts/generate-resources-bundle.mjs",
+    "build:data": "tsx scripts/generate-resources-bundle.mjs",
     "atlas:fetch": "node atlas/scripts/fetch-cliopatria.mjs",
     "atlas:import": "tsx atlas/scripts/import-cliopatria.ts",
     "atlas:validate": "tsx atlas/scripts/validate.ts",

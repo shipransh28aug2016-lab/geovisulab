@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import {
   Globe2,
   Map,
@@ -255,9 +256,12 @@ export default function Navbar({
         >
           <div className="w-7 h-7 rounded-lg overflow-hidden bg-emerald-700 flex items-center justify-center text-white font-bold text-xs shrink-0">
             {currentUser?.avatarUrl ? (
-              <img
+              <Image
+                unoptimized
                 src={currentUser.avatarUrl}
                 alt={currentUser.name}
+                width={28}
+                height={28}
                 className="w-full h-full object-cover"
               />
             ) : (

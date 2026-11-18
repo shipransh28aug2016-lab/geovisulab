@@ -55,6 +55,12 @@ interface InteractiveMapProps {
   clickedPointCoords?: { lat: number; lng: number } | null;
 }
 
+const BASEMAP_URLS: Record<string, string> = {
+  dark: "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
+  topo: "https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png",
+  satellite: "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+};
+
 export default function InteractiveMap({
   onSelectFeature,
   activeLayers,
@@ -159,13 +165,6 @@ export default function InteractiveMap({
     };
   }, [isDraggingFlyTo]);
 
-  // Basemap Tile URLs
-  const basemapUrls = {
-    dark: "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
-    topo: "https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png",
-    satellite: "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
-  };
-
   // Initialize Leaflet Map
   useEffect(() => {
     let isSubscribed = true;
@@ -190,7 +189,7 @@ export default function InteractiveMap({
       L.control.zoom({ position: "topright" }).addTo(map);
 
       // Add Base Tile Layer
-      const baseTile = L.tileLayer(basemapUrls[basemap], {
+      const baseTile = L.tileLayer(BASEMAP_URLS[basemap], {
         attribution: '&copy; <a href="https://carto.com/">CARTO</a> &copy; OpenStreetMap',
         maxZoom: 19,
       }).addTo(map);
@@ -240,6 +239,7 @@ export default function InteractiveMap({
         mapInstanceRef.current = null;
       }
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Update Basemap Tiles
@@ -250,7 +250,7 @@ export default function InteractiveMap({
       if (tileLayerRef.current) {
         mapInstanceRef.current.removeLayer(tileLayerRef.current);
       }
-      const newTile = L.tileLayer(basemapUrls[basemap], {
+      const newTile = L.tileLayer(BASEMAP_URLS[basemap], {
         attribution: basemap === "satellite" ? "Esri World Imagery" : '&copy; OpenStreetMap',
         maxZoom: 19,
       }).addTo(mapInstanceRef.current);
@@ -592,7 +592,7 @@ export default function InteractiveMap({
         });
       }
     });
-  }, [activeLayers, userAnnotations, isLoaded]);
+  }, [activeLayers, userAnnotations, isLoaded, onSelectFeature]);
 
   // 8. RENDER HEADQUARTERS & HIGH-VISIBILITY MAP HIGHLIGHTER BEACONS
   useEffect(() => {
@@ -691,7 +691,7 @@ export default function InteractiveMap({
         }
       });
     });
-  }, [highlightedHq, highlightAllCategory, isLoaded]);
+  }, [highlightedHq, highlightAllCategory, isLoaded, onSelectFeature, onSelectHq]);
 
   // 9. RENDER DYNAMIC CLICK HIGHLIGHTER BEACON (Anywhere clicked on the map)
   useEffect(() => {

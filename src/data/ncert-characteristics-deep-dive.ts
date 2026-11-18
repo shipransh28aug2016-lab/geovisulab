@@ -124,12 +124,12 @@ export const CHARACTERISTICS_DEEP_DIVE_REGISTRY: Record<string, CharacteristicDe
     cbseMarkingCriteriaEn: "Full credit requires: 1. Explaining S-waves are transverse/shear waves requiring solid rigidity; 2. Stating Earth's outer core is liquid at 2,900 km; 3. Specifying the shadow zone runs continuously from 105° to 180° (>40% of Earth).",
     cbseMarkingCriteriaHi: "पूर्ण अंक हेतु: 1. S-तरंगें अनुप्रस्थ हैं और केवल ठोस में चलती हैं; 2. 2,900 किमी पर बाह्य क्रोड तरल है; 3. 105° से 180° तक निरंतर छाया क्षेत्र (>40% भू-भाग)।",
     commonMisconceptionVsFactEn: {
-      misconception: "The S-wave shadow zone ends at 142° and waves reappear like P-waves.",
-      fact: "P-waves re-emerge beyond 142° because they travel through liquids (refracted by the core). S-waves NEVER re-emerge beyond 105°; their shadow zone is completely continuous from 105° to 180°."
+      misconception: "The S-wave shadow zone ends at 145° and waves reappear like P-waves.",
+      fact: "P-waves re-emerge beyond 145° because they travel through liquids (refracted by the core). S-waves NEVER re-emerge beyond 105°; their shadow zone is completely continuous from 105° to 180°."
     },
     commonMisconceptionVsFactHi: {
-      misconception: "S-तरंगें भी 142° के बाद दोबारा प्रकट हो जाती हैं।",
-      fact: "P-तरंगें तरल से गुजर सकती हैं अतः वे 142° के बाद फिर आ जाती हैं। जबकि S-तरंगें 105° के बाद कभी वापस नहीं आतीं; उनका छाया क्षेत्र 105° से 180° तक लगातार रहता है।"
+      misconception: "S-तरंगें भी 145° के बाद दोबारा प्रकट हो जाती हैं।",
+      fact: "P-तरंगें तरल से गुजर सकती हैं अतः वे 145° के बाद फिर आ जाती हैं। जबकि S-तरंगें 105° के बाद कभी वापस नहीं आतीं; उनका छाया क्षेत्र 105° से 180° तक लगातार रहता है।"
     },
     associatedDiagramType: "ray_trace"
   },

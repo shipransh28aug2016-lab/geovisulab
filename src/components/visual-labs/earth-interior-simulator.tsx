@@ -66,15 +66,15 @@ export default function EarthInteriorSimulator({
       descriptionHi: "ऊपरी मेंटल का अर्ध-पिघला हुआ प्लास्टिक भाग। विवर्तनिक प्लेटें इसी के ऊपर फिसलती हैं और ज्वालामुखियों का मुख्य मैग्मा स्रोत यही है।"
     },
     {
-      nameEn: "Mesosphere / Lower Mantle",
-      nameHi: "मध्यमंडल / निचला मेंटल",
-      depth: "660 - 2,900 km",
+      nameEn: "Repetti Discontinuity & Lower Mantle (Mesosphere)",
+      nameHi: "रेपेटी असांतत्य एवं निचला मेंटल",
+      depth: "700 - 2,900 km",
       density: "4.4 - 5.6 g/cm³",
       state: "Solid under intense pressure (Bridgmanite)",
       temperature: "1,500°C - 3,000°C",
       color: "#c2410c",
-      descriptionEn: "Extends from 660 km down to the Gutenberg discontinuity at 2,900 km. Accounts for nearly 84% of Earth's total volume and 67% of its mass. Generates slow thermal convection currents driving continental drift.",
-      descriptionHi: "660 किमी से 2,900 किमी तक। पृथ्वी के कुल आयतन का 84% और द्रव्यमान का 67%। यहां के संवहन प्रवाह महाद्वीपीय विस्थापन को गति देते हैं।"
+      descriptionEn: "Repetti discontinuity (~700 km) marks the boundary between upper and lower mantle. Extends down to the Gutenberg discontinuity at 2,900 km. Accounts for nearly 84% of Earth's total volume and 67% of its mass. Generates slow thermal convection currents driving continental drift.",
+      descriptionHi: "रेपेटी सीमा (~700 किमी) ऊपरी और निचले मेंटल को अलग करती है। यह गुटेनबर्ग सीमा (2,900 किमी) तक विस्तृत है। पृथ्वी के आयतन का 84% और द्रव्यमान का 67% भाग।"
     },
     {
       nameEn: "Gutenberg Discontinuity & Outer Core",
@@ -88,15 +88,15 @@ export default function EarthInteriorSimulator({
       descriptionHi: "तरल लौह-निकल से निर्मित। S-तरंगें तरल में नहीं चल सकतीं अतः 2,900 किमी पर पूरी तरह लुप्त हो जाती हैं। यहां का संवहन पृथ्वी का चुंबकीय क्षेत्र उत्पन्न करता है।"
     },
     {
-      nameEn: "Inner Core (NIFE)",
-      nameHi: "आंतरिक क्रोड (निफे)",
+      nameEn: "Lehmann Discontinuity & Inner Core (NIFE)",
+      nameHi: "लेहमान असांतत्य एवं आंतरिक क्रोड",
       depth: "5,150 - 6,371 km",
       density: "13.0 - 13.6 g/cm³",
       state: "Solid Metallic Sphere (Extreme Pressure 3.6M atm)",
       temperature: "~6,000°C (Hot as Sun's surface)",
       color: "#facc15",
-      descriptionEn: "Solid ball with radius of ~1,220 km. Despite exceeding the melting point of iron, astronomical hydrostatic pressure keeps it crystalline solid. Discovered by Inge Lehmann in 1936 via faint P-wave reflections.",
-      descriptionHi: "अत्यधिक दबाव (36 लाख वायुमंडलीय दाब) के कारण 6,000°C पर भी ठोस अवस्था में। 1936 में इंगे लेहमान ने P-तरंग परावर्तन से इसकी खोज की।"
+      descriptionEn: "Bounded at top by the Lehmann Discontinuity (5,150 km) discovered by Inge Lehmann in 1936 via P-wave reflections. Solid metallic sphere of radius ~1,220 km under 3.6 million atmospheres of pressure.",
+      descriptionHi: "5,150 किमी पर लेहमान सीमा द्वारा बाह्य तरल क्रोड से पृथक। अत्यधिक दबाव (36 लाख वायुमंडलीय दाब) के कारण 6,000°C पर भी ठोस अवस्था में।"
     }
   ];
 
@@ -165,10 +165,10 @@ export default function EarthInteriorSimulator({
   let waveStatus: "BOTH" | "P_SHADOW" | "S_SHADOW" | "P_ONLY" = "BOTH";
   if (normalizedDistance <= 105) {
     waveStatus = "BOTH"; // Both P and S waves arrive
-  } else if (normalizedDistance > 105 && normalizedDistance <= 142) {
-    waveStatus = "P_SHADOW"; // Complete shadow zone: neither P nor S
+  } else if (normalizedDistance > 105 && normalizedDistance <= 145) {
+    waveStatus = "P_SHADOW"; // Complete P-wave shadow zone (neither P nor S arrive)
   } else {
-    waveStatus = "P_ONLY"; // P-waves re-emerge refracted; S-waves never arrive
+    waveStatus = "P_ONLY"; // P-waves re-emerge refracted; S-waves never arrive (S-wave shadow zone: 105°-180°)
   }
 
   return (
@@ -257,7 +257,7 @@ export default function EarthInteriorSimulator({
                 <circle cx="250" cy="250" r="200" fill="#1e293b" stroke="#38bdf8" strokeWidth="2.5" />
 
                 {/* Shadow Zone Wedges from Epicenter (Top 250, 50) */}
-                {/* Left Shadow Zone: 105° to 142° */}
+                {/* Left Shadow Zone: 105° to 145° */}
                 <path
                   d="M 250,250 L 57,302 A 200,200 0 0,0 92,374 Z"
                   fill="rgba(244, 63, 94, 0.25)"
@@ -265,7 +265,7 @@ export default function EarthInteriorSimulator({
                   strokeWidth="1.5"
                   strokeDasharray="4,4"
                 />
-                {/* Right Shadow Zone: 105° to 142° */}
+                {/* Right Shadow Zone: 105° to 145° */}
                 <path
                   d="M 250,250 L 443,302 A 200,200 0 0,1 408,374 Z"
                   fill="rgba(244, 63, 94, 0.25)"
@@ -303,7 +303,7 @@ export default function EarthInteriorSimulator({
                   );
                 })}
 
-                {/* Refracted P-waves passing through Core to 142°-180° */}
+                {/* Refracted P-waves passing through Core to 145°-180° */}
                 {[-170, -155, 180, 155, 170].map((angle, i) => {
                   const rad = ((angle + 90) * Math.PI) / 180;
                   const endX = 250 + 196 * Math.cos(rad);
@@ -348,9 +348,9 @@ export default function EarthInteriorSimulator({
 
                 {/* Shadow Zone Degree Text Labels */}
                 <text x="40" y="330" fill="#f43f5e" fontSize="10" fontWeight="bold">105°</text>
-                <text x="75" y="405" fill="#f43f5e" fontSize="10" fontWeight="bold">142°</text>
+                <text x="75" y="405" fill="#f43f5e" fontSize="10" fontWeight="bold">145°</text>
                 <text x="460" y="330" fill="#f43f5e" fontSize="10" fontWeight="bold">105°</text>
-                <text x="420" y="405" fill="#f43f5e" fontSize="10" fontWeight="bold">142°</text>
+                <text x="420" y="405" fill="#f43f5e" fontSize="10" fontWeight="bold">145°</text>
                 <text x="250" y="475" fill="#38bdf8" fontSize="11" fontWeight="bold" textAnchor="middle">
                   180° (P-waves arrive)
                 </text>
@@ -395,12 +395,12 @@ export default function EarthInteriorSimulator({
                   )}
                   {waveStatus === "P_SHADOW" && (
                     <span className="text-rose-400 font-bold flex items-center gap-1">
-                      ⚠️ Inside Shadow Zone (105°-142°): No waves detected!
+                      ⚠️ Inside Shadow Zone (105°-145°): No waves detected!
                     </span>
                   )}
                   {waveStatus === "P_ONLY" && (
                     <span className="text-sky-400 font-bold flex items-center gap-1">
-                      🔵 Refracted P-waves only (142°-180°); S-waves blocked by liquid outer core
+                      🔵 Refracted P-waves only (145°-180°); S-waves blocked by liquid outer core
                     </span>
                   )}
                 </div>
@@ -598,7 +598,7 @@ export default function EarthInteriorSimulator({
                 <div className="flex justify-between text-[10px] text-slate-500 font-mono">
                   <span>0° (Epicenter)</span>
                   <span>105° (Shadow start)</span>
-                  <span>142° (P re-emerge)</span>
+                  <span>145° (P re-emerge)</span>
                   <span>180°</span>
                 </div>
               </div>

@@ -181,21 +181,21 @@ export const NCERT_CONCEPT_EXPLANATIONS: Record<string, ConceptExplanation> = {
     chapterTitle: "Interior of the Earth",
     definition: "Specific angular arcs on Earth's surface where seismographs record no direct seismic wave arrivals from a given earthquake focus.",
     definitionHi: "पृथ्वी के धरातल पर स्थित वे क्षेत्र जहां किसी भूकंपीय उद्गम केंद्र से निकली तरंगें सिस्मोग्राफ पर दर्ज नहीं होतीं।",
-    detailedExplanation: "Beyond 105° from the epicenter, S-waves completely disappear because Earth's liquid outer core at 2,900 km depth cannot transmit shear waves, producing an enormous S-wave shadow zone covering over 40% of Earth's surface (105° to 180°). P-waves are refracted sharply inward upon entering the liquid core, leaving a shadow zone between 105° and 142°, but re-emerge beyond 142° to 180°.",
-    detailedExplanationHindi: "उद्गम केंद्र से 105° के पार S-तरंगें पूरी तरह लुप्त हो जाती हैं क्योंकि 2,900 किमी गहराई पर स्थित तरल बाह्य क्रोड उन्हें रोक देता है (S-छाया क्षेत्र 105° से 180°)। P-तरंगें तरल क्रोड में अपवर्तित होकर 105° से 142° के बीच नहीं पहुंचतीं, परंतु 142° से 180° के बीच पुनः प्रकट होती हैं।",
+    detailedExplanation: "Beyond 105° from the epicenter, S-waves completely disappear because Earth's liquid outer core at 2,900 km depth cannot transmit shear waves, producing an enormous S-wave shadow zone covering over 40% of Earth's surface (105° to 180°). P-waves are refracted sharply inward upon entering the liquid core, leaving an annular shadow band between 105° and 145°, but re-emerge beyond 145° to 180°.",
+    detailedExplanationHindi: "उद्गम केंद्र से 105° के पार S-तरंगें पूरी तरह लुप्त हो जाती हैं क्योंकि 2,900 किमी गहराई पर स्थित तरल बाह्य क्रोड उन्हें रोक देता है (S-छाया क्षेत्र 105° से 180°)। P-तरंगें तरल क्रोड में अपवर्तित होकर 105° से 145° के बीच नहीं पहुंचतीं, परंतु 145° से 180° के बीच पुनः प्रकट होती हैं।",
     keyCharacteristics: [
       "S-wave Shadow Zone: Spans continuously from 105° to 180° (over 40% of globe)",
-      "P-wave Shadow Zone: Forms an annular band between 105° and 142°",
+      "P-wave Shadow Zone: Forms an annular band between 105° and 145°",
       "Proof of Gutenberg Discontinuity and liquid outer core at 2,900 km"
     ],
     keyCharacteristicsHindi: [
       "S-तरंग छाया क्षेत्र: 105° से 180° तक निरंतर (पृथ्वी के 40% से अधिक भाग पर)",
-      "P-तरंग छाया क्षेत्र: 105° से 142° के मध्य एक वलयाकार पट्टी",
+      "P-तरंग छाया क्षेत्र: 105° से 145° के मध्य एक वलयाकार पट्टी",
       "गुटेनबर्ग असांतत्य तथा तरल बाह्य क्रोड का निर्णायक प्रमाण"
     ],
     ncertSignificance: "Frequently evaluated 5-mark diagram question in CBSE examinations testing wave refraction principles.",
     ncertSignificanceHindi: "सीबीएसई बोर्ड परीक्षा में रेखाचित्र सहित पूछा जाने वाला 5 अंकों का सर्वाधिक महत्वपूर्ण प्रश्न।",
-    cbseExamKeyword: "105° to 142°, S-wave >105°, liquid outer core refraction"
+    cbseExamKeyword: "105° to 145°, S-wave >105°, liquid outer core refraction"
   },
   "asthenosphere": {
     term: "Asthenosphere (Low Velocity Zone)",
