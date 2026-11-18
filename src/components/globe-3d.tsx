@@ -281,7 +281,8 @@ export default function Globe3D({
       x: Math.max(-1.2, Math.min(1.2, targetX)),
       y: targetY + Math.round((cur - targetY) / TAU) * TAU,
     };
-    setAutoRotate(false);
+    autoRotateRef.current = false;
+    queueMicrotask(() => setAutoRotate(false));
   }, []);
 
   useEffect(() => {

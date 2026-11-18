@@ -45,8 +45,8 @@ export const GEOGRAPHY_DICTIONARY: Record<string, TermTranslation> = {
   "earthquake_shadow_zone": {
     en: "Earthquake Shadow Zone",
     hi: "भूकंपीय छाया क्षेत्र",
-    definitionEn: "Specific geographic zones where seismographs do not detect earthquake waves (P-waves: 105°-142°; S-waves: >105°).",
-    definitionHi: "पृथ्वी का वह विशिष्ट भाग जहां सिस्मोग्राफ पर भूकंपीय तरंगें दर्ज नहीं होतीं (P-तरंग: 105°-142°; S-तरंग: 105° से अधिक)।"
+    definitionEn: "Specific geographic zones where seismographs do not detect earthquake waves (P-waves: 105°-145°; S-waves: >105°).",
+    definitionHi: "पृथ्वी का वह विशिष्ट भाग जहां सिस्मोग्राफ पर भूकंपीय तरंगें दर्ज नहीं होतीं (P-तरंग: 105°-145°; S-तरंग: 105° से अधिक)।"
   },
   "mohorovicic_discontinuity": {
     en: "Mohorovicic Discontinuity",

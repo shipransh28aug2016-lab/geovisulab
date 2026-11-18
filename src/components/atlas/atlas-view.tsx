@@ -145,16 +145,16 @@ export default function AtlasView() {
 
   /* event detail */
   useEffect(() => {
-    if (!selected) {
-      setDetail(null);
-      return;
-    }
+    if (!selected) return;
     const ac = new AbortController();
     fetch(`/api/atlas/event?event=${encodeURIComponent(selected.id)}`, { signal: ac.signal })
       .then((r) => r.json())
       .then((j) => !j.error && setDetail(j))
       .catch(() => {});
-    return () => ac.abort();
+    return () => {
+      ac.abort();
+      setDetail(null);
+    };
   }, [selected]);
 
   const entityName = useMemo(() => {

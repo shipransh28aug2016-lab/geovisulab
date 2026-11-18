@@ -120,7 +120,7 @@ export const CBSE_CURRICULUM_REGISTRY: CurriculumTopic[] = [
     subtopics: [
       "Direct vs Indirect Sources of Earth's Interior",
       "Seismic P-waves (compressional, all media) and S-waves (transverse, solid only)",
-      "P-wave Shadow Zone (105° to 142°) and Complete S-wave Shadow Zone (>105°)",
+      "P-wave Shadow Zone (105° to 145°) and Complete S-wave Shadow Zone (>105°)",
       "Crust (Continental SIAL vs Oceanic SIMA)",
       "Mantle & Asthenosphere (Low Velocity Zone, Source of Magma)",
       "Core: Liquid Outer Core vs Solid Inner Core (NIFE)",
