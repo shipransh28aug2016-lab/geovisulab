@@ -4,14 +4,14 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>GeoVisuLab — CBSE Geography 2D/3D & Ganga–Magadha Historical Atlas</title>
-  <meta name="description" content="Interactive 3D Earth Globe, NCERT/CBSE Class XI & XII Visual Geography Labs, and 600 BCE–2000 CE Ganga–Magadha Historical Knowledge Corridor." />
+  <meta name="description" content="Integrated CBSE Class XI & XII Geography Visual Learning System, 43 NCERT Curriculum Lessons, Concept Explanations, Map Practice, and Ganga–Magadha Historical Knowledge Corridor." />
   
   <!-- Fonts matching Next.js app -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   
-  <!-- Tailwind CSS CDN for GitHub Pages static standalone -->
+  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -38,6 +38,9 @@
   <!-- Three.js for 3D Globe -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
+  <!-- Complete Standalone Educational Resources Data Bundle -->
+  <script src="resources.js"></script>
+
   <style>
     body {
       background-color: #020617;
@@ -58,62 +61,84 @@
     .glow-emerald {
       box-shadow: 0 0 20px rgba(16, 185, 129, 0.25);
     }
-    .glow-amber {
-      box-shadow: 0 0 20px rgba(245, 158, 11, 0.25);
-    }
   </style>
 </head>
 <body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col antialiased selection:bg-emerald-500 selection:text-white">
 
   <!-- Top Navbar -->
-  <header class="h-14 border-b border-slate-800 bg-slate-950/90 backdrop-blur sticky top-0 z-50 px-4 flex items-center justify-between">
+  <header class="border-b border-slate-800 bg-slate-950/90 backdrop-blur sticky top-0 z-50 px-4 py-2.5 flex flex-wrap items-center justify-between gap-3">
+    
+    <!-- Branding & Stats -->
     <div class="flex items-center gap-3">
       <div class="flex items-center gap-2">
         <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
         <span class="font-extrabold tracking-tight text-lg bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 bg-clip-text text-transparent">GeoVisuLab</span>
       </div>
-      <span class="hidden sm:inline-block text-xs px-2 py-0.5 rounded border border-slate-700 bg-slate-900 text-slate-400 font-mono">v1.2 · CBSE + Atlas</span>
+      <div class="hidden sm:flex items-center gap-1.5 text-xs text-slate-400 font-mono">
+        <span class="px-2 py-0.5 rounded border border-slate-800 bg-slate-900 text-emerald-400 font-semibold" id="stat-lessons-count">43 Lessons</span>
+        <span class="px-2 py-0.5 rounded border border-slate-800 bg-slate-900 text-cyan-400 font-semibold" id="stat-concepts-count">27 Concepts</span>
+        <span class="px-2 py-0.5 rounded border border-slate-800 bg-slate-900 text-amber-400 font-semibold" id="stat-events-count">30 Atlas Events</span>
+      </div>
+    </div>
+
+    <!-- Live Unified Search Bar -->
+    <div class="relative flex-1 max-w-md mx-2">
+      <div class="relative">
+        <input 
+          type="text" 
+          id="global-search-input" 
+          placeholder="Search 43 lessons, concepts, rivers, peaks, soils, events..." 
+          oninput="handleGlobalSearch(this.value)"
+          class="w-full pl-9 pr-4 py-1.5 text-xs rounded-xl bg-slate-900 border border-slate-700/80 text-slate-200 placeholder-slate-500 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition"
+        />
+        <svg class="w-4 h-4 text-slate-500 absolute left-3 top-2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+      </div>
+
+      <!-- Autocomplete Dropdown -->
+      <div id="search-results-dropdown" class="absolute top-10 left-0 right-0 z-50 bg-slate-900 border border-slate-700 rounded-xl shadow-2xl overflow-hidden hidden max-h-80 overflow-y-auto custom-scrollbar"></div>
     </div>
 
     <!-- Mode Navigation Tabs -->
-    <nav class="flex items-center gap-1 bg-slate-900/80 p-1 rounded-xl border border-slate-800 text-xs font-semibold">
-      <button onclick="setTab('globe')" id="tab-btn-globe" class="px-3 py-1.5 rounded-lg transition bg-emerald-500 text-white flex items-center gap-1.5 shadow-sm">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke-width="2"></circle><path stroke-width="2" d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+    <nav class="flex items-center gap-1 bg-slate-900/80 p-1 rounded-xl border border-slate-800 text-xs font-semibold overflow-x-auto">
+      <button onclick="setTab('globe')" id="tab-btn-globe" class="px-2.5 py-1.5 rounded-lg transition bg-emerald-500 text-white flex items-center gap-1 shadow-sm whitespace-nowrap">
         <span>GeoSphere 3D</span>
       </button>
-      <button onclick="setTab('atlas')" id="tab-btn-atlas" class="px-3 py-1.5 rounded-lg transition text-slate-400 hover:text-white flex items-center gap-1.5">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" d="M12 2l8 4-8 4-8-4 8-4zm0 8l8 4-8 4-8-4 8-4zm0 8l8 4-8 4-8-4 8-4z"></path></svg>
-        <span>Ganga–Magadha Atlas</span>
+      <button onclick="setTab('curriculum')" id="tab-btn-curriculum" class="px-2.5 py-1.5 rounded-lg transition text-slate-400 hover:text-white flex items-center gap-1 whitespace-nowrap">
+        <span>Lessons (43)</span>
       </button>
-      <button onclick="setTab('simulators')" id="tab-btn-simulators" class="px-3 py-1.5 rounded-lg transition text-slate-400 hover:text-white flex items-center gap-1.5">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-        <span>Visual Labs</span>
+      <button onclick="setTab('concepts')" id="tab-btn-concepts" class="px-2.5 py-1.5 rounded-lg transition text-slate-400 hover:text-white flex items-center gap-1 whitespace-nowrap">
+        <span>NCERT Concepts (27)</span>
       </button>
-      <button onclick="setTab('curriculum')" id="tab-btn-curriculum" class="px-3 py-1.5 rounded-lg transition text-slate-400 hover:text-white flex items-center gap-1.5 hidden md:flex">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
-        <span>NCERT Syllabus</span>
+      <button onclick="setTab('mappractice')" id="tab-btn-mappractice" class="px-2.5 py-1.5 rounded-lg transition text-slate-400 hover:text-white flex items-center gap-1 whitespace-nowrap">
+        <span>Map Practice (21)</span>
+      </button>
+      <button onclick="setTab('atlas')" id="tab-btn-atlas" class="px-2.5 py-1.5 rounded-lg transition text-slate-400 hover:text-white flex items-center gap-1 whitespace-nowrap">
+        <span>Historical Atlas</span>
+      </button>
+      <button onclick="setTab('simulators')" id="tab-btn-simulators" class="px-2.5 py-1.5 rounded-lg transition text-slate-400 hover:text-white flex items-center gap-1 whitespace-nowrap">
+        <span>Labs</span>
       </button>
     </nav>
 
-    <!-- Language & Deployment status -->
+    <!-- Language & Links -->
     <div class="flex items-center gap-2">
       <button onclick="toggleLang()" id="btn-lang" class="text-xs px-2.5 py-1 rounded-lg border border-slate-700 bg-slate-900 hover:bg-slate-800 transition text-emerald-400 font-semibold font-mono">
         हिन्दी
       </button>
-      <a href="https://github.com/shipransh28aug2016-lab/geovisulab" target="_blank" rel="noopener noreferrer" class="hidden sm:flex items-center gap-1 text-xs px-2.5 py-1 rounded-lg border border-slate-700 bg-slate-900 hover:bg-slate-800 transition text-slate-300">
+      <a href="https://github.com/shipransh28aug2016-lab/geovisulab" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1 text-xs px-2.5 py-1 rounded-lg border border-slate-700 bg-slate-900 hover:bg-slate-800 transition text-slate-300">
         <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-        <span>GitHub</span>
+        <span class="hidden sm:inline">Repo</span>
       </a>
     </div>
   </header>
 
-  <!-- Main Viewport -->
+  <!-- Main Viewport Area -->
   <main class="flex-1 flex flex-col relative overflow-hidden">
 
-    <!-- ==================== TAB 1: GEOSPHERE 3D ==================== -->
-    <section id="view-globe" class="flex-1 grid grid-cols-1 lg:grid-cols-4 relative h-[calc(100vh-56px)]">
+    <!-- ==================== TAB 1: GEOSPHERE 3D & CARTOGRAPHY ==================== -->
+    <section id="view-globe" class="flex-1 grid grid-cols-1 lg:grid-cols-4 relative h-[calc(100vh-65px)]">
       
-      <!-- 3D Canvas Container (spans 3 cols on large screen) -->
+      <!-- 3D Canvas Container -->
       <div class="lg:col-span-3 relative h-full flex flex-col bg-slate-950">
         <div id="globe-container" class="w-full flex-1 relative cursor-grab active:cursor-grabbing"></div>
         
@@ -121,17 +146,20 @@
         <div class="absolute top-4 left-4 z-10 flex flex-wrap gap-2 max-w-md pointer-events-none">
           <div class="pointer-events-auto bg-slate-900/90 border border-slate-800 rounded-xl p-3 backdrop-blur shadow-xl text-xs space-y-2">
             <div class="flex items-center justify-between gap-4">
-              <span class="font-bold text-slate-200" data-en="Planetary Coordinate Navigator" data-hi="ग्रहीय निर्देशांक नेविगेटर">Planetary Coordinate Navigator</span>
-              <span id="globe-fps" class="text-emerald-400 font-mono text-[10px]">60 FPS · WebGL</span>
+              <span class="font-bold text-slate-200">Planetary 3D Navigator</span>
+              <span class="text-emerald-400 font-mono text-[10px]">WebGL Hardware Accelerated</span>
             </div>
-            <p class="text-slate-400 leading-relaxed text-[11px]" data-en="Click and drag to rotate the globe. Scroll to zoom. Touch pinch supported." data-hi="ग्लोब को घुमाने के लिए क्लिक करें और खींचें। ज़ूम करने के लिए स्क्रॉल करें।">
-              Click and drag to rotate the globe. Scroll to zoom. Touch pinch supported.
+            <p class="text-slate-400 leading-relaxed text-[11px]">
+              Drag to orbit Earth. Select any feature from the list or filters to fly directly to its coordinate position.
             </p>
-            <div class="flex items-center gap-1.5 pt-1">
-              <button onclick="flyToLocation(28.6139, 77.2090, 'Delhi / Northern Plains')" class="px-2 py-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-200 transition text-[11px]">Delhi</button>
-              <button onclick="flyToLocation(25.5941, 85.1376, 'Patna / Ancient Pataliputra')" class="px-2 py-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-200 transition text-[11px]">Patna</button>
-              <button onclick="flyToLocation(19.0760, 72.8777, 'Mumbai / Konkan Coast')" class="px-2 py-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-200 transition text-[11px]">Mumbai</button>
-              <button onclick="flyToLocation(27.9881, 86.9250, 'Mount Everest / Orogeny')" class="px-2 py-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-200 transition text-[11px]">Himalayas</button>
+            <!-- Feature category quick filter chips -->
+            <div class="flex flex-wrap gap-1 pt-1" id="globe-quick-categories">
+              <button onclick="filterGlobeCategory('rivers')" class="px-2 py-0.5 rounded text-[11px] bg-emerald-950/80 border border-emerald-800 text-emerald-300">Rivers</button>
+              <button onclick="filterGlobeCategory('mountains')" class="px-2 py-0.5 rounded text-[11px] bg-cyan-950/80 border border-cyan-800 text-cyan-300">Peaks & Ranges</button>
+              <button onclick="filterGlobeCategory('soils')" class="px-2 py-0.5 rounded text-[11px] bg-amber-950/80 border border-amber-800 text-amber-300">ICAR Soils</button>
+              <button onclick="filterGlobeCategory('plates')" class="px-2 py-0.5 rounded text-[11px] bg-red-950/80 border border-red-800 text-red-300">Tectonics</button>
+              <button onclick="filterGlobeCategory('headquarters')" class="px-2 py-0.5 rounded text-[11px] bg-purple-950/80 border border-purple-800 text-purple-300">Headquarters</button>
+              <button onclick="filterGlobeCategory('economic')" class="px-2 py-0.5 rounded text-[11px] bg-blue-950/80 border border-blue-800 text-blue-300">Ports & Industry</button>
             </div>
           </div>
         </div>
@@ -155,80 +183,163 @@
         </div>
       </div>
 
-      <!-- Right Inspector & Topic Sidebar -->
+      <!-- Right Inspector & Features Sidebar -->
       <aside class="border-t lg:border-t-0 lg:border-l border-slate-800 bg-slate-900/60 p-4 flex flex-col justify-between overflow-y-auto custom-scrollbar">
         <div class="space-y-4">
           <div class="border-b border-slate-800 pb-3">
-            <span class="text-[10px] font-mono uppercase tracking-wider text-emerald-400 font-semibold" data-en="Active Geographic Inspector" data-hi="सक्रिय भौगोलिक निरीक्षक">Active Geographic Inspector</span>
-            <h2 id="inspector-title" class="text-base font-bold text-slate-100 mt-1">Indo-Gangetic Basin</h2>
+            <span class="text-[10px] font-mono uppercase tracking-wider text-emerald-400 font-semibold" id="inspector-badge">Active Geographic Feature</span>
+            <h2 id="inspector-title" class="text-base font-bold text-slate-100 mt-1">Ganga River Drainage System</h2>
             <p id="inspector-sub" class="text-xs text-slate-400 mt-0.5">NCERT Class XI · Physical Environment · Drainage Systems</p>
           </div>
 
           <div id="inspector-body" class="text-xs text-slate-300 space-y-2.5 leading-relaxed">
-            <p>The vast depositional alluvial plain formed by the three major trans-Himalayan river systems: the Indus, the Ganga, and the Brahmaputra.</p>
-            <div class="p-2.5 rounded-lg bg-slate-800/80 border border-slate-700/60 space-y-1">
-              <div class="flex justify-between text-[11px] text-slate-400">
-                <span>Soil Order:</span>
-                <span class="font-medium text-slate-200">ICAR Alluvial (Khadar/Bhangar)</span>
+            <p id="inspector-desc">
+              Originating from Gangotri glacier as Bhagirathi, joins Alaknanda at Devprayag. Total length of 2,525 km, draining 861,404 km² across 11 states into the Bay of Bengal.
+            </p>
+            <div id="inspector-metrics" class="p-2.5 rounded-lg bg-slate-800/80 border border-slate-700/60 space-y-1 font-mono text-[11px]">
+              <div class="flex justify-between text-slate-400">
+                <span>Diagnostic Category:</span>
+                <span id="metric-1" class="text-emerald-400 font-medium">Himalayan Perennial River</span>
               </div>
-              <div class="flex justify-between text-[11px] text-slate-400">
-                <span>Relief Type:</span>
-                <span class="font-medium text-slate-200">Foredeep Basin (Aggradational)</span>
+              <div class="flex justify-between text-slate-400">
+                <span>Key Tributaries / Details:</span>
+                <span id="metric-2" class="text-slate-200">Yamuna, Ghaghara, Gandak, Kosi, Son</span>
               </div>
-              <div class="flex justify-between text-[11px] text-slate-400">
-                <span>Annual Rainfall:</span>
-                <span class="font-medium text-slate-200">60 cm – 200 cm (Isohyet gradient)</span>
+              <div class="flex justify-between text-slate-400">
+                <span>States / Region:</span>
+                <span id="metric-3" class="text-slate-200">UK, UP, Bihar, WB</span>
               </div>
             </div>
-            <div class="text-[11px] text-amber-300 bg-amber-950/40 border border-amber-900/60 p-2 rounded-lg">
-              <strong>CBSE Exam Tip:</strong> Differentiate between Bhabar (porous pebble belt) and Tarai (marshy, reclaimed agricultural zone).
+            <div id="inspector-tip" class="text-[11px] text-amber-300 bg-amber-950/40 border border-amber-900/60 p-2 rounded-lg">
+              <strong>CBSE Exam Focus:</strong> Differentiate between antecedent Himalayan drainage and superimposed Peninsular drainage.
             </div>
           </div>
 
-          <!-- Feature Switcher Quick List -->
+          <!-- Feature Switcher List (Dynamically Populated) -->
           <div class="space-y-1.5 pt-2">
-            <span class="text-[11px] font-semibold text-slate-400 uppercase tracking-wider">Quick Geographical Features:</span>
-            <div class="grid grid-cols-1 gap-1 text-xs">
-              <button onclick="inspectFeature('ganga')" class="w-full text-left px-2.5 py-1.5 rounded bg-slate-800 hover:bg-slate-700 transition flex justify-between items-center text-slate-200">
-                <span>Ganga Drainage System</span>
-                <span class="text-[10px] text-emerald-400 font-mono">2,525 km</span>
-              </button>
-              <button onclick="inspectFeature('himalayas')" class="w-full text-left px-2.5 py-1.5 rounded bg-slate-800 hover:bg-slate-700 transition flex justify-between items-center text-slate-200">
-                <span>Himalayan Fold Orogeny</span>
-                <span class="text-[10px] text-cyan-400 font-mono">Tertiary</span>
-              </button>
-              <button onclick="inspectFeature('deccan')" class="w-full text-left px-2.5 py-1.5 rounded bg-slate-800 hover:bg-slate-700 transition flex justify-between items-center text-slate-200">
-                <span>Deccan Volcanic Traps</span>
-                <span class="text-[10px] text-amber-400 font-mono">Basalt</span>
-              </button>
-              <button onclick="inspectFeature('thar')" class="w-full text-left px-2.5 py-1.5 rounded bg-slate-800 hover:bg-slate-700 transition flex justify-between items-center text-slate-200">
-                <span>Thar Arid Sub-tropical Desert</span>
-                <span class="text-[10px] text-orange-400 font-mono">&lt;25cm</span>
-              </button>
+            <div class="flex justify-between items-center">
+              <span class="text-[11px] font-semibold text-slate-400 uppercase tracking-wider" id="feature-list-title">All Geographic Features:</span>
+              <span class="text-[10px] text-slate-500 font-mono" id="feature-list-count"></span>
             </div>
+            <div id="feature-items-container" class="grid grid-cols-1 gap-1 text-xs max-h-72 overflow-y-auto custom-scrollbar"></div>
           </div>
         </div>
 
         <div class="pt-4 border-t border-slate-800 text-[11px] text-slate-500 space-y-1 font-mono">
-          <div>Status: <span class="text-emerald-400">Validated Offline</span></div>
-          <div>Data Source: Natural Earth 10m + NCERT 2026-27</div>
+          <div>Status: <span class="text-emerald-400">Connected with Repository Datasets</span></div>
+          <div>Sources: NCERT 2026-27 · ICAR · Survey of India · IMD</div>
         </div>
       </aside>
     </section>
 
 
-    <!-- ==================== TAB 2: GANGA-MAGADHA ATLAS ==================== -->
-    <section id="view-atlas" class="flex-1 flex flex-col p-4 md:p-6 max-w-6xl mx-auto w-full space-y-6 hidden overflow-y-auto custom-scrollbar">
+    <!-- ==================== TAB 2: CURRICULUM LESSONS REGISTRY ==================== -->
+    <section id="view-curriculum" class="flex-1 flex flex-col p-4 md:p-6 max-w-7xl mx-auto w-full space-y-4 hidden overflow-y-auto custom-scrollbar">
       
-      <!-- Atlas Header & Timeline Slider -->
+      <!-- Curriculum Header & Filters -->
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4 shadow-xl space-y-3">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800 pb-3">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-xs font-mono font-semibold">NCERT Subject Code 029</span>
+              <span class="text-xs text-slate-400">CBSE Academic Session 2026–27</span>
+            </div>
+            <h2 class="text-xl font-bold text-slate-100 mt-1">CBSE Geography Curriculum Registry & Lessons</h2>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-xs font-mono text-slate-400">Showing <strong id="curriculum-showing-count" class="text-emerald-400">43</strong> of 43 Modules</span>
+          </div>
+        </div>
+
+        <!-- Grade & Textbook Filter Pills -->
+        <div class="flex flex-wrap items-center gap-2 text-xs">
+          <span class="text-slate-400 text-[11px] font-semibold">Filter Grade:</span>
+          <button onclick="filterCurriculum('all')" id="filter-btn-all" class="px-2.5 py-1 rounded-lg bg-emerald-600 text-white font-semibold transition">All Grades (43)</button>
+          <button onclick="filterCurriculum('11')" id="filter-btn-11" class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 transition">Class 11 (24)</button>
+          <button onclick="filterCurriculum('12')" id="filter-btn-12" class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 transition">Class 12 (19)</button>
+          
+          <span class="text-slate-400 text-[11px] font-semibold ml-2">Textbook:</span>
+          <select id="select-curriculum-book" onchange="filterCurriculumByBook(this.value)" class="px-2 py-1 rounded-lg bg-slate-800 border border-slate-700 text-slate-200 text-xs focus:ring-0">
+            <option value="all">All 6 NCERT Books</option>
+            <option value="Fundamentals of Physical Geography">Fundamentals of Physical Geography (XI)</option>
+            <option value="India: Physical Environment">India: Physical Environment (XI)</option>
+            <option value="Fundamentals of Human Geography">Fundamentals of Human Geography (XII)</option>
+            <option value="India: People and Economy">India: People and Economy (XII)</option>
+            <option value="Practical Work in Geography Part I">Practical Work Part I (XI)</option>
+            <option value="Practical Work in Geography Part II">Practical Work Part II (XII)</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Lessons Grid Container -->
+      <div id="curriculum-grid-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 pb-8"></div>
+    </section>
+
+
+    <!-- ==================== TAB 3: NCERT CONCEPT EXPLANATIONS ==================== -->
+    <section id="view-concepts" class="flex-1 flex flex-col p-4 md:p-6 max-w-7xl mx-auto w-full space-y-4 hidden overflow-y-auto custom-scrollbar">
+      
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4 shadow-xl space-y-3">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800 pb-3">
+          <div>
+            <span class="px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 text-xs font-mono font-semibold">NCERT Pedagogical Core</span>
+            <h2 class="text-xl font-bold text-slate-100 mt-1">27 Authoritative NCERT Concept Explanations</h2>
+          </div>
+          <span class="text-xs font-mono text-slate-400">Detailed Mechanisms, Deep Dives & Exam Tips</span>
+        </div>
+
+        <p class="text-xs text-slate-400 leading-relaxed">
+          Official CBSE NCERT definitions, step-by-step physical and human mechanisms, and board exam differentiation criteria drawn directly from <code class="text-cyan-400 font-mono">src/data/ncert-concept-explanations.ts</code> and <code class="text-cyan-400 font-mono">ncert-characteristics-deep-dive.ts</code>.
+        </p>
+      </div>
+
+      <!-- Concepts Grid Container -->
+      <div id="concepts-grid-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 pb-8"></div>
+    </section>
+
+
+    <!-- ==================== TAB 4: CBSE MAP PRACTICE ENGINE ==================== -->
+    <section id="view-mappractice" class="flex-1 flex flex-col p-4 md:p-6 max-w-7xl mx-auto w-full space-y-4 hidden overflow-y-auto custom-scrollbar">
+      
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4 shadow-xl space-y-3">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800 pb-3">
+          <div>
+            <span class="px-2 py-0.5 rounded bg-amber-500/10 text-amber-400 border border-amber-500/20 text-xs font-mono font-semibold">CBSE Board Exam Map Work (10 Marks)</span>
+            <h2 class="text-xl font-bold text-slate-100 mt-1">Interactive CBSE Map Practice Engine</h2>
+          </div>
+          <div class="flex items-center gap-1.5 text-xs font-mono">
+            <span class="text-amber-400 font-bold">21 Prescribed Map Work Items</span>
+          </div>
+        </div>
+
+        <!-- Category Selector Pills -->
+        <div class="flex flex-wrap items-center gap-2 text-xs">
+          <span class="text-slate-400 text-[11px] font-semibold">Select Syllabus Category:</span>
+          <button onclick="filterMapPractice('all')" id="mp-btn-all" class="px-2.5 py-1 rounded-lg bg-amber-600 text-white font-semibold transition">All Items (21)</button>
+          <button onclick="filterMapPractice('XI-WORLD')" id="mp-btn-XI-WORLD" class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 transition">XI World Map (5)</button>
+          <button onclick="filterMapPractice('XI-INDIA')" id="mp-btn-XI-INDIA" class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 transition">XI India Map (6)</button>
+          <button onclick="filterMapPractice('XII-WORLD')" id="mp-btn-XII-WORLD" class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 transition">XII World Map (4)</button>
+          <button onclick="filterMapPractice('XII-INDIA')" id="mp-btn-XII-INDIA" class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 transition">XII India Map (6)</button>
+        </div>
+      </div>
+
+      <!-- Map Practice Items Grid -->
+      <div id="mappractice-grid-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 pb-8"></div>
+    </section>
+
+
+    <!-- ==================== TAB 5: GANGA-MAGADHA ATLAS ==================== -->
+    <section id="view-atlas" class="flex-1 flex flex-col p-4 md:p-6 max-w-7xl mx-auto w-full space-y-4 hidden overflow-y-auto custom-scrollbar">
+      
+      <!-- Atlas Timeline & Slider Card -->
       <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-xl space-y-4">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800 pb-4">
           <div>
             <div class="flex items-center gap-2">
               <span class="px-2 py-0.5 rounded bg-amber-500/10 text-amber-400 border border-amber-500/20 text-xs font-mono font-semibold">Corridor: 76.5–91.5°E · 19.8–31.5°N</span>
-              <span class="text-xs text-slate-400">Cliopatria v0.2.1 CC-BY 4.0</span>
+              <span class="text-xs text-slate-400">Cliopatria v0.2.1 + Natural Earth 10m</span>
             </div>
-            <h2 class="text-xl font-bold text-slate-100 mt-1" data-en="Ganga–Magadha Historical Knowledge Corridor" data-hi="गंगा-मगध ऐतिहासिक ज्ञान गलियारा">Ganga–Magadha Historical Knowledge Corridor</h2>
+            <h2 class="text-xl font-bold text-slate-100 mt-1">Ganga–Magadha Historical Knowledge Corridor</h2>
           </div>
           <div class="text-right font-mono">
             <div class="text-2xl font-extrabold text-amber-400" id="display-year">261 BCE</div>
@@ -239,93 +350,45 @@
         <!-- Year Slider Control -->
         <div class="space-y-2">
           <div class="flex justify-between text-xs font-mono text-slate-400">
-            <span>600 BCE (Mahajanapadas)</span>
+            <span>600 BCE (Second Urbanisation)</span>
             <span class="text-amber-400 font-bold">Historical Time Slider</span>
-            <span>2000 CE (Modern Era)</span>
+            <span>2000 CE (Modern Republic)</span>
           </div>
           <input type="range" id="atlas-slider" min="-600" max="2000" value="-260" step="5" oninput="updateAtlasYear(this.value)" class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-amber-500" />
         </div>
 
         <!-- Epoch Key Milestones -->
         <div class="flex flex-wrap gap-1.5 pt-1 text-xs">
-          <span class="text-slate-400 text-[11px] self-center mr-1">Epochs:</span>
-          <button onclick="setYear(-500)" class="px-2 py-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-300">500 BCE (16 Mahajanapadas)</button>
-          <button onclick="setYear(-260)" class="px-2 py-1 rounded bg-amber-950/80 border border-amber-800 text-amber-300 font-semibold">261 BCE (Kalinga War / Maurya)</button>
-          <button onclick="setYear(320)" class="px-2 py-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-300">320 CE (Gupta Pataliputra)</button>
+          <span class="text-slate-400 text-[11px] self-center mr-1">Key Epochs:</span>
+          <button onclick="setYear(-500)" class="px-2 py-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-300">500 BCE (Mahajanapadas)</button>
+          <button onclick="setYear(-260)" class="px-2 py-1 rounded bg-amber-950/80 border border-amber-800 text-amber-300 font-semibold">261 BCE (Kalinga War)</button>
+          <button onclick="setYear(320)" class="px-2 py-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-300">320 CE (Gupta Empire)</button>
           <button onclick="setYear(1206)" class="px-2 py-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-300">1206 CE (Delhi Sultanate)</button>
-          <button onclick="setYear(1576)" class="px-2 py-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-300">1576 CE (Mughal Subah Bihar)</button>
+          <button onclick="setYear(1576)" class="px-2 py-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-300">1576 CE (Mughal Subah)</button>
           <button onclick="setYear(1764)" class="px-2 py-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-300">1764 CE (Battle of Buxar)</button>
           <button onclick="setYear(1947)" class="px-2 py-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-300">1947 CE (Indian Independence)</button>
         </div>
       </div>
 
-      <!-- Active Historical Snapshot Card -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-        
-        <!-- Snapshot Polities -->
-        <div class="md:col-span-2 bg-slate-900 border border-slate-800 rounded-xl p-4 space-y-3">
-          <div class="flex items-center justify-between border-b border-slate-800 pb-2">
-            <h3 class="font-bold text-slate-200 text-sm flex items-center gap-2">
-              <span class="w-2 h-2 rounded-full bg-amber-400"></span>
-              <span id="atlas-polity-title">Mauryan Empire & Kalinga Frontier</span>
-            </h3>
-            <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300" id="atlas-tier-badge">Corridor Tier · 12 asserted shapes</span>
-          </div>
-
-          <p id="atlas-polity-desc" class="text-xs text-slate-300 leading-relaxed">
-            During the reign of Ashoka Maurya (c. 268–232 BCE), the central seat of Pataliputra (modern Patna, Bihar) exercised imperial control over the entire middle and lower Ganga basin, culminating in the conquest of Kalinga on the eastern seaboard.
-          </p>
-
-          <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 pt-2 text-xs">
-            <div class="bg-slate-950/80 p-2.5 rounded-lg border border-slate-800">
-              <div class="text-[10px] text-slate-400 font-mono">Imperial Capital:</div>
-              <div class="font-bold text-slate-100">Pataliputra (Patna)</div>
-            </div>
-            <div class="bg-slate-950/80 p-2.5 rounded-lg border border-slate-800">
-              <div class="text-[10px] text-slate-400 font-mono">Administrative Hub:</div>
-              <div class="font-bold text-slate-100">Rajagriha (Rajgir)</div>
-            </div>
-            <div class="bg-slate-950/80 p-2.5 rounded-lg border border-slate-800">
-              <div class="text-[10px] text-slate-400 font-mono">River Corridor:</div>
-              <div class="font-bold text-slate-100">Ganga – Son Confluence</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Curated Sources & Certainty -->
-        <div class="bg-slate-900 border border-slate-800 rounded-xl p-4 space-y-3">
-          <h3 class="font-bold text-slate-200 text-sm border-b border-slate-800 pb-2">Data & Provenance</h3>
-          <ul class="text-xs space-y-2 text-slate-300">
-            <li class="flex items-start gap-1.5">
-              <span class="text-amber-400 mt-0.5">✦</span>
-              <span><strong>Cliopatria v0.2.1:</strong> Historical polygon boundaries pinned by sha256.</span>
-            </li>
-            <li class="flex items-start gap-1.5">
-              <span class="text-amber-400 mt-0.5">✦</span>
-              <span><strong>Uncertainty typing:</strong> Boundaries classified as <em class="text-slate-400">boundary-approximate</em>.</span>
-            </li>
-            <li class="flex items-start gap-1.5">
-              <span class="text-amber-400 mt-0.5">✦</span>
-              <span><strong>Citations:</strong> Rock Edicts of Ashoka, Majumdar (1951), Thapar (2002).</span>
-            </li>
-          </ul>
-          <div class="pt-2">
-            <a href="https://github.com/shipransh28aug2016-lab/geovisulab" class="text-[11px] text-emerald-400 hover:underline flex items-center gap-1">
-              <span>View corpus validation script (validate.ts)</span> →
-            </a>
-          </div>
-        </div>
-
+      <!-- Sub-tabs: Events (30), Places (46), Historiographical Interpretations (13) -->
+      <div class="flex items-center gap-2 border-b border-slate-800 pb-2 text-xs font-semibold">
+        <button onclick="setAtlasSubTab('events')" id="atlas-sub-events" class="px-3 py-1.5 rounded-lg bg-amber-500 text-white transition">30 Curated Events</button>
+        <button onclick="setAtlasSubTab('places')" id="atlas-sub-places" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 transition">46 Curated Places</button>
+        <button onclick="setAtlasSubTab('debates')" id="atlas-sub-debates" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 transition">13 Historical Debates</button>
       </div>
 
+      <!-- Atlas Content Sections -->
+      <div id="atlas-events-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 pb-8"></div>
+      <div id="atlas-places-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 pb-8 hidden"></div>
+      <div id="atlas-debates-container" class="grid grid-cols-1 md:grid-cols-2 gap-4 pb-8 hidden"></div>
     </section>
 
 
-    <!-- ==================== TAB 3: VISUAL LABS ==================== -->
+    <!-- ==================== TAB 6: VISUAL LABS & SIMULATORS ==================== -->
     <section id="view-simulators" class="flex-1 flex flex-col p-4 md:p-6 max-w-6xl mx-auto w-full space-y-6 hidden overflow-y-auto custom-scrollbar">
       
       <div class="border-b border-slate-800 pb-3">
-        <h2 class="text-xl font-bold text-slate-100" data-en="CBSE Geography Interactive Visual Simulators" data-hi="सीबीएसई भूगोल इंटरएक्टिव विजुअल सिमुलेटर">CBSE Geography Interactive Visual Simulators</h2>
+        <h2 class="text-xl font-bold text-slate-100">CBSE Geography Interactive Visual Simulators</h2>
         <p class="text-xs text-slate-400 mt-1">Multi-engine interactive computational models covering NCERT Subject Code 029 curriculum.</p>
       </div>
 
@@ -416,82 +479,148 @@
 
     </section>
 
-
-    <!-- ==================== TAB 4: CURRICULUM ==================== -->
-    <section id="view-curriculum" class="flex-1 flex flex-col p-4 md:p-6 max-w-6xl mx-auto w-full space-y-6 hidden overflow-y-auto custom-scrollbar">
-      
-      <div class="border-b border-slate-800 pb-3 flex justify-between items-center">
-        <div>
-          <h2 class="text-xl font-bold text-slate-100" data-en="CBSE 2026–27 Geography Curriculum Registry" data-hi="सीबीएसई 2026-27 भूगोल पाठ्यक्रम रजिस्ट्री">CBSE 2026–27 Geography Curriculum Registry</h2>
-          <p class="text-xs text-slate-400 mt-1">43 verified modules across Class XI & XII NCERT textbooks.</p>
-        </div>
-        <span class="text-xs font-mono px-2.5 py-1 rounded bg-slate-800 border border-slate-700 text-emerald-400">100% NCERT Matched</span>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        
-        <!-- Book 1: Class XI Fundamentals -->
-        <div class="bg-slate-900 border border-slate-800 rounded-xl p-4 space-y-3">
-          <div class="flex justify-between items-center text-xs border-b border-slate-800 pb-2">
-            <span class="font-bold text-emerald-400">Class 11 · Fundamentals of Physical Geography</span>
-            <span class="font-mono text-slate-400">35 Marks</span>
-          </div>
-          <ul class="text-xs space-y-1.5 text-slate-300">
-            <li class="p-2 rounded bg-slate-950 flex justify-between">
-              <span>Unit II: Origin & Evolution of the Earth; Interior of Earth</span>
-              <span class="text-emerald-400 font-mono">Module Active</span>
-            </li>
-            <li class="p-2 rounded bg-slate-950 flex justify-between">
-              <span>Unit II: Distribution of Oceans and Continents (Plate Tectonics)</span>
-              <span class="text-emerald-400 font-mono">Module Active</span>
-            </li>
-            <li class="p-2 rounded bg-slate-950 flex justify-between">
-              <span>Unit III: Geomorphic Processes, Weathering & Mass Movements</span>
-              <span class="text-emerald-400 font-mono">Module Active</span>
-            </li>
-            <li class="p-2 rounded bg-slate-950 flex justify-between">
-              <span>Unit IV: Composition & Structure of Atmosphere; Solar Radiation</span>
-              <span class="text-emerald-400 font-mono">Module Active</span>
-            </li>
-          </ul>
-        </div>
-
-        <!-- Book 2: Class XI India -->
-        <div class="bg-slate-900 border border-slate-800 rounded-xl p-4 space-y-3">
-          <div class="flex justify-between items-center text-xs border-b border-slate-800 pb-2">
-            <span class="font-bold text-cyan-400">Class 11 · India: Physical Environment</span>
-            <span class="font-mono text-slate-400">35 Marks</span>
-          </div>
-          <ul class="text-xs space-y-1.5 text-slate-300">
-            <li class="p-2 rounded bg-slate-950 flex justify-between">
-              <span>Unit I: Location, Space Relations & Frontiers</span>
-              <span class="text-cyan-400 font-mono">Module Active</span>
-            </li>
-            <li class="p-2 rounded bg-slate-950 flex justify-between">
-              <span>Unit II: Physiography & Drainage Systems (Himalayan / Peninsular)</span>
-              <span class="text-cyan-400 font-mono">Module Active</span>
-            </li>
-            <li class="p-2 rounded bg-slate-950 flex justify-between">
-              <span>Unit III: Climate, Mechanism of Monsoon & Koppen Groups</span>
-              <span class="text-cyan-400 font-mono">Module Active</span>
-            </li>
-            <li class="p-2 rounded bg-slate-950 flex justify-between">
-              <span>Unit III: Natural Vegetation & ICAR Soil Classifications</span>
-              <span class="text-cyan-400 font-mono">Module Active</span>
-            </li>
-          </ul>
-        </div>
-
-      </div>
-
-    </section>
-
   </main>
 
 
-  <!-- ==================== INTERACTIVE LAB MODALS ==================== -->
-  
-  <!-- Modal 1: Earth Interior -->
+  <!-- ==================== MODALS ==================== -->
+
+  <!-- Modal: Lesson Detail (for all 43 curriculum topics) -->
+  <div id="modal-lesson" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 hidden">
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-3xl w-full p-6 space-y-4 max-h-[90vh] overflow-y-auto custom-scrollbar">
+      <div class="flex justify-between items-start border-b border-slate-800 pb-3">
+        <div>
+          <div class="flex items-center gap-2">
+            <span id="lesson-modal-code" class="px-2 py-0.5 rounded text-[10px] font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-bold"></span>
+            <span id="lesson-modal-grade" class="text-xs text-slate-400 font-mono"></span>
+          </div>
+          <h3 id="lesson-modal-title" class="text-lg font-bold text-slate-100 mt-1"></h3>
+          <p id="lesson-modal-title-hi" class="text-xs text-emerald-400"></p>
+        </div>
+        <button onclick="closeModal('modal-lesson')" class="text-slate-400 hover:text-white text-xl">✕</button>
+      </div>
+
+      <div class="space-y-4 text-xs text-slate-300">
+        <!-- Textbook & Unit Details -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 font-mono text-[11px]">
+          <div class="bg-slate-950 p-2.5 rounded-lg border border-slate-800">
+            <span class="text-slate-500 block text-[10px]">NCERT Textbook:</span>
+            <span id="lesson-modal-book" class="font-bold text-slate-200"></span>
+          </div>
+          <div class="bg-slate-950 p-2.5 rounded-lg border border-slate-800">
+            <span class="text-slate-500 block text-[10px]">Unit & Chapter:</span>
+            <span id="lesson-modal-unit" class="font-bold text-slate-200"></span>
+          </div>
+          <div class="bg-slate-950 p-2.5 rounded-lg border border-slate-800">
+            <span class="text-slate-500 block text-[10px]">Exam Weightage:</span>
+            <span id="lesson-modal-weight" class="font-bold text-emerald-400"></span>
+          </div>
+          <div class="bg-slate-950 p-2.5 rounded-lg border border-slate-800">
+            <span class="text-slate-500 block text-[10px]">NCERT Page Ref:</span>
+            <span id="lesson-modal-page" class="font-bold text-cyan-400"></span>
+          </div>
+        </div>
+
+        <!-- Learning Objectives -->
+        <div class="bg-slate-950/80 p-3 rounded-xl border border-slate-800 space-y-1">
+          <span class="font-bold text-slate-200 uppercase tracking-wider text-[11px] text-emerald-400 block">Learning Objectives:</span>
+          <p id="lesson-modal-obj" class="text-slate-300 leading-relaxed"></p>
+        </div>
+
+        <!-- Key Concepts & Keywords -->
+        <div class="space-y-1">
+          <span class="font-bold text-slate-400 uppercase tracking-wider text-[11px] block">Key Concept Keywords:</span>
+          <div id="lesson-modal-keywords" class="flex flex-wrap gap-1"></div>
+        </div>
+
+        <!-- Summary Notes (Bilingual) -->
+        <div class="space-y-2">
+          <span class="font-bold text-slate-400 uppercase tracking-wider text-[11px] block">Comprehensive Academic Summary:</span>
+          <div class="p-3 bg-slate-950 rounded-xl border border-slate-800 text-slate-300 leading-relaxed space-y-2">
+            <p id="lesson-modal-summary-en"></p>
+            <p id="lesson-modal-summary-hi" class="text-slate-400 border-t border-slate-800/80 pt-2"></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex justify-between items-center pt-2 border-t border-slate-800">
+        <button id="lesson-modal-fly-btn" class="px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs transition flex items-center gap-1">
+          <span>Fly to on 3D Globe</span> ↗
+        </button>
+        <button onclick="closeModal('modal-lesson')" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Concept Detail (for all 27 concepts) -->
+  <div id="modal-concept" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 hidden">
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-2xl w-full p-6 space-y-4 max-h-[90vh] overflow-y-auto custom-scrollbar">
+      <div class="flex justify-between items-start border-b border-slate-800 pb-3">
+        <div>
+          <span id="concept-modal-ref" class="text-xs text-cyan-400 font-mono font-semibold"></span>
+          <h3 id="concept-modal-term" class="text-lg font-bold text-slate-100 mt-0.5 capitalize"></h3>
+        </div>
+        <button onclick="closeModal('modal-concept')" class="text-slate-400 hover:text-white text-xl">✕</button>
+      </div>
+
+      <div class="space-y-3 text-xs text-slate-300">
+        <div class="p-3 bg-slate-950 border border-slate-800 rounded-xl space-y-1">
+          <span class="font-bold text-emerald-400 uppercase tracking-wider text-[11px] block">NCERT Definition:</span>
+          <p id="concept-modal-def" class="text-slate-200 leading-relaxed"></p>
+        </div>
+
+        <div class="p-3 bg-slate-950 border border-slate-800 rounded-xl space-y-1">
+          <span class="font-bold text-cyan-400 uppercase tracking-wider text-[11px] block">Key Physical/Spatial Mechanism:</span>
+          <p id="concept-modal-mech" class="text-slate-300 leading-relaxed"></p>
+        </div>
+
+        <div class="p-3 bg-amber-950/40 border border-amber-900/60 rounded-xl space-y-1 text-amber-200">
+          <span class="font-bold uppercase tracking-wider text-[11px] block text-amber-300">CBSE Exam Tips & Common Traps:</span>
+          <p id="concept-modal-tip" class="leading-relaxed"></p>
+        </div>
+      </div>
+
+      <div class="flex justify-end pt-2">
+        <button onclick="closeModal('modal-concept')" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Event Detail (for Historical Atlas) -->
+  <div id="modal-event" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 hidden">
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-2xl w-full p-6 space-y-4 max-h-[90vh] overflow-y-auto custom-scrollbar">
+      <div class="flex justify-between items-start border-b border-slate-800 pb-3">
+        <div>
+          <span id="event-modal-date" class="text-xs text-amber-400 font-mono font-bold"></span>
+          <h3 id="event-modal-title" class="text-lg font-bold text-slate-100 mt-0.5"></h3>
+          <p id="event-modal-title-hi" class="text-xs text-slate-400"></p>
+        </div>
+        <button onclick="closeModal('modal-event')" class="text-slate-400 hover:text-white text-xl">✕</button>
+      </div>
+
+      <div class="space-y-3 text-xs text-slate-300">
+        <div class="p-3 bg-slate-950 border border-slate-800 rounded-xl space-y-1">
+          <span class="font-bold text-amber-400 uppercase tracking-wider text-[11px] block">Historical Context & Significance:</span>
+          <p id="event-modal-desc" class="text-slate-200 leading-relaxed"></p>
+        </div>
+
+        <div id="event-modal-causes-box" class="p-3 bg-slate-950 border border-slate-800 rounded-xl space-y-1 hidden">
+          <span class="font-bold text-slate-300 uppercase tracking-wider text-[11px] block">Causal Chain & Preconditions:</span>
+          <ul id="event-modal-causes" class="list-disc list-inside space-y-1 text-slate-400"></ul>
+        </div>
+
+        <div id="event-modal-conseq-box" class="p-3 bg-slate-950 border border-slate-800 rounded-xl space-y-1 hidden">
+          <span class="font-bold text-slate-300 uppercase tracking-wider text-[11px] block">Consequences & Structural Shift:</span>
+          <ul id="event-modal-conseq" class="list-disc list-inside space-y-1 text-slate-400"></ul>
+        </div>
+      </div>
+
+      <div class="flex justify-end pt-2">
+        <button onclick="closeModal('modal-event')" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Simulators Modals (Interior, Heat Budget, GIS Math) -->
   <div id="modal-interior" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 hidden">
     <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-2xl w-full p-6 space-y-4 max-h-[90vh] overflow-y-auto">
       <div class="flex justify-between items-center border-b border-slate-800 pb-3">
@@ -499,29 +628,26 @@
         <button onclick="closeModal('modal-interior')" class="text-slate-400 hover:text-white text-xl">✕</button>
       </div>
       <div class="space-y-3 text-xs text-slate-300">
-        <p>Earth consists of concentric shells distinguished by density and seismic wave velocity changes:</p>
-        <div class="space-y-2">
-          <div class="p-3 bg-slate-950 border border-slate-800 rounded-lg">
-            <div class="flex justify-between font-bold text-emerald-400">
-              <span>1. Continental & Oceanic Crust</span>
-              <span>0 – 35 km</span>
-            </div>
-            <p class="text-slate-400 mt-1">Mean density: 2.7 g/cm³ (Sial) to 3.0 g/cm³ (Sima). Bounded at base by the <strong>Mohorovičić Discontinuity (Moho)</strong>.</p>
+        <div class="p-3 bg-slate-950 border border-slate-800 rounded-lg">
+          <div class="flex justify-between font-bold text-emerald-400">
+            <span>1. Crust (Sial / Sima)</span>
+            <span>0 – 35 km</span>
           </div>
-          <div class="p-3 bg-slate-950 border border-slate-800 rounded-lg">
-            <div class="flex justify-between font-bold text-cyan-400">
-              <span>2. Mantle & Asthenosphere</span>
-              <span>35 – 2,900 km</span>
-            </div>
-            <p class="text-slate-400 mt-1">Upper mantle includes weak ductile <em>Asthenosphere</em> (100–200 km) upon which tectonic plates glide. Bounded at base by <strong>Gutenberg Discontinuity</strong>.</p>
+          <p class="text-slate-400 mt-1">Mean density: 2.7 to 3.0 g/cm³. Bounded at base by the <strong>Mohorovičić Discontinuity (Moho)</strong>.</p>
+        </div>
+        <div class="p-3 bg-slate-950 border border-slate-800 rounded-lg">
+          <div class="flex justify-between font-bold text-cyan-400">
+            <span>2. Mantle & Asthenosphere</span>
+            <span>35 – 2,900 km</span>
           </div>
-          <div class="p-3 bg-slate-950 border border-slate-800 rounded-lg">
-            <div class="flex justify-between font-bold text-amber-400">
-              <span>3. Outer & Inner Core</span>
-              <span>2,900 – 6,371 km</span>
-            </div>
-            <p class="text-slate-400 mt-1">Liquid outer core (blocks S-waves) and solid inner core (Nife: Nickel + Iron, density up to 13 g/cm³). Bounded by Lehmann Discontinuity at 5,150 km.</p>
+          <p class="text-slate-400 mt-1">Upper mantle includes weak ductile <em>Asthenosphere</em> (100–200 km) upon which tectonic plates glide. Bounded at base by <strong>Gutenberg Discontinuity</strong>.</p>
+        </div>
+        <div class="p-3 bg-slate-950 border border-slate-800 rounded-lg">
+          <div class="flex justify-between font-bold text-amber-400">
+            <span>3. Outer & Inner Core</span>
+            <span>2,900 – 6,371 km</span>
           </div>
+          <p class="text-slate-400 mt-1">Liquid outer core (blocks S-waves completely creating 105°–145° shadow zone) and solid inner core (Nife, density up to 13 g/cm³). Bounded by Lehmann Discontinuity at 5,150 km.</p>
         </div>
       </div>
       <div class="flex justify-end pt-2">
@@ -530,7 +656,6 @@
     </div>
   </div>
 
-  <!-- Modal 2: Heat Budget -->
   <div id="modal-heat" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 hidden">
     <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-2xl w-full p-6 space-y-4 max-h-[90vh] overflow-y-auto">
       <div class="flex justify-between items-center border-b border-slate-800 pb-3">
@@ -538,7 +663,6 @@
         <button onclick="closeModal('modal-heat')" class="text-slate-400 hover:text-white text-xl">✕</button>
       </div>
       <div class="space-y-3 text-xs text-slate-300">
-        <p>Shortwave incoming solar radiation is balanced by longwave outgoing terrestrial radiation:</p>
         <div class="grid grid-cols-2 gap-3">
           <div class="p-3 bg-slate-950 border border-cyan-900/50 rounded-lg space-y-2">
             <div class="font-bold text-cyan-400 border-b border-slate-800 pb-1">Incoming Reflected (Albedo = 35)</div>
@@ -564,7 +688,6 @@
     </div>
   </div>
 
-  <!-- Modal 3: GIS Math -->
   <div id="modal-gis" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 hidden">
     <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-2xl w-full p-6 space-y-4 max-h-[90vh] overflow-y-auto">
       <div class="flex justify-between items-center border-b border-slate-800 pb-3">
@@ -572,7 +695,6 @@
         <button onclick="closeModal('modal-gis')" class="text-slate-400 hover:text-white text-xl">✕</button>
       </div>
       <div class="space-y-4 text-xs text-slate-300">
-        <!-- Scale Tool -->
         <div class="p-3 bg-slate-950 border border-slate-800 rounded-lg space-y-2">
           <div class="font-bold text-purple-400">1. Representative Fraction (R.F.) Scale Calculator</div>
           <div class="flex items-center gap-2">
@@ -586,13 +708,12 @@
           </div>
         </div>
 
-        <!-- Longitude Time Tool -->
         <div class="p-3 bg-slate-950 border border-slate-800 rounded-lg space-y-2">
           <div class="font-bold text-purple-400">2. Longitude to Local Time (1° = 4 Minutes)</div>
           <div class="flex items-center gap-2">
             <span>Longitude:</span>
             <input type="number" id="calc-long" value="82.5" step="0.5" oninput="runTimeCalc()" class="w-20 px-2 py-1 rounded bg-slate-900 border border-slate-700 text-white font-mono" />
-            <span>° East of GMT (Greenwich)</span>
+            <span>° East of GMT</span>
           </div>
           <div class="text-cyan-400 font-mono font-bold text-sm">
             Time Offset = <span id="calc-res-time">+5 hours 30 mins (Indian Standard Time)</span>
@@ -607,39 +728,35 @@
 
 
   <!-- Footer -->
-  <footer class="h-10 border-t border-slate-800 bg-slate-950 text-slate-500 text-xs px-4 flex items-center justify-between">
+  <footer class="border-t border-slate-800 bg-slate-950 text-slate-500 text-xs px-4 py-2.5 flex flex-wrap items-center justify-between gap-2">
     <div class="flex items-center gap-3">
-      <span>GeoVisuLab · Open Source (MIT)</span>
-      <span class="hidden md:inline">·</span>
-      <span class="hidden md:inline">Run full stack: <code class="text-slate-400 font-mono">npm ci && npm run dev</code></span>
+      <span>GeoVisuLab · Open Source (MIT License)</span>
+      <span>·</span>
+      <span>Data Notice: Cliopatria (CC BY 4.0) + Natural Earth 10m (Public Domain) + NCERT Subject Code 029</span>
     </div>
-    <div class="flex items-center gap-2">
+    <div class="flex items-center gap-2 font-mono text-[11px]">
       <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
-      <span class="text-slate-400 font-mono text-[11px]">GitHub Pages Ready</span>
+      <span class="text-emerald-400">Full Integration Active</span>
     </div>
   </footer>
 
 
-  <!-- Scripts for Tabs, 3D Globe, Atlas, and Simulators -->
+  <!-- Interactive Logic Engine -->
   <script>
     // Tab Switching
     function setTab(tabId) {
-      const tabs = ['globe', 'atlas', 'simulators', 'curriculum'];
+      const tabs = ['globe', 'curriculum', 'concepts', 'mappractice', 'atlas', 'simulators'];
       tabs.forEach(t => {
         const view = document.getElementById('view-' + t);
         const btn = document.getElementById('tab-btn-' + t);
         if (view) {
-          if (t === tabId) {
-            view.classList.remove('hidden');
-          } else {
-            view.classList.add('hidden');
-          }
+          view.classList.toggle('hidden', t !== tabId);
         }
         if (btn) {
           if (t === tabId) {
-            btn.className = "px-3 py-1.5 rounded-lg transition bg-emerald-500 text-white flex items-center gap-1.5 shadow-sm";
+            btn.className = "px-2.5 py-1.5 rounded-lg transition bg-emerald-500 text-white flex items-center gap-1 shadow-sm whitespace-nowrap";
           } else {
-            btn.className = "px-3 py-1.5 rounded-lg transition text-slate-400 hover:text-white flex items-center gap-1.5";
+            btn.className = "px-2.5 py-1.5 rounded-lg transition text-slate-400 hover:text-white flex items-center gap-1 whitespace-nowrap";
           }
         }
       });
@@ -661,52 +778,554 @@
     function toggleLang() {
       currentLang = (currentLang === 'en') ? 'hi' : 'en';
       document.getElementById('btn-lang').textContent = (currentLang === 'en') ? 'हिन्दी' : 'English';
-      document.querySelectorAll('[data-en]').forEach(el => {
-        el.textContent = el.getAttribute('data-' + currentLang);
-      });
+      renderCurriculumGrid();
     }
 
-    // Feature Inspector
-    const FEATURES = {
-      ganga: {
-        title: "Ganga River Drainage System",
-        sub: "NCERT Class XI · Physical Environment · Ch. 3 Drainage",
-        body: "Rising at Gangotri Glacier as Bhagirathi, joins Alaknanda at Devprayag. Drains 861,404 km² across 11 states before emptying into Bay of Bengal through Sundarbans Delta.",
-        order: "Alluvial / Deltas",
-        length: "2,525 km (Official NCERT)"
-      },
-      himalayas: {
-        title: "Himalayan Fold Mountain Orogeny",
-        sub: "NCERT Class XI · Fundamentals · Ch. 2 Plate Tectonics",
-        body: "Formed by continental-continental convergence of Indian and Eurasian tectonic plates. Three parallel ranges: Himadri (Greater), Himachal (Lesser), and Shiwaliks (Outer).",
-        order: "Tertiary Fold / Lithosphere",
-        length: "2,400 km arc length"
-      },
-      deccan: {
-        title: "Deccan Volcanic Basalt Traps",
-        sub: "NCERT Class XI · Physical Environment · Peninsular Plateau",
-        body: "Cretaceous fissure eruption basalt lava flows weathered into fertile moisture-retentive Black Soil (Regur), ideal for rainfed cotton cultivation.",
-        order: "Regur / Black Soil",
-        length: "500,000 km² extent"
-      },
-      thar: {
-        title: "Thar Sub-tropical Arid Zone",
-        sub: "NCERT Class XI · Physical Environment · Desert Relief",
-        body: "Receives under 25 cm annual rainfall. Characterised by shifting barchan sand dunes, inland drainage playa lakes (e.g. Sambhar), and xerophytic vegetation.",
-        order: "Aridisols / Sandy Dunes",
-        length: "West of Aravalli Range"
-      }
+    // DATA BUNDLE ACCESS
+    const D = window.GEOVISULAB_DATA || {
+      curriculum: [],
+      features: { rivers: [], mountains: [], soils: [], plates: [], climates: [], currents: [], economic: [], headquarters: [] },
+      mapPractice: [],
+      concepts: {},
+      deepDives: {},
+      atlas: { events: [], places: [], interpretations: [], learning: [] }
     };
 
-    function inspectFeature(key) {
-      const f = FEATURES[key];
-      if (!f) return;
-      document.getElementById('inspector-title').textContent = f.title;
-      document.getElementById('inspector-sub').textContent = f.sub;
-      document.getElementById('inspector-body').children[0].textContent = f.body;
+    // Update Top Stats
+    if (D.curriculum.length) {
+      document.getElementById('stat-lessons-count').textContent = `${D.curriculum.length} Lessons`;
+    }
+    if (D.concepts) {
+      document.getElementById('stat-concepts-count').textContent = `${Object.keys(D.concepts).length} Concepts`;
+    }
+    if (D.atlas && D.atlas.events) {
+      document.getElementById('stat-events-count').textContent = `${D.atlas.events.length} Atlas Events`;
     }
 
-    // Historical Atlas Year Update
+    // ==================== CURRICULUM RENDERING ====================
+    let curriculumGradeFilter = 'all';
+    let curriculumBookFilter = 'all';
+
+    function filterCurriculum(grade) {
+      curriculumGradeFilter = grade;
+      ['all', '11', '12'].forEach(g => {
+        const btn = document.getElementById('filter-btn-' + g);
+        if (btn) {
+          btn.className = (g === grade) 
+            ? "px-2.5 py-1 rounded-lg bg-emerald-600 text-white font-semibold transition" 
+            : "px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 transition";
+        }
+      });
+      renderCurriculumGrid();
+    }
+
+    function filterCurriculumByBook(book) {
+      curriculumBookFilter = book;
+      renderCurriculumGrid();
+    }
+
+    function renderCurriculumGrid() {
+      const container = document.getElementById('curriculum-grid-container');
+      if (!container || !D.curriculum) return;
+
+      let filtered = D.curriculum;
+      if (curriculumGradeFilter !== 'all') {
+        filtered = filtered.filter(item => item.classGrade === curriculumGradeFilter);
+      }
+      if (curriculumBookFilter !== 'all') {
+        filtered = filtered.filter(item => item.book.includes(curriculumBookFilter));
+      }
+
+      document.getElementById('curriculum-showing-count').textContent = filtered.length;
+
+      container.innerHTML = filtered.map(item => `
+        <div class="bg-slate-900 border border-slate-800 hover:border-slate-700 rounded-xl p-4 flex flex-col justify-between space-y-3 transition">
+          <div class="space-y-2">
+            <div class="flex items-center justify-between text-[10px] font-mono">
+              <span class="px-2 py-0.5 rounded bg-slate-800 text-emerald-400 font-bold">${item.code}</span>
+              <span class="text-slate-400">Class ${item.classGrade} · Unit ${item.unit}</span>
+            </div>
+            <h3 class="font-bold text-slate-100 text-sm leading-snug">
+              ${currentLang === 'hi' && item.topicTitleHindi ? item.topicTitleHindi : item.topicTitle}
+            </h3>
+            <p class="text-[11px] text-slate-400 line-clamp-2">${item.learningObjectives || item.chapterTitle}</p>
+            <div class="flex flex-wrap gap-1 text-[10px] pt-1 font-mono text-slate-500">
+              <span class="px-1.5 py-0.5 rounded bg-slate-950">${item.examMarksWeightage}</span>
+              <span class="px-1.5 py-0.5 rounded bg-slate-950">${item.visualSimulatorType}</span>
+            </div>
+          </div>
+          <button onclick="openLessonModal('${item.id}')" class="w-full py-1.5 rounded-lg bg-slate-800 hover:bg-emerald-600 hover:text-white text-slate-200 text-xs font-semibold transition">
+            View Lesson Details & Notes →
+          </button>
+        </div>
+      `).join('');
+    }
+
+    function openLessonModal(id) {
+      const item = D.curriculum.find(c => c.id === id);
+      if (!item) return;
+
+      document.getElementById('lesson-modal-code').textContent = item.code;
+      document.getElementById('lesson-modal-grade').textContent = `Class ${item.classGrade} · NCERT`;
+      document.getElementById('lesson-modal-title').textContent = item.topicTitle;
+      document.getElementById('lesson-modal-title-hi').textContent = item.topicTitleHindi || "";
+      document.getElementById('lesson-modal-book').textContent = item.book;
+      document.getElementById('lesson-modal-unit').textContent = `Unit ${item.unit} (${item.unitTitle}), Ch. ${item.chapterNumber}`;
+      document.getElementById('lesson-modal-weight').textContent = item.examMarksWeightage;
+      document.getElementById('lesson-modal-page').textContent = item.ncertPageReference || "Standard";
+      document.getElementById('lesson-modal-obj').textContent = item.learningObjectives || "";
+
+      // Keywords
+      const kwBox = document.getElementById('lesson-modal-keywords');
+      kwBox.innerHTML = (item.keyConceptKeywords || []).map(kw => `
+        <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 text-[10px] font-mono">${kw}</span>
+      `).join('');
+
+      document.getElementById('lesson-modal-summary-en').textContent = item.summaryNotes || "";
+      document.getElementById('lesson-modal-summary-hi').textContent = item.summaryNotesHindi ? `[हिन्दी सारांश]: ${item.summaryNotesHindi}` : "";
+
+      // Fly button
+      const flyBtn = document.getElementById('lesson-modal-fly-btn');
+      if (item.defaultCoordinates) {
+        flyBtn.style.display = 'flex';
+        flyBtn.onclick = () => {
+          closeModal('modal-lesson');
+          setTab('globe');
+          flyToLocation(item.defaultCoordinates.lat, item.defaultCoordinates.lng, item.topicTitle);
+        };
+      } else {
+        flyBtn.style.display = 'none';
+      }
+
+      openModal('modal-lesson');
+    }
+
+    // ==================== CONCEPTS RENDERING ====================
+    function renderConceptsGrid() {
+      const container = document.getElementById('concepts-grid-container');
+      if (!container || !D.concepts) return;
+
+      const entries = Object.entries(D.concepts);
+      container.innerHTML = entries.map(([term, c]) => `
+        <div class="bg-slate-900 border border-slate-800 hover:border-slate-700 rounded-xl p-4 flex flex-col justify-between space-y-3 transition">
+          <div class="space-y-2">
+            <span class="text-[10px] font-mono text-cyan-400 block">${c.textbookReference}</span>
+            <h3 class="font-bold text-slate-100 text-sm capitalize">${term}</h3>
+            <p class="text-xs text-slate-300 line-clamp-3 leading-relaxed">${c.officialNcertDefinition}</p>
+          </div>
+          <button onclick="openConceptModal('${term.replace(/'/g, "\\'")}')" class="w-full py-1.5 rounded-lg bg-slate-800 hover:bg-cyan-600 hover:text-white text-slate-200 text-xs font-semibold transition">
+            Deep Dive & Mechanism →
+          </button>
+        </div>
+      `).join('');
+    }
+
+    function openConceptModal(term) {
+      const c = D.concepts[term];
+      if (!c) return;
+
+      document.getElementById('concept-modal-ref').textContent = c.textbookReference;
+      document.getElementById('concept-modal-term').textContent = term;
+      document.getElementById('concept-modal-def').textContent = c.officialNcertDefinition;
+      document.getElementById('concept-modal-mech').textContent = c.keyMechanisms;
+      document.getElementById('concept-modal-tip').textContent = c.boardExamTrapOrTip;
+
+      openModal('modal-concept');
+    }
+
+    // ==================== MAP PRACTICE RENDERING ====================
+    let mapPracticeCategory = 'all';
+
+    function filterMapPractice(cat) {
+      mapPracticeCategory = cat;
+      ['all', 'XI-WORLD', 'XI-INDIA', 'XII-WORLD', 'XII-INDIA'].forEach(c => {
+        const btn = document.getElementById('mp-btn-' + c);
+        if (btn) {
+          btn.className = (c === cat)
+            ? "px-2.5 py-1 rounded-lg bg-amber-600 text-white font-semibold transition"
+            : "px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 transition";
+        }
+      });
+      renderMapPracticeGrid();
+    }
+
+    function renderMapPracticeGrid() {
+      const container = document.getElementById('mappractice-grid-container');
+      if (!container || !D.mapPractice) return;
+
+      let items = D.mapPractice;
+      if (mapPracticeCategory !== 'all') {
+        items = items.filter(item => item.syllabusCategory === mapPracticeCategory);
+      }
+
+      container.innerHTML = items.map(item => `
+        <div class="bg-slate-900 border border-slate-800 hover:border-slate-700 rounded-xl p-4 flex flex-col justify-between space-y-3 transition">
+          <div class="space-y-2">
+            <div class="flex items-center justify-between text-[10px] font-mono">
+              <span class="px-2 py-0.5 rounded bg-amber-950/80 text-amber-400 border border-amber-800/80 font-bold">${item.syllabusCategory}</span>
+              <span class="text-slate-400">${item.practiceType}</span>
+            </div>
+            <h3 class="font-bold text-slate-100 text-sm">${item.featureName}</h3>
+            <p class="text-xs text-slate-300 leading-relaxed">${item.promptQuestion}</p>
+            <div class="p-2 rounded bg-slate-950 border border-slate-800/80 text-[11px] text-slate-400">
+              <strong>Hint:</strong> ${item.examTipHint}
+            </div>
+          </div>
+          <button onclick="flyToLocation(${item.coordinates.lat}, ${item.coordinates.lng}, '${item.featureName.replace(/'/g, "\\'")}')" class="w-full py-1.5 rounded-lg bg-slate-800 hover:bg-amber-600 hover:text-white text-slate-200 text-xs font-semibold transition">
+            Locate Target on Globe (${item.coordinates.lat.toFixed(1)}°, ${item.coordinates.lng.toFixed(1)}°) →
+          </button>
+        </div>
+      `).join('');
+    }
+
+    // ==================== ATLAS SUB-TABS RENDERING ====================
+    let atlasSubTab = 'events';
+
+    function setAtlasSubTab(tab) {
+      atlasSubTab = tab;
+      ['events', 'places', 'debates'].forEach(t => {
+        const box = document.getElementById('atlas-' + t + '-container');
+        const btn = document.getElementById('atlas-sub-' + t);
+        if (box) box.classList.toggle('hidden', t !== tab);
+        if (btn) {
+          btn.className = (t === tab)
+            ? "px-3 py-1.5 rounded-lg bg-amber-500 text-white transition"
+            : "px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 transition";
+        }
+      });
+      if (tab === 'events') renderAtlasEvents();
+      if (tab === 'places') renderAtlasPlaces();
+      if (tab === 'debates') renderAtlasDebates();
+    }
+
+    function renderAtlasEvents() {
+      const container = document.getElementById('atlas-events-container');
+      if (!container || !D.atlas || !D.atlas.events) return;
+
+      container.innerHTML = D.atlas.events.map(ev => `
+        <div class="bg-slate-900 border border-slate-800 hover:border-slate-700 rounded-xl p-4 flex flex-col justify-between space-y-3 transition">
+          <div class="space-y-1.5">
+            <div class="flex items-center justify-between text-[10px] font-mono">
+              <span class="text-amber-400 font-bold">${ev.date}</span>
+              <span class="px-1.5 py-0.5 rounded bg-slate-800 text-slate-400">${ev.eventType}</span>
+            </div>
+            <h3 class="font-bold text-slate-100 text-sm leading-snug">${ev.title.en}</h3>
+            ${ev.title.hi ? `<p class="text-xs text-slate-400">${ev.title.hi}</p>` : ''}
+          </div>
+          <button onclick="openEventModal('${ev.id}')" class="w-full py-1.5 rounded-lg bg-slate-800 hover:bg-amber-600 hover:text-white text-slate-200 text-xs font-semibold transition">
+            View Evidence & Causes →
+          </button>
+        </div>
+      `).join('');
+    }
+
+    function openEventModal(id) {
+      const ev = D.atlas.events.find(e => e.id === id);
+      if (!ev) return;
+
+      document.getElementById('event-modal-date').textContent = `${ev.date} (${ev.dateCertainty})`;
+      document.getElementById('event-modal-title').textContent = ev.title.en;
+      document.getElementById('event-modal-title-hi').textContent = ev.title.hi || "";
+      document.getElementById('event-modal-desc').textContent = (ev.causes && ev.causes[0]) ? ev.causes[0].claim : "Curated historical record in Ganga-Magadha corridor.";
+
+      const causesBox = document.getElementById('event-modal-causes-box');
+      const causesList = document.getElementById('event-modal-causes');
+      if (ev.causes && ev.causes.length) {
+        causesBox.classList.remove('hidden');
+        causesList.innerHTML = ev.causes.map(c => `<li>${c.claim}</li>`).join('');
+      } else {
+        causesBox.classList.add('hidden');
+      }
+
+      const conseqBox = document.getElementById('event-modal-conseq-box');
+      const conseqList = document.getElementById('event-modal-conseq');
+      if (ev.consequences && ev.consequences.length) {
+        conseqBox.classList.remove('hidden');
+        conseqList.innerHTML = ev.consequences.map(c => `<li>${c.claim}</li>`).join('');
+      } else {
+        conseqBox.classList.add('hidden');
+      }
+
+      openModal('modal-event');
+    }
+
+    function renderAtlasPlaces() {
+      const container = document.getElementById('atlas-places-container');
+      if (!container || !D.atlas || !D.atlas.places) return;
+
+      container.innerHTML = D.atlas.places.map(pl => `
+        <div class="bg-slate-900 border border-slate-800 hover:border-slate-700 rounded-xl p-4 flex flex-col justify-between space-y-3 transition">
+          <div class="space-y-1.5">
+            <div class="flex items-center justify-between text-[10px] font-mono">
+              <span class="text-amber-400 font-bold">${pl.ancientNames[0]?.name || pl.id}</span>
+              <span class="text-slate-500">${pl.coordinates ? `${pl.coordinates[1].toFixed(2)}°E, ${pl.coordinates[0].toFixed(2)}°N` : ''}</span>
+            </div>
+            <h3 class="font-bold text-slate-100 text-sm">${pl.modernEquivalent?.name || pl.id}</h3>
+            <p class="text-xs text-slate-400 line-clamp-2">${pl.historicalRole?.en || ''}</p>
+          </div>
+          ${pl.coordinates ? `
+            <button onclick="flyToLocation(${pl.coordinates[0]}, ${pl.coordinates[1]}, '${(pl.modernEquivalent?.name || pl.id).replace(/'/g, "\\'")}')" class="w-full py-1.5 rounded-lg bg-slate-800 hover:bg-amber-600 hover:text-white text-slate-200 text-xs font-semibold transition">
+              Fly to Coordinates →
+            </button>
+          ` : ''}
+        </div>
+      `).join('');
+    }
+
+    function renderAtlasDebates() {
+      const container = document.getElementById('atlas-debates-container');
+      if (!container || !D.atlas || !D.atlas.interpretations) return;
+
+      container.innerHTML = D.atlas.interpretations.map(interp => `
+        <div class="bg-slate-900 border border-slate-800 rounded-xl p-4 space-y-3">
+          <div class="border-b border-slate-800 pb-2">
+            <span class="text-[10px] font-mono text-amber-400 uppercase tracking-wider font-semibold">Historiographical Debate</span>
+            <h3 class="font-bold text-slate-100 text-sm mt-0.5">${interp.question.en}</h3>
+            ${interp.question.hi ? `<p class="text-xs text-slate-400 mt-1">${interp.question.hi}</p>` : ''}
+          </div>
+          <div class="space-y-2">
+            ${(interp.positions || []).map((pos, idx) => `
+              <div class="p-2.5 rounded-lg bg-slate-950 border border-slate-800/80 space-y-1">
+                <div class="flex justify-between text-[11px]">
+                  <span class="font-bold text-slate-300">Position ${idx + 1}: ${pos.scholarOrSchool || 'Scholarly Reading'}</span>
+                  <span class="font-mono text-amber-400 text-[10px]">${pos.strength}</span>
+                </div>
+                <p class="text-xs text-slate-400 leading-relaxed">${pos.claim.en}</p>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // ==================== GEOSPHERE 3D FEATURE LIST ====================
+    let activeFeatureCategory = 'rivers';
+
+    function filterGlobeCategory(cat) {
+      activeFeatureCategory = cat;
+      renderGlobeFeatureList();
+    }
+
+    function renderGlobeFeatureList() {
+      const container = document.getElementById('feature-items-container');
+      if (!container || !D.features) return;
+
+      let list = [];
+      if (activeFeatureCategory === 'rivers') {
+        list = D.features.rivers.map(r => ({
+          name: r.name,
+          hindi: r.hindiName,
+          sub: `${r.lengthKm} km · ${r.drainageType}`,
+          lat: r.path[0]?.[0] || 25,
+          lng: r.path[0]?.[1] || 85,
+          desc: `Rises at ${r.origin}, joins ${r.outlet}. Basin area: ${r.basinAreaSqKm} km² across ${r.states.join(', ')}. Tributaries: ${r.majorTributaries.join(', ')}.`,
+          m1: r.drainageType,
+          m2: `${r.lengthKm} km`,
+          m3: r.states.join(', '),
+          tip: "Compare Himalayan antecedent gorge cutting with Peninsular graded senile valley profile."
+        }));
+      } else if (activeFeatureCategory === 'mountains') {
+        list = D.features.mountains.map(m => ({
+          name: m.name,
+          hindi: m.hindiName,
+          sub: `${m.elevationMeters}m · ${m.rangeSystem}`,
+          lat: m.coordinates[0],
+          lng: m.coordinates[1],
+          desc: `Elevation: ${m.elevationMeters}m in ${m.rangeSystem} range (${m.stateOrRegion}). Significance: ${m.significance}.`,
+          m1: m.rangeSystem,
+          m2: `${m.elevationMeters} meters`,
+          m3: m.stateOrRegion,
+          tip: "Examine orographic precipitation along windward slopes vs rain-shadow leeward zones."
+        }));
+      } else if (activeFeatureCategory === 'soils') {
+        list = D.features.soils.map(s => ({
+          name: s.orderName,
+          hindi: s.hindiName,
+          sub: `ICAR Order: ${s.icarOrder}`,
+          lat: s.representativePoint[0],
+          lng: s.representativePoint[1],
+          desc: s.diagnosticCharacteristics,
+          m1: s.icarOrder,
+          m2: s.suitableCrops.join(', '),
+          m3: s.majorDistributionStates.join(', '),
+          tip: "Focus on soil pH, organic humus content, and moisture retention differences."
+        }));
+      } else if (activeFeatureCategory === 'plates') {
+        list = D.features.plates.map(p => ({
+          name: p.plateName,
+          hindi: p.type,
+          sub: `${p.boundaryType} boundary`,
+          lat: p.significantFeatures[0]?.coords?.[0] || 20,
+          lng: p.significantFeatures[0]?.coords?.[1] || 78,
+          desc: `Relative velocity: ${p.velocityMmPerYear} mm/year. Direction: ${p.directionOfMotion}. Geological features: ${p.significantFeatures.map(f => f.name).join(', ')}.`,
+          m1: p.boundaryType,
+          m2: `${p.velocityMmPerYear} mm/yr`,
+          m3: p.directionOfMotion,
+          tip: "Differentiate between convergent destructive boundaries and divergent constructive ridges."
+        }));
+      } else if (activeFeatureCategory === 'headquarters') {
+        list = D.features.headquarters.map(h => ({
+          name: h.name,
+          hindi: h.category,
+          sub: `${h.city}, ${h.state}`,
+          lat: h.coordinates[0],
+          lng: h.coordinates[1],
+          desc: `${h.jurisdictionZone ? `Zone: ${h.jurisdictionZone}. ` : ''}${h.significance}`,
+          m1: h.category,
+          m2: h.city,
+          m3: h.state,
+          tip: "Key exam headquarters: Railway zones, Major Port Trusts, and National Geodetic Institutes."
+        }));
+      } else if (activeFeatureCategory === 'economic') {
+        list = D.features.economic.map(e => ({
+          name: e.itemName,
+          hindi: e.category,
+          sub: `${e.state} · ${e.subCategory}`,
+          lat: e.coordinates[0],
+          lng: e.coordinates[1],
+          desc: e.examSignificance,
+          m1: e.category,
+          m2: e.subCategory,
+          m3: e.state,
+          tip: "Map skills: Identify major sea ports, integrated iron/steel plants, and international airports."
+        }));
+      }
+
+      document.getElementById('feature-list-title').textContent = `${activeFeatureCategory.toUpperCase()} (${list.length}):`;
+      document.getElementById('feature-list-count').textContent = `${list.length} active`;
+
+      container.innerHTML = list.map((item, idx) => `
+        <button onclick="selectGlobeFeature(${idx})" class="w-full text-left px-2.5 py-1.5 rounded bg-slate-800 hover:bg-slate-700 transition flex justify-between items-center text-slate-200">
+          <span class="truncate max-w-[160px]">${item.name}</span>
+          <span class="text-[10px] text-emerald-400 font-mono truncate max-w-[100px] text-right">${item.sub}</span>
+        </button>
+      `).join('');
+
+      window.activeGlobeList = list;
+    }
+
+    function selectGlobeFeature(idx) {
+      const item = window.activeGlobeList?.[idx];
+      if (!item) return;
+
+      document.getElementById('inspector-title').textContent = item.name;
+      document.getElementById('inspector-sub').textContent = item.sub;
+      document.getElementById('inspector-desc').textContent = item.desc;
+      document.getElementById('metric-1').textContent = item.m1;
+      document.getElementById('metric-2').textContent = item.m2;
+      document.getElementById('metric-3').textContent = item.m3;
+      document.getElementById('inspector-tip').innerHTML = `<strong>CBSE Exam Focus:</strong> ${item.tip}`;
+
+      flyToLocation(item.lat, item.lng, item.name);
+    }
+
+    // ==================== UNIFIED GLOBAL SEARCH ====================
+    function handleGlobalSearch(query) {
+      const dropdown = document.getElementById('search-results-dropdown');
+      if (!dropdown) return;
+
+      const q = query.trim().toLowerCase();
+      if (q.length < 2) {
+        dropdown.classList.add('hidden');
+        return;
+      }
+
+      const results = [];
+
+      // Search Curriculum Lessons
+      (D.curriculum || []).forEach(c => {
+        if (c.topicTitle.toLowerCase().includes(q) || (c.topicTitleHindi && c.topicTitleHindi.toLowerCase().includes(q)) || (c.keyConceptKeywords && c.keyConceptKeywords.some(k => k.toLowerCase().includes(q)))) {
+          results.push({
+            type: "Lesson",
+            badge: `Class ${c.classGrade}`,
+            title: c.topicTitle,
+            sub: `${c.book} · Unit ${c.unit}`,
+            action: () => openLessonModal(c.id)
+          });
+        }
+      });
+
+      // Search Concepts
+      Object.entries(D.concepts || {}).forEach(([term, c]) => {
+        if (term.toLowerCase().includes(q) || c.officialNcertDefinition.toLowerCase().includes(q)) {
+          results.push({
+            type: "Concept",
+            badge: "NCERT Core",
+            title: term,
+            sub: c.textbookReference,
+            action: () => openConceptModal(term)
+          });
+        }
+      });
+
+      // Search Rivers & Features
+      (D.features?.rivers || []).forEach(r => {
+        if (r.name.toLowerCase().includes(q) || (r.hindiName && r.hindiName.includes(q))) {
+          results.push({
+            type: "River",
+            badge: `${r.lengthKm} km`,
+            title: r.name,
+            sub: `Origin: ${r.origin}, Basin: ${r.drainageType}`,
+            action: () => {
+              setTab('globe');
+              flyToLocation(r.path[0][0], r.path[0][1], r.name);
+            }
+          });
+        }
+      });
+
+      // Search Atlas Events
+      (D.atlas?.events || []).forEach(ev => {
+        if (ev.title.en.toLowerCase().includes(q) || (ev.title.hi && ev.title.hi.includes(q))) {
+          results.push({
+            type: "Atlas Event",
+            badge: ev.date,
+            title: ev.title.en,
+            sub: ev.eventType,
+            action: () => openEventModal(ev.id)
+          });
+        }
+      });
+
+      if (results.length === 0) {
+        dropdown.innerHTML = `<div class="p-3 text-xs text-slate-400">No matching lessons, concepts, or features found for "${query}".</div>`;
+      } else {
+        dropdown.innerHTML = results.slice(0, 10).map((r, i) => `
+          <button onclick="executeSearchResult(${i})" class="w-full text-left p-2.5 hover:bg-slate-800 border-b border-slate-800 last:border-0 transition flex justify-between items-center text-xs">
+            <div>
+              <div class="flex items-center gap-1.5">
+                <span class="px-1.5 py-0.5 rounded text-[10px] font-mono bg-slate-800 text-emerald-400">${r.type}</span>
+                <span class="font-bold text-slate-200">${r.title}</span>
+              </div>
+              <div class="text-[11px] text-slate-400 mt-0.5">${r.sub}</div>
+            </div>
+            <span class="text-[10px] font-mono text-slate-500">${r.badge}</span>
+          </button>
+        `).join('');
+        window.activeSearchResults = results;
+      }
+
+      dropdown.classList.remove('hidden');
+    }
+
+    function executeSearchResult(idx) {
+      const r = window.activeSearchResults?.[idx];
+      if (!r) return;
+      document.getElementById('search-results-dropdown').classList.add('hidden');
+      document.getElementById('global-search-input').value = "";
+      r.action();
+    }
+
+    // Close search dropdown on click outside
+    document.addEventListener('click', e => {
+      const dropdown = document.getElementById('search-results-dropdown');
+      const input = document.getElementById('global-search-input');
+      if (dropdown && !dropdown.contains(e.target) && e.target !== input) {
+        dropdown.classList.add('hidden');
+      }
+    });
+
+    // ==================== ATLAS YEAR SLIDER ====================
     function updateAtlasYear(val) {
       const year = parseInt(val, 10);
       const isBCE = year < 0;
@@ -715,30 +1334,6 @@
       
       document.getElementById('display-year').textContent = displayHist;
       document.getElementById('display-astron').textContent = displayAstron;
-
-      // Update descriptions based on era
-      const titleEl = document.getElementById('atlas-polity-title');
-      const descEl = document.getElementById('atlas-polity-desc');
-
-      if (year <= -200) {
-        titleEl.textContent = "Mauryan Imperial Hegemony & Kalinga";
-        descEl.textContent = "Seat at Pataliputra exercising sovereign control across the entire Gangetic corridor and Kalinga coast.";
-      } else if (year <= 500) {
-        titleEl.textContent = "Gupta Empire Classical Golden Age";
-        descEl.textContent = "Flourishing urban centers at Pataliputra, Ujjain, and Nalanda Mahavihara university.";
-      } else if (year <= 1500) {
-        titleEl.textContent = "Delhi Sultanate & Eastern Polities";
-        descEl.textContent = "Consolidation of Bengal and Bihar under the Delhi Sultanate with fortified river hubs.";
-      } else if (year <= 1750) {
-        titleEl.textContent = "Mughal Subah of Bihar & Bengal";
-        descEl.textContent = "Major revenue engine of the Mughal Empire centered along Patna (Azimabad) and Murshidabad.";
-      } else if (year <= 1947) {
-        titleEl.textContent = "British Raj Presidency & Bengal Province";
-        descEl.textContent = "Colonial administration following the 1765 Treaty of Allahabad Diwani rights.";
-      } else {
-        titleEl.textContent = "Republic of India (Modern Era)";
-        descEl.textContent = "Sovereign democratic republic with planned economic and drainage basin management.";
-      }
     }
 
     function setYear(y) {
@@ -747,7 +1342,7 @@
       updateAtlasYear(y);
     }
 
-    // GIS Calculator
+    // ==================== GIS MATH CALCULATOR ====================
     function runGisCalc() {
       const cm = parseFloat(document.getElementById('calc-map-cm').value) || 0;
       const rf = parseFloat(document.getElementById('calc-rf').value) || 0;
@@ -767,7 +1362,6 @@
     // ==================== THREE.JS 3D GLOBE ENGINE ====================
     let scene, camera, renderer, globeMesh, cloudsMesh, graticuleGroup;
     let autoRotate = true;
-    let targetLat = 20.59, targetLng = 78.96;
 
     function initGlobe() {
       const container = document.getElementById('globe-container');
@@ -793,19 +1387,17 @@
       sunLight.position.set(5, 3, 5);
       scene.add(sunLight);
 
-      // Procedural Earth Texture
+      // Procedural Canvas Texture
       const canvas = document.createElement('canvas');
       canvas.width = 1024;
       canvas.height = 512;
       const ctx = canvas.getContext('2d');
 
-      // Ocean deep blue
       ctx.fillStyle = '#0f172a';
       ctx.fillRect(0, 0, 1024, 512);
 
-      // Landmass schematic continents (India, Eurasia, Africa, Americas)
-      ctx.fillStyle = '#10b981'; // Emerald land
-      // India sub-continent triangle
+      // Landmass schematic continents (India subcontinent highlighted)
+      ctx.fillStyle = '#10b981';
       ctx.beginPath();
       ctx.moveTo(700, 220);
       ctx.lineTo(760, 220);
@@ -846,7 +1438,6 @@
         color: 0xffffff,
         transparent: true,
         opacity: 0.22,
-        wireframe: false,
       });
       cloudsMesh = new THREE.Mesh(cloudGeo, cloudMat);
       scene.add(cloudsMesh);
@@ -939,14 +1530,18 @@
       if (!globeMesh) return;
       document.getElementById('hud-lat').textContent = `${lat.toFixed(2)}° N`;
       document.getElementById('hud-lng').textContent = `${lng.toFixed(2)}° E`;
-      // Animate rotation to target coordinates
       globeMesh.rotation.y = -(lng * Math.PI) / 180 + Math.PI / 2;
       globeMesh.rotation.x = (lat * Math.PI) / 180 * 0.5;
     }
 
-    // Initialize on load
+    // INITIALIZATION ON LOAD
     window.addEventListener('DOMContentLoaded', () => {
       initGlobe();
+      renderGlobeFeatureList();
+      renderCurriculumGrid();
+      renderConceptsGrid();
+      renderMapPracticeGrid();
+      renderAtlasEvents();
     });
   </script>
 </body>
